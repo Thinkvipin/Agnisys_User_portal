@@ -1,0 +1,32 @@
+    register CAP_DIE_TRUE_INT {
+
+        field STATUS {
+            bits 8;
+            access w1c;
+            reset 8'h0;
+        }
+
+        field ENABLE_STATE {
+            bits 8;
+            access ro;
+            reset 8'h0;
+        }
+    shared;
+        field STATUS[4] @0 +'d8;
+        field ENABLE_STATE[4] @32 +'d8;
+        bytes 8;
+
+   }; # register CAP_DIE_TRUE_INT
+
+block cap {
+    register CAP_DIE_TRUE_INT [16] @'h9100 +'h8;
+}; # block cap
+
+
+system cap_sys {
+
+       bytes 8;
+       endian little;
+
+       block cap @'h0;
+};

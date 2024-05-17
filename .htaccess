@@ -1,0 +1,134 @@
+Options -Indexes
+# RewriteOptions inherit
+   #END HOST BLOCK
+# <IfModule mod_rewrite.c>
+#     <IfModule mod_negotiation.c>
+#         Options -MultiViews -Indexes
+#     </IfModule>
+
+#     RewriteEngine On
+
+#     # Handle Authorization Header
+#     RewriteCond %{HTTP:Authorization} .
+#     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+#     # Redirect Trailing Slashes If Not A Folder...
+#     RewriteCond %{REQUEST_FILENAME} !-d
+#     RewriteCond %{REQUEST_URI} (.+)/$
+#     RewriteRule ^ %1 [L,R=301]
+
+#     # Handle Front Controller...
+#     RewriteCond %{REQUEST_FILENAME} !-d
+#     RewriteCond %{REQUEST_FILENAME} !-f
+#     RewriteRule ^ index.php [L]
+# </IfModule>
+
+Header set Cache-Control "no-store, no-cache, must-revalidate"
+Header set Pragma "no-cache"
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^portal.agnisys\.com [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.portal.agnisys.com/$1 [R,L]
+  
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L] 
+  
+RewriteEngine On
+RewriteCond %{HTTP_COOKIE} uid=([^;]+) [NC]
+RewriteRule .* - [CO=uid:expired:.portal.agnisys.com/]
+
+RewriteEngine On
+RewriteCond %{HTTP_COOKIE} userAuth=([^;]+) [NC]
+RewriteRule .* - [CO=userAuth:expired:.portal.agnisys.com/]
+    
+    
+# Set "Secure" flag for the "userAuth" cookie
+Header always edit Set-Cookie ^(userAuth=.*)$ "$1; Secure"
+# RewriteEngine On
+# RewriteCond %{QUERY_STRING} (^|&)username=([^&]+)(&|$)
+# RewriteCond %{QUERY_STRING} (^|&)password=([^&]+)(&|$)
+# RewriteRule ^ set_cookie.php [L]
+
+RewriteEngine On
+# RewriteCond %{HTTP_USER_AGENT} !^Wget [NC]
+# Check if the URL contains "release"
+RewriteCond %{REQUEST_URI} release [NC]
+
+# Check if the URL does not contain the parameter "exclude_param"
+RewriteCond %{QUERY_STRING} !(\b|^)idsng(\b|$) [NC]
+
+# Check if the cookie "my_cookie" does not exist
+RewriteCond %{HTTP_COOKIE} !userAuth=AgnisysUser [NC]
+
+# Redirect to the root directory
+RewriteRule ^(.*)$ /?redirect_to=$1 [L,R=302]
+
+
+# RewriteEngine On
+
+# # Check if the URL contains "release", "username", and "password" variables
+# RewriteCond %{QUERY_STRING} (?:^|&)release(?:&|$) [NC]
+# RewriteCond %{QUERY_STRING} (?:^|&)username=([^&]+)&password=([^&]+)(?:&|$) [NC]
+
+# # Process the request using a PHP script
+# RewriteRule ^ process_request.php [L]
+
+
+
+# Block access to the .git directory
+RedirectMatch 404 /\.git
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+# Redirect 301 login  https://www.agnisys.com/user-account
+
+    RewriteEngine On
+    # RewriteBase /customer_portal/
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    RewriteCond %{HTTP_HOST} !^$
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteCond %{HTTPS}s ^on(s)|
+    RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    
+</IfModule>
+
+# hide .pdf extension
+# To externally redirect /dir/file.pdf to /dir/file
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.pdf[\s?] [NC]
+RewriteRule ^ /%1 [R=302,L,NE]
+
+# To internally forward /dir/file to /dir/file.pdf
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1\.pdf -f [NC]
+RewriteRule ^(.+?)/?$ /$1.pdf [L]
+
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php73” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

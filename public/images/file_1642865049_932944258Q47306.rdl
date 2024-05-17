@@ -1,0 +1,19 @@
+// clock gating logic not produced:
+// idsbatch -out sv -bus apb clkGate.rdl
+//
+
+property clock_enable {type = string; component = addrmap;};
+
+signal {} cGate;
+
+addrmap clkGate{
+   clock_enable = "cGate";
+   reg {
+      field {
+         sw = rw;
+         hw = na;
+         reset = 32'h0;
+         paritycheck;
+      } fieldWithParity[31:0];
+   }regArrayWithParity[8];
+};

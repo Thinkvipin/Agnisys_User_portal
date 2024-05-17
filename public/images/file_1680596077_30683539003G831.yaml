@@ -1,0 +1,39 @@
+node:
+  name: Jordan
+  property:
+  - name: uvm.map
+    value: bus_map
+  doc: This is not working with a property
+  node:
+  - doc: System Control (This is not working when there is a definition or an enum...)
+    name: SYSCTRL
+    property:
+    - name: uvm.map
+      value: bus_map
+    node:
+    - doc: RF LDO Short Ballast (This is working)
+      property:
+      - name: u_test
+        value: u_test
+      field:
+      - defaultVal: 0
+        doc: Status of the shorting of the MISC and DIG LDO outputs
+        hw_access: wo
+        name: ENABLE
+        offset: 0
+        property:
+        - name: u_test
+          value: u_test
+        sw_access: ro
+      name: SYSCTRL_RF_LDO_SHORT
+      offset: 0
+      type: reg
+    - type: define
+      values:
+      - doc: MISC and DIG LDO outputs are not shorted to VDDLDO
+        name: RF_LDO_SHORT_DISABLE
+        private_val: true
+        value: 0
+    offset: 1073741900
+    type: block
+  type: chip

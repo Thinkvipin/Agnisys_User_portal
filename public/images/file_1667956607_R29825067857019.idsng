@@ -1,0 +1,801 @@
+<html data-ids-version=" 7.50.0.0 ">
+ <head> 
+  <meta charset="UTF-8"> 
+  <title>
+		Agnisys Register Spec
+	</title>           
+ </head> 
+ <body class="mainBody" spellcheck="true" onclick="mainbodyclick()" contenteditable="false" id="idsBody"> 
+  <div class="maindiv" id="maindivcontainer" oncontextmenu="maindivcontextcall(event);"> 
+   <div id="abstract"> <label id="lblcompact"></label> <label id="datacenter1">0</label> <label id="datacenter2">0</label> <label id="datacenter3"></label> <label id="datacenter4"></label> 
+   </div> 
+   <div id="regdivcontainer" contenteditable="true" style="display:block"> 
+    <div id="divtoolbar" contenteditable="false"> <b class="spec_head">IDS Register Specification</b> 
+    </div> 
+    <br> 
+    <table class="block idsTemp" onclick="tabClick(this)" id="tab10.3017161179193363"> 
+     <tbody> 
+      <tr> 
+       <td class="header readOnly"></td> 
+       <td title="block name" class="name">PLIC_regs</td> 
+       <td title="offset" class="offset">0x72000</td> 
+       <td class="specImage"><img title="Block" alt="Block" class="img_block"></td> 
+       <td class="address addCell readOnly"><label class="label">address|</label><label class="addrvalue" title="address"></label></td> 
+      </tr> 
+      <tr> 
+       <td colspan="5" title="add properties" class="propclass"><br></td> 
+      </tr> 
+      <tr> 
+       <td colspan="5" title="add description here" class="desc descclass">Interrupt Core</td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <br> 
+    <table data-width="32" onclick="tabClick(this)" class="reg idsTemp" id="tab20.1651628556220862"> 
+     <tbody> 
+      <tr> 
+       <td class="header readOnly"></td> 
+       <td title="reg name" class="name">PLIC_INTERRUPT</td> 
+       <td title="offset" class="offset" colspan="2">0x310</td> 
+       <td class="specImage"><img title="32 bits register" alt="Register" class="img_reg32"></td> 
+       <td class="address addCell readOnly"> 
+        <div class="splitVer setBorder" title="address"> <label class="label">address|</label><label class="addrvalue"></label> 
+        </div> 
+        <div class="splitVer" title="Default"> <label class="label">default |</label><label class="defvalue"></label> 
+        </div> </td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" title="add properties" class="propclass"></td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" title="add description here" class="desc descclass">This register reflects pending interrupts from each hardware core.</td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" class="border"></td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" class="fieldtd"> 
+        <table class="fields idsTemp" id="tab00.009191121331524776" oncontextmenu="openregmenu(event);" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="label"> 
+           <td class="ddregbits">bits<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblfieldname">name<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblsw">s/w<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblhw">h/w<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lbldefault">default<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lbldesc">description<span class="fas fa-sort sort sort-table"></span></td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab00.9142887556511876" data-id="tab00.7275135010332362" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">0</td> 
+           <td title="field name" class="fieldname">Reserved. This is because of Zephyr Limitation</td> 
+           <td title="software access" class="sw">r/w1c</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">This is because of Zephyr Limitation<br></td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab10.9931699324182771" data-id="tab10.41388132508928677" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">1</td> 
+           <td title="field name" class="fieldname">DMAC</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Interrupt pending from DMAC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab20.050540852717693485" data-id="tab20.0512611585372964" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">2</td> 
+           <td title="field name" class="fieldname">PKE</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Interrupt pending from PKE<br></td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab30.2898048712456426" data-id="tab30.5659659074181868" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">3</td> 
+           <td title="field name" class="fieldname">KDC</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Interrupt pending from KDC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab40.21711224263672813" data-id="tab40.4451327185991263" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">4</td> 
+           <td title="field name" class="fieldname">SIC</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Interrupt pending from SIC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab50.48812023206734456" data-id="tab50.4536545101010806" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">5</td> 
+           <td title="field name" class="fieldname">OMC</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Interrupt pending from OMC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab60.7939605901685018" data-id="tab60.3162338225441712" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">6</td> 
+           <td title="field name" class="fieldname">TMC</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Interrupt pending from TMC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab70.08198008309145344" data-id="tab70.7009185177100711" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">15:7</td> 
+           <td title="field name" class="fieldname">Reserved: Other cores</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Reserved interrupt bits for other hardware cores</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab80.22870192584937343" data-id="tab80.5245059597255612" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">31:16</td> 
+           <td title="field name" class="fieldname">Reserved: Optional</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">wo</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Reserved for optional cores.</td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <br> 
+    <br> 
+    <br> 
+    <table data-width="32" onclick="tabClick(this)" class="reg idsTemp" id="tab40.10764568077438885"> 
+     <tbody> 
+      <tr> 
+       <td class="header readOnly"></td> 
+       <td title="reg name" class="name">PLIC_MACHINE_IE</td> 
+       <td title="offset" class="offset" colspan="2">0x314</td> 
+       <td class="specImage"><img title="32 bits register" alt="Register" class="img_reg32"></td> 
+       <td class="address addCell readOnly"> 
+        <div class="splitVer setBorder" title="address"> <label class="label">address|</label><label class="addrvalue"></label> 
+        </div> 
+        <div class="splitVer" title="Default"> <label class="label">default |</label><label class="defvalue"></label> 
+        </div> </td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" title="add properties" class="propclass"></td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" title="add description here" class="desc descclass">A Machine interrupt will be generated if the corresponding bits in PLIC_INTERRUPT are set.</td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" class="border"></td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" class="fieldtd"> 
+        <table class="fields idsTemp" id="tab10.9403350765563607" oncontextmenu="openregmenu(event);" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="label"> 
+           <td class="ddregbits">bits<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblfieldname">name<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblsw">s/w<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblhw">h/w<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lbldefault">default<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lbldesc">description<span class="fas fa-sort sort sort-table"></span></td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab90.3638583161761779" data-id="tab90.9287799515988017" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">0</td> 
+           <td title="field name" class="fieldname">Reserved</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Reserved because of zephyr limitation</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab100.20511071232545364" data-id="tab100.29995495531680105" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">1</td> 
+           <td title="field name" class="fieldname">DMAC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Machine interrupt for DMAC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab110.34566191485800135" data-id="tab110.4254414490628512" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">2</td> 
+           <td title="field name" class="fieldname">PKE</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Machine interrupt for PKE</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab120.19976509211827043" data-id="tab120.5761529664070031" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">3</td> 
+           <td title="field name" class="fieldname">KDC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Machine interrupt for KDC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab130.7328541023973923" data-id="tab130.608682581920284" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">4</td> 
+           <td title="field name" class="fieldname">SIC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Machine interrupt for SIC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab140.5829420787480923" data-id="tab140.45627824907642034" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">5</td> 
+           <td title="field name" class="fieldname">OMC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Machine interrupt for OMC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab150.7186806627009905" data-id="tab150.6257310655599927" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">6</td> 
+           <td title="field name" class="fieldname">TMC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Machine interrupt for TMC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab160.21132053419357322" data-id="tab160.29454839319649506" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">15:7</td> 
+           <td title="field name" class="fieldname">Reserved: Other cores</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate machine interrupt for other cores</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab170.7744047598602617" data-id="tab170.8452530674084519" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">31:16</td> 
+           <td title="field name" class="fieldname">Reserved</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Optional cores</td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <br> 
+    <br> 
+    <table data-width="32" onclick="tabClick(this)" class="reg idsTemp" id="tab60.49760114550154877"> 
+     <tbody> 
+      <tr> 
+       <td class="header readOnly"></td> 
+       <td title="reg name" class="name">PLIC_SUPERVISOR_IE</td> 
+       <td title="offset" class="offset" colspan="2">0x318</td> 
+       <td class="specImage"><img title="32 bits register" alt="Register" class="img_reg32"></td> 
+       <td class="address addCell readOnly"> 
+        <div class="splitVer setBorder" title="address"> <label class="label">address|</label><label class="addrvalue"></label> 
+        </div> 
+        <div class="splitVer" title="Default"> <label class="label">default |</label><label class="defvalue"></label> 
+        </div> </td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" title="add properties" class="propclass"></td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" title="add description here" class="desc descclass">A Supervisor interrupt will be generated if the corresponding bits in PLIC_INTERRUPT are set.</td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" class="border"></td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" class="fieldtd"> 
+        <table class="fields idsTemp" id="tab20.34753461086455795" oncontextmenu="openregmenu(event);" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="label"> 
+           <td class="ddregbits">bits<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblfieldname">name<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblsw">s/w<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblhw">h/w<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lbldefault">default<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lbldesc">description<span class="fas fa-sort sort sort-table"></span></td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab180.17802712198010695" data-id="tab180.5289208003695873" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">0</td> 
+           <td title="field name" class="fieldname">Reserved</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Reserved because of zephyr limitation</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab190.35151381863558695" data-id="tab190.21571036578849845" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">1</td> 
+           <td title="field name" class="fieldname">DMAC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Supervisor interrupt for DMAC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab200.9149420710192596" data-id="tab200.44528192268282085" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">2</td> 
+           <td title="field name" class="fieldname">PKE</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Supervisor interrupt for &nbsp;PKE</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab210.662091166044537" data-id="tab210.43332547484387307" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">3</td> 
+           <td title="field name" class="fieldname">KDC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Supervisor interrupt for KDC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab220.3716115860125909" data-id="tab220.4104156585197215" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">4</td> 
+           <td title="field name" class="fieldname">SIC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Supervisor interrupt for SIC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab230.46558957309472193" data-id="tab230.4267660037425305" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">5</td> 
+           <td title="field name" class="fieldname">OMC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Supervisor interrupt for OMC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab240.6054904130536887" data-id="tab240.9928464694011618" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">6</td> 
+           <td title="field name" class="fieldname">TMC</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Supervisor interrupt for TMC</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab250.12609933749613267" data-id="tab250.15833128758563875" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">15:7</td> 
+           <td title="field name" class="fieldname">Reserved: Other cores</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Generate Supervisor interrupt for other cores</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab260.9538671840342341" data-id="tab260.6308224558239268" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">31:16</td> 
+           <td title="field name" class="fieldname">Reserved</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Optional cores</td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <br> 
+    <br> 
+    <table data-width="32" onclick="tabClick(this)" class="reg idsTemp" id="tab80.050458060738571064"> 
+     <tbody> 
+      <tr> 
+       <td class="header readOnly"></td> 
+       <td title="reg name" class="name">PLIC_MACHINE_SW_INT</td> 
+       <td title="offset" class="offset" colspan="2">0x31c</td> 
+       <td class="specImage"><img title="32 bits register" alt="Register" class="img_reg32"></td> 
+       <td class="address addCell readOnly"> 
+        <div class="splitVer setBorder" title="address"> <label class="label">address|</label><label class="addrvalue"></label> 
+        </div> 
+        <div class="splitVer" title="Default"> <label class="label">default |</label><label class="defvalue"></label> 
+        </div> </td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" title="add properties" class="propclass"></td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" title="add description here" class="desc descclass">Machine software interrupt enable. &nbsp;Sofware wil write 1 to enable the interrupt, and 0 to disable.</td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" class="border"></td> 
+      </tr> 
+      <tr> 
+       <td colspan="6" class="fieldtd"> 
+        <table class="fields idsTemp" id="tab30.6282429182300331" oncontextmenu="openregmenu(event);" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="label"> 
+           <td class="ddregbits">bits<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblfieldname">name<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblsw">s/w<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lblhw">h/w<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lbldefault">default<span class="fas fa-sort sort sort-table"></span></td> 
+           <td class="lbldesc">description<span class="fas fa-sort sort sort-table"></span></td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab270.7369565434054711" data-id="tab_field0.3313510099702871" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">0</td> 
+           <td title="field name" class="fieldname">M_SW_INT</td> 
+           <td title="software access" class="sw">rw</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Write 1 to enable machine software interrupt, write 0 to clear.</td> 
+          </tr> 
+          <tr onkeyup="setCurrRow(this)" id="tab280.4003389292137074" data-id="field0.31610067446019763" onclick="setCurrRow(this)" class="field edited  " oncontextmenu="openregmenu(event);"> 
+           <td title="bits" class="bits">31:1</td> 
+           <td title="field name" class="fieldname">Reserved</td> 
+           <td title="software access" class="sw">ro</td> 
+           <td title="hardware access" class="hw">na</td> 
+           <td title="default" class="default">0</td> 
+           <td title="description" class="desc fielddesc" onkeydown="insertNewRow(event,this)">Reserved.</td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <br> 
+    <br> 
+    <br> 
+    <br> 
+    <br>  
+   </div> 
+   <div id="param_main" style="display:none" oncontextmenu="maincontextcall(event);"> 
+    <div id="divyml"> <label id="lblymlname"></label><a title="open YAML file" href="#" onclick="openfile(this);" id="lblyml"></a> 
+    </div> 
+    <div id="paramcontainer" contenteditable="false" oncontextmenu="paramcontainercontextcall(event);"></div>  
+   </div> 
+   <div id="seqdivcontainer" style="display:none"> 
+    <div id="divtoolbar" contenteditable="false"> <b class="spec_head">Sequences</b> 
+    </div> 
+    <br> 
+    <table class="seq idsTemp" id="tab100.8062772074904055" oncontextmenu="openseqmenu(event);" onclick="tabClick(this)"> 
+     <tbody> 
+      <tr> 
+       <td> 
+        <table id="tab110.6668036442401373" class="seqip idsTemp" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="header readOnly"> 
+           <td>sequence name</td> 
+           <td>ip</td> 
+           <td>description</td> 
+          </tr> 
+          <tr class="edited" id="seq0.6600748933883922" onclick="setCurrRow(this)" onkeyup="setCurrRow(this)"> 
+           <td class="seqname">seq_name</td> 
+           <td title="to refresh external ref, please Click on the cell and press Tab" class="ip" onfocusout="load_ips(this);">PLIC_regs.idsng</td> 
+           <td class="seqdesc"></td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+      <tr> 
+       <td></td> 
+      </tr> 
+      <tr> 
+       <td> 
+        <table id="tab120.6669444986337927" class="idsTemp arg" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="header readOnly"> 
+           <td>arguments</td> 
+           <td>value</td> 
+           <td>description</td> 
+          </tr> 
+          <tr onkeydown="setCurrRow(this)" onclick="setCurrRow(this)" class="edited" id="seq0.26791138359036903" onkeyup="setCurrRow(this)"> 
+           <td class="argname"></td> 
+           <td class="value"></td> 
+           <td class="seqdesc" onkeydown="insertSeqArgRow(event,this);"></td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+      <tr> 
+       <td></td> 
+      </tr> 
+      <tr> 
+       <td> 
+        <table id="tab130.9558020632340596" class="idsTemp const" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="header readOnly"> 
+           <td>constants</td> 
+           <td>value</td> 
+           <td>description</td> 
+          </tr> 
+          <tr onkeydown="setCurrRow(this)" onclick="setCurrRow(this)" class="edited" id="seq0.6658674843867829" onkeyup="setCurrRow(this)"> 
+           <td class="constname"></td> 
+           <td class="value"></td> 
+           <td class="seqdesc" onkeydown="insertSeqConstRow(event,this);"></td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+      <tr> 
+       <td></td> 
+      </tr> 
+      <tr> 
+       <td> 
+        <table id="tab140.32291016002017203" class="idsTemp var" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="header readOnly"> 
+           <td>variables</td> 
+           <td>value</td> 
+           <td>description</td> 
+          </tr> 
+          <tr onkeydown="setCurrRow(this)" onclick="setCurrRow(this)" class="edited" id="seq0.48313314142373065" onkeyup="setCurrRow(this)"> 
+           <td class="varname"></td> 
+           <td class="value"></td> 
+           <td class="seqdesc" onkeydown="insertSeqVarnameRow(event,this);"></td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+      <tr> 
+       <td></td> 
+      </tr> 
+      <tr> 
+       <td> 
+        <table id="tab150.5163336998644877" class="idsTemp assign" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="header readOnly"> 
+           <td>assign</td> 
+           <td>value</td> 
+           <td>description</td> 
+          </tr> 
+          <tr onkeydown="setCurrRow(this)" onclick="setCurrRow(this)" class="edited" id="seq0.16682996919629034" onkeyup="setCurrRow(this)"> 
+           <td class="assignname"></td> 
+           <td class="value"></td> 
+           <td class="seqdesc" onkeydown="insertSeqAssignRow(event,this);"></td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+      <tr> 
+       <td></td> 
+      </tr> 
+      <tr> 
+       <td> 
+        <table id="tab160.9422458553526877" class="command idsTemp" onclick="tabClick(this)"> 
+         <tbody> 
+          <tr class="header readOnly"> 
+           <td class="seqcmd">command</td> 
+           <td>step</td> 
+           <td class="seqcmdval">value</td> 
+           <td class="seqcmddesc">description</td> 
+           <td class="seqcmdrefpath">refpath</td> 
+          </tr> 
+          <tr onkeydown="setCurrRow(this)" onclick="setCurrRow(this)" class="edited" id="seq0.2643810179978976" onkeyup="setCurrRow(this)"> 
+           <td class="cmdname"></td> 
+           <td class="step"></td> 
+           <td class="seqvalue"></td> 
+           <td class="seqdesc"></td> 
+           <td class="refpath" onkeydown="insertSeqCmdRow(event,this);"></td> 
+          </tr> 
+         </tbody> 
+        </table></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <br> 
+    <br>  
+   </div> 
+   <div id="idsexcelcontainer" style="display:none" class="disable"> 
+    <div id="divtoolbar" contenteditable="false"> <b class="spec_head">IDS Register Specification</b> <button onclick="showTemplate()">Open IDS Template</button> 
+    </div> 
+    <div id="spreadsheetcontainer" oncontextmenu="openexcelmenu(event);" class="spreadsheetcon"></div> 
+    <div id="backhidder" style="z-index: -1;"></div> 
+    <div id="exceltemplate" style="display: none;"> <a onclick="hidetemplate()" title="close template window" id="ahidetemp">X</a> 
+     <table contenteditable="false"> 
+      <tbody> 
+       <tr style="background-color: #b9c4cc"> 
+        <th></th> 
+        <th>User Header</th> 
+        <th>IDS Identifier</th> 
+       </tr> 
+       <tr> 
+        <td><!--<a onclick="addtemprow(this);" title="add row">+</a><span> </span><a title="delete row" href="#" onclick="deletetemprow(this);">x</a>--></td> 
+        <td class="editable">chip</td> 
+        <td>$chip_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">block</td> 
+        <td>$block_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">register</td> 
+        <td>$reg_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">field</td> 
+        <td>$field_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">sw access</td> 
+        <td>$field_sw_access</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">hw access</td> 
+        <td>$field_hw_access</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">field default</td> 
+        <td>$field_default</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">bits</td> 
+        <td>$field_offset</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">description</td> 
+        <td>$desc</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">properties</td> 
+        <td>$prop</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">section</td> 
+        <td>$section_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">offset</td> 
+        <td>$offset</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">size</td> 
+        <td>$size</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">width</td> 
+        <td>$reg_width</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">ref</td> 
+        <td>$ref</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">refpath</td> 
+        <td>$refpath</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">define name</td> 
+        <td>$define_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">define value</td> 
+        <td>$define_value</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">define description</td> 
+        <td>$define_desc</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">private</td> 
+        <td>$private</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">enum name</td> 
+        <td>$enum_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">enum value</td> 
+        <td>$enum_value</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">mnemonic name</td> 
+        <td>$mnemonic_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">enum desc</td> 
+        <td>$enum_desc</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">signal name</td> 
+        <td>$signal_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">port type</td> 
+        <td>$port_type</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">signal desc</td> 
+        <td>$signal_desc</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">bus domain name</td> 
+        <td>$bus_domain_name</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">address unit</td> 
+        <td>$address_unit</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">bus description</td> 
+        <td>$bus_desc</td> 
+       </tr> 
+       <tr> 
+        <td></td> 
+        <td class="editable">bus</td> 
+        <td>$bus</td> 
+       </tr> 
+      </tbody> 
+     </table> 
+    </div> 
+   </div> 
+   <div id="signal_prop" contenteditable="true" style="display:none"> 
+    <table class="static_signals_inner" oncontextmenu="openregmenu(event);"> 
+     <tbody> 
+      <tr> 
+       <td title="add description " class="desc signaldesc" onkeydown="insertNewRowSignals(event,this)">read32(address,data)</td> 
+       <td title="add description " onkeydown="insertNewRowSignals(event,this)" class="desc signaldesc">write32(address,data)</td> 
+      </tr> 
+     </tbody> 
+    </table> 
+   </div> 
+   <div id="agni_lib_static_data" style="display:none"> 
+    <table class="agni_lib_gpio"> 
+     <tbody> 
+      <tr> 
+       <td class="name">gpio_init_out(out_pin,ext_src_sel,ext_src_enb)</td> 
+       <td class="name">gpio_init_in_intr_mask(inp_pin,intr_enb,interrupt_detection)</td> 
+       <td class="name">gpio_init_in_intr_enb(inp_pin,intr_enb,interrupt_detection)</td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <table class="agni_lib_timer"> 
+     <tbody> 
+      <tr> 
+       <td class="name">timer_reset_seq(reset_val)</td> 
+       <td class="name">timer_running_mode(timer_src_sel,timer_prescal,timer_event_sel)</td> 
+       <td class="name">timer_periodic_mode(timer_src_sel,timer_prescal,timer_event_sel)</td> 
+       <td class="name">timer_default_event(timer_src_sel,imer_en,timer_mode,timer_event_sel)</td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <table class="agni_lib_i2cm"> 
+     <tbody> 
+      <tr> 
+       <td class="name">i2cRead(slave_addr,reg_addr)</td> 
+       <td class="name">i2cWrite(slave_addr,reg_addr,data_write)</td> 
+       <td class="name">i2cWrite(wr_intr_enb)</td> 
+       <td class="name">i2c_reset(resetVal)</td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <table class="agni_lib_pic"> 
+     <tbody> 
+      <tr> 
+       <td class="name">pic_non_vectored_intr_enb[intr_src,intr_enb,intr_priority,cfg_detection]</td> 
+       <td class="name">pic_non_vectored_intr_mask[intr_src,intr_enb,intr_priority,cfg_phase]</td> 
+       <td class="name">pic_vectored_intr_mask(intr_src,intr_enb,intr_priority,intr_vect_addr,cfg_detection,cfg_phase)</td> 
+       <td class="name">pic_reset(reset_val)</td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <br> 
+   </div>  
+   <div id="idsng_config" data-id="config0.2511904884576105" style="display:none">
+     &lt;settings&gt;&lt;company&gt;Agnisys, Inc.&lt;/company&gt;&lt;copyright&gt;***** Copyright 2022 All Rights Reserved. *****&lt;/copyright&gt;&lt;log&gt;false&lt;/log&gt;&lt;cmdpanel&gt;&lt;/cmdpanel&gt;&lt;output_dir&gt;idsng&lt;/output_dir&gt;&lt;outputs&gt;&lt;yaml&gt;false&lt;/yaml&gt;&lt;json&gt;false&lt;/json&gt;&lt;reg2d&gt;false&lt;/reg2d&gt;&lt;mem_dump&gt;false&lt;/mem_dump&gt;&lt;vhdheader&gt;false&lt;/vhdheader&gt;&lt;verilog&gt;false&lt;/verilog&gt;&lt;verilog2001&gt;true&lt;/verilog2001&gt;&lt;vheader&gt;false&lt;/vheader&gt;&lt;arv_metal&gt;false&lt;/arv_metal&gt;&lt;ivs&gt;false&lt;/ivs&gt;&lt;arv&gt;false&lt;/arv&gt;&lt;formal&gt;false&lt;/formal&gt;&lt;special_reg&gt;&lt;/special_reg&gt;&lt;cmsis&gt;false&lt;/cmsis&gt;&lt;uvm&gt;true&lt;/uvm&gt;&lt;perl&gt;false&lt;/perl&gt;&lt;python&gt;false&lt;/python&gt;&lt;cpp&gt;false&lt;/cpp&gt;&lt;pdf&gt;false&lt;/pdf&gt;&lt;ovm&gt;false&lt;/ovm&gt;&lt;vmm&gt;false&lt;/vmm&gt;&lt;iss_firmware&gt;false&lt;/iss_firmware&gt;&lt;iss_csv&gt;false&lt;/iss_csv&gt;&lt;iss_html&gt;false&lt;/iss_html&gt;&lt;iss_sv&gt;false&lt;/iss_sv&gt;&lt;iss_uvm&gt;false&lt;/iss_uvm&gt;&lt;iss_matlab&gt;false&lt;/iss_matlab&gt;&lt;iss_infact&gt;false&lt;/iss_infact&gt;&lt;iss_perspec&gt;false&lt;/iss_perspec&gt;&lt;iss_graph&gt;false&lt;/iss_graph&gt;&lt;xrsl&gt;false&lt;/xrsl&gt;&lt;word&gt;false&lt;/word&gt;&lt;erm&gt;false&lt;/erm&gt;&lt;ivs&gt;false&lt;/ivs&gt;&lt;svheader&gt;false&lt;/svheader&gt;&lt;svg&gt;false&lt;/svg&gt;&lt;svgalt2&gt;false&lt;/svgalt2&gt;&lt;customcsv&gt;false&lt;/customcsv&gt;&lt;csharp&gt;false&lt;/csharp&gt;&lt;sv&gt;false&lt;/sv&gt;&lt;sv&gt;false&lt;/sv&gt;&lt;/outputs&gt;&lt;rtl_wire&gt;true&lt;/rtl_wire&gt;&lt;limit_toc&gt;&lt;/limit_toc&gt;&lt;lowpower&gt;false&lt;/lowpower&gt;&lt;auto_sequence&gt;&lt;/auto_sequence&gt;&lt;interrupt&gt;&lt;/interrupt&gt;&lt;mbd&gt;&lt;/mbd&gt;&lt;arv_assertion&gt;&lt;/arv_assertion&gt;&lt;memtechmapping&gt;false&lt;/memtechmapping&gt;&lt;sv_w_intf&gt;&lt;/sv_w_intf&gt;&lt;sv_wo_intf&gt;&lt;/sv_wo_intf&gt;&lt;uvm_env&gt;&lt;/uvm_env&gt;&lt;hdlpath&gt;false&lt;/hdlpath&gt;&lt;coverage&gt;false&lt;/coverage&gt;&lt;arv_coverage&gt;false&lt;/arv_coverage&gt;&lt;illegalbins&gt;false&lt;/illegalbins&gt;&lt;arv_constraint&gt;false&lt;/arv_constraint&gt;&lt;bus&gt;proprietary&lt;/bus&gt;&lt;reg_width&gt;32&lt;/reg_width&gt;&lt;bus_width&gt;32&lt;/bus_width&gt;&lt;unit&gt;8&lt;/unit&gt;&lt;block_size&gt;&lt;/block_size&gt;&lt;chip_size&gt;&lt;/chip_size&gt;&lt;board_size&gt;&lt;/board_size&gt;&lt;c_type&gt;&lt;/c_type&gt;&lt;big_endian&gt;true&lt;/big_endian&gt;&lt;little_endian&gt;true&lt;/little_endian&gt;&lt;template_dir&gt;/nfs/asic/tools/agnisys/IDSNextGen-linux-7.50.0.0/ids_templates/datasheet&lt;/template_dir&gt;&lt;template_dir_idsng&gt;/nfs/asic/tools/agnisys/IDSNextGen-linux-7.50.0.0/ids_templates/datasheet&lt;/template_dir_idsng&gt;&lt;check_only&gt;true&lt;/check_only&gt;&lt;check_quality&gt;false&lt;/check_quality&gt;&lt;preserve_names&gt;true&lt;/preserve_names&gt;&lt;addr_sort&gt;false&lt;/addr_sort&gt;&lt;limit_tochir&gt;false&lt;/limit_tochir&gt;&lt;table_of_Content&gt;false&lt;/table_of_Content&gt;&lt;seqconfig&gt;&lt;output&gt;&lt;seq_outputs&gt;&lt;firmware&gt;false&lt;multioutput&gt;false&lt;/multioutput&gt;&lt;/firmware&gt;&lt;csv&gt;false&lt;multioutput&gt;false&lt;/multioutput&gt;&lt;/csv&gt;&lt;html&gt;false&lt;multioutput&gt;false&lt;/multioutput&gt;&lt;/html&gt;&lt;sv&gt;false&lt;multioutput&gt;false&lt;/multioutput&gt;&lt;/sv&gt;&lt;uvm&gt;false&lt;multioutput&gt;false&lt;/multioutput&gt;&lt;/uvm&gt;&lt;matlab&gt;false&lt;multioutput&gt;false&lt;/multioutput&gt;&lt;/matlab&gt;&lt;iss_infact&gt;false&lt;/iss_infact&gt;&lt;iss_perspec&gt;false&lt;/iss_perspec&gt;&lt;iss_graph&gt;false&lt;/iss_graph&gt;&lt;/seq_outputs&gt;&lt;uvm&gt;&lt;datatype&gt;&lt;inlinefunction&gt;int&lt;/inlinefunction&gt;&lt;arguments&gt;int&lt;/arguments&gt;&lt;constant&gt;int&lt;/constant&gt;&lt;variable&gt;int&lt;/variable&gt;&lt;returntype&gt;int&lt;/returntype&gt;&lt;/datatype&gt;&lt;regmodel oid="0"&gt;default&lt;/regmodel&gt;&lt;write oid="0"&gt;write(status, %d, .parent(this))&lt;/write&gt;&lt;read oid="0"&gt;read(status, %lhs, .parent(this))&lt;/read&gt;&lt;timemultiplier&gt;100&lt;/timemultiplier&gt;&lt;maxnesting&gt;1&lt;/maxnesting&gt;&lt;consolidated&gt;false&lt;/consolidated&gt;&lt;nameformat&gt;%s&lt;/nameformat&gt;&lt;mout&gt;&lt;/mout&gt;&lt;/uvm&gt;&lt;sv&gt;&lt;datatype&gt;&lt;inlinefunction&gt;int&lt;/inlinefunction&gt;&lt;arguments&gt;int&lt;/arguments&gt;&lt;constant&gt;int&lt;/constant&gt;&lt;variable&gt;int&lt;/variable&gt;&lt;/datatype&gt;&lt;bus oid="0"&gt;default&lt;/bus&gt;&lt;write oid="0"&gt;write_mirror(%a, %d, 0, 0)&lt;/write&gt;&lt;read oid="0"&gt;read_mirror(%a)&lt;/read&gt;&lt;timeunit1&gt;1&lt;/timeunit1&gt;&lt;timeunit2&gt;ns&lt;/timeunit2&gt;&lt;timeprecision1&gt;1&lt;/timeprecision1&gt;&lt;timeprecision2&gt;ns&lt;/timeprecision2&gt;&lt;maxnesting&gt;1&lt;/maxnesting&gt;&lt;consolidated&gt;false&lt;/consolidated&gt;&lt;nameformat&gt;%s&lt;/nameformat&gt;&lt;mout&gt;&lt;/mout&gt;&lt;/sv&gt;&lt;firmware&gt;&lt;datatype&gt;&lt;inlinefunction&gt;int&lt;/inlinefunction&gt;&lt;arguments&gt;int&lt;/arguments&gt;&lt;constant&gt;int&lt;/constant&gt;&lt;variable&gt;int&lt;/variable&gt;&lt;returntype&gt;int&lt;/returntype&gt;&lt;/datatype&gt;&lt;templatename oid="0"&gt;default&lt;/templatename&gt;&lt;write oid="0"&gt;REG_WRITE(%a,%d)&lt;/write&gt;&lt;read oid="0"&gt;REG_READ(%a)&lt;/read&gt;&lt;fieldtemplatename oid="0"&gt;default&lt;/fieldtemplatename&gt;&lt;fieldwrite oid="0"&gt;FIELD_WRITE(%a,%d,%m,%lsb)&lt;/fieldwrite&gt;&lt;fieldread oid="0"&gt;FIELD_READ(%a,%m,%lsb)&lt;/fieldread&gt;&lt;timemultiplier&gt;100&lt;/timemultiplier&gt;&lt;maxnesting&gt;1&lt;/maxnesting&gt;&lt;consolidated&gt;false&lt;/consolidated&gt;&lt;consolidated_r&gt;false&lt;/consolidated_r&gt;&lt;guardband&gt;false&lt;/guardband&gt;&lt;structure&gt;0&lt;/structure&gt;&lt;nameformat&gt;%s&lt;/nameformat&gt;&lt;mout&gt;&lt;/mout&gt;&lt;/firmware&gt;&lt;matlab&gt;&lt;datatype&gt;&lt;inlinefunction&gt;integer&lt;/inlinefunction&gt;&lt;arguments&gt;integer&lt;/arguments&gt;&lt;constant&gt;integer&lt;/constant&gt;&lt;variable&gt;integer&lt;/variable&gt;&lt;/datatype&gt;&lt;templatename oid="0"&gt;default&lt;/templatename&gt;&lt;write oid="0"&gt;REG_WRITE(memory_name,%a,%d)&lt;/write&gt;&lt;read oid="0"&gt;REG_READ(memory_name,%a)&lt;/read&gt;&lt;fieldtemplatename oid="0"&gt;default&lt;/fieldtemplatename&gt;&lt;fieldwrite oid="0"&gt;FIELD_WRITE(memory_name,%a,%d,%msb,%lsb)&lt;/fieldwrite&gt;&lt;fieldread oid="0"&gt;FIELD_READ(memory_name,%a,%msb,%lsb)&lt;/fieldread&gt;&lt;timeunit1&gt;1&lt;/timeunit1&gt;&lt;timeunit2&gt;ns&lt;/timeunit2&gt;&lt;timeprecision1&gt;1&lt;/timeprecision1&gt;&lt;timeprecision2&gt;ns&lt;/timeprecision2&gt;&lt;maxnesting&gt;1&lt;/maxnesting&gt;&lt;nameformat&gt;%s&lt;/nameformat&gt;&lt;mout&gt;&lt;/mout&gt;&lt;/matlab&gt;&lt;csv&gt;&lt;commands&gt;&lt;isscmd oid="0"&gt;call&lt;/isscmd&gt;&lt;cmd oid="0"&gt;CALL&lt;/cmd&gt;&lt;isscmd oid="1"&gt;wait&lt;/isscmd&gt;&lt;cmd oid="1"&gt;WAIT&lt;/cmd&gt;&lt;isscmd oid="2"&gt;write_1_clr&lt;/isscmd&gt;&lt;cmd oid="2"&gt;WRITE_CLR&lt;/cmd&gt;&lt;isscmd oid="3"&gt;write_1_set&lt;/isscmd&gt;&lt;cmd oid="3"&gt;WRITE_SET&lt;/cmd&gt;&lt;isscmd oid="4"&gt;write&lt;/isscmd&gt;&lt;cmd oid="4"&gt;WRITE&lt;/cmd&gt;&lt;isscmd oid="5"&gt;switch&lt;/isscmd&gt;&lt;cmd oid="5"&gt;SWITCH&lt;/cmd&gt;&lt;/commands&gt;&lt;headers&gt;&lt;issheader oid="0"&gt;address&lt;/issheader&gt;&lt;header oid="0"&gt;address&lt;/header&gt;&lt;issheader oid="1"&gt;description&lt;/issheader&gt;&lt;header oid="1"&gt;description&lt;/header&gt;&lt;issheader oid="2"&gt;step&lt;/issheader&gt;&lt;header oid="2"&gt;step&lt;/header&gt;&lt;issheader oid="3"&gt;value&lt;/issheader&gt;&lt;header oid="3"&gt;value&lt;/header&gt;&lt;issheader oid="4"&gt;command&lt;/issheader&gt;&lt;header oid="4"&gt;command&lt;/header&gt;&lt;/headers&gt;&lt;timemultiplier&gt;100&lt;/timemultiplier&gt;&lt;maxnesting&gt;1&lt;/maxnesting&gt;&lt;nameformat&gt;%s&lt;/nameformat&gt;&lt;/csv&gt;&lt;/output&gt;&lt;/seqconfig&gt;&lt;checkerconfig&gt;&lt;output&gt;&lt;arguments&gt;int&lt;/arguments&gt;&lt;constant&gt;int&lt;/constant&gt;&lt;variable&gt;int&lt;/variable&gt;&lt;timemultiplier&gt;1&lt;/timemultiplier&gt;&lt;nameformat&gt;%s&lt;/nameformat&gt;&lt;/output&gt;&lt;/checkerconfig&gt;&lt;/settings&gt; 
+   </div> 
+  </div> 
+ </body>
+</html>

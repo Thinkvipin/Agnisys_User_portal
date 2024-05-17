@@ -1,0 +1,33 @@
+// Copyright (C) Microsoft Corporation. All rights reserved
+//
+
+`include "accelera_generic_example.rdl"
+
+addrmap top {
+    reg a {
+        name = "rega";
+        desc = "32 bit reg";
+        regwidth = 32;
+        field {} fld32[31:0] = 0x0;
+    };
+
+    reg b {
+        name = "regb";
+        regwidth = 8;
+        field {} fld8[7:0] = 0x0;
+    };
+
+    regfile regs{
+        a my_a;
+        b my_b;
+    };
+
+
+    regs my_regs @ 0x0;
+    a my_a @ 0x1A0;
+    b my_b @ 0x1A8;
+    some_register_map basic_reg_map @ 0xf00000;
+    some_register_map reg_map_3d[2][2] @0xf10000+=0x10000;
+    some_register_map reg_map_2d[2] @0xf50000;
+    some_register_map reg_map_3da[2][2] @0x9000000+=0x10000; 
+};

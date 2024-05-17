@@ -1,0 +1,6 @@
+<CMD> idsbatch -dir "/home/proj2017/work/treichel/designdata/rev_work/units/reg_gen/results" -big_endian "false" -little_endian "true" -mbdc "apb:AMBA-APB, ahb:AMBA3AHBLITE" -bus "apb" -rtl_wire -c_api -preserve_names -lowpower -nocache -if_uvm -hdlpath -output "svg pdf html" "/home/proj2017/work/treichel/designdata/rev_work/units/reg_gen/source/Top.yml"
+<?xml version="1.0" encoding="UTF-8"?>
+<busdomains><busdomain name="apb"><bus>AMBA-APB</bus><addressunit>8</addressunit></busdomain><busdomain name="ahb"><bus>AMBA3AHBLITE</bus><addressunit>8</addressunit></busdomain></busdomains>
+ERROR-A : Please specify the Chip Size in the config window under the setting tab OR Specify the size in the chip template, this is required in case you are using Multiple Bus domains. at -> /chip(Toledo)
+ERROR-A : The node CfgRst.codeEnLockupRst != 0xA5 specified in the lock expression CfgRst.codeEnLockupRst != 0xA5 does not exist in this spec at -> /chip(Toledo)/block(smu)/reg(CfgRst)/field(enLockupRst)
+ERROR-B : Errors occurred in the 'Check' process. Please fix these errors to proceed.

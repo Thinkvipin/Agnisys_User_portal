@@ -1,0 +1,135 @@
+signal {activehigh; sync; signalwidth = 1;  desc= "sw reset signal"; } SW_Reset;
+`include "rdl.h"
+<% $TOP_GENERATOR = 1; %>
+`include "ROT_AES.rdl"
+`include "ROT_DMA_0.rdl"
+`include "ROT_DMA_1.rdl"
+`include "ROT_DMA_2.rdl"
+`include "ROT_DMA_3.rdl"
+`include "ROT_ECA.rdl"
+`include "ROT_EXT.rdl"
+`include "ROT_IRAM.rdl"
+`include "ROT_KAM.rdl"
+`include "ROT_MAA.rdl"
+`include "ROT_OVERLAY.rdl"
+`include "ROT_ROM.rdl"
+`include "ROT_SCRATCH.rdl"
+`include "ROT_SHA.rdl"
+`include "ROT_SYS.rdl"
+`include "secr_trng_800_90ab.rdl"
+`include "TRNG1_8_MP32.rdl"
+
+property revision { type = string; component = regfile|mem ; default = "" ; };
+property blockgroup { type = string; component = regfile|mem ; };
+property soc { type = string; component = addrmap ; };
+
+    addrmap EXTP {  
+        ROT_EXT_regs ROT_EXT @64'h00000_10084000;
+        ROT_EXT->decode_size = 0x00004000;
+        ROT_EXT->revision = "revision: f88b418";
+        ROT_EXT->blockgroup = "EXTERNALPROCESSOR";
+        ROT_EXT->chapter = "1.1,   Security Subsystem, ROT External Processor IPC and Access";
+
+    soc = "ROT_1.0";
+
+    }; // EXTP 
+    addrmap SECP {  
+        ROT_ROM_regs ROT_ROM @64'h00000_00000000;
+        ROT_ROM->decode_size = 0x00010000;
+        ROT_ROM->revision = "revision: eb5f524";
+        ROT_ROM->blockgroup = "SECUREPROCESSOR";
+        ROT_ROM->chapter = "1.13,  Security Subsystem, ROT ROM";
+
+        ROT_IRAM_regs ROT_IRAM @64'h00000_00020000;
+        ROT_IRAM->decode_size = 0x00020000;
+        ROT_IRAM->revision = "revision: eb5f524";
+        ROT_IRAM->blockgroup = "SECUREPROCESSOR";
+        ROT_IRAM->chapter = "1.14,  Security Subsystem, ROT Processor RAM";
+
+        ROT_SYS_regs ROT_SYS @64'h00000_00080000;
+        ROT_SYS->decode_size = 0x00004000;
+        ROT_SYS->revision = "revision: f88b418";
+        ROT_SYS->blockgroup = "SECUREPROCESSOR";
+        ROT_SYS->chapter = "1.2,   Security Subsystem, ROT Processor IPC";
+
+        ROT_KAM_regs ROT_KAM @64'h00000_00088000;
+        ROT_KAM->decode_size = 0x00002000;
+        ROT_KAM->revision = "revision: f88b418";
+        ROT_KAM->blockgroup = "SECUREPROCESSOR";
+        ROT_KAM->chapter = "1.7,   Security Subsystem, ROT Vendor OTP Access";
+
+        rot_sha_regs ROT_SHA @64'h00000_0008A000;
+        ROT_SHA->decode_size = 0x00001000;
+        ROT_SHA->revision = "revision: 843797c";
+        ROT_SHA->blockgroup = "SECUREPROCESSOR";
+        ROT_SHA->chapter = "1.4,   Security Subsystem, SHA Registers";
+
+        ROT_AES_regs ROT_AES @64'h00000_0008B000;
+        ROT_AES->decode_size = 0x00001000;
+        ROT_AES->revision = "revision: 843797c";
+        ROT_AES->blockgroup = "SECUREPROCESSOR";
+        ROT_AES->chapter = "1.3,   Security Subsystem, AES Registers";
+
+        ROT_ECA_regs ROT_ECA @64'h00000_0008C000;
+        ROT_ECA->decode_size = 0x00001000;
+        ROT_ECA->revision = "revision: ac56eb4";
+        ROT_ECA->blockgroup = "SECUREPROCESSOR";
+        ROT_ECA->chapter = "1.5,   Security Subsystem, Eliptic Curve Accelerator (ECA) Registers";
+
+        ROT_MAA_regs ROT_MAA @64'h00000_0008D000;
+        ROT_MAA->decode_size = 0x00001000;
+        ROT_MAA->revision = "revision: 843797c";
+        ROT_MAA->blockgroup = "SECUREPROCESSOR";
+        ROT_MAA->chapter = "1.5,   Security Subsystem, MAA (RSA) Registers";
+
+        secr_trng_800_90ab_regs SECR_TRNG_800_90AB @64'h00000_0008E000;
+        SECR_TRNG_800_90AB->decode_size = 0x00000800;
+        SECR_TRNG_800_90AB->revision = "revision: 7fad1ff";
+        SECR_TRNG_800_90AB->blockgroup = "SECUREPROCESSOR";
+        SECR_TRNG_800_90AB->chapter = "1.6,  Security Subsystem, ROT TRNG Registers";
+
+        TRNG1_8_MP32_regs TRNG1_8_MP32 @64'h00000_0008E800;
+        TRNG1_8_MP32->decode_size = 0x00000800;
+        TRNG1_8_MP32->revision = "revision: a9e0a2f";
+        TRNG1_8_MP32->blockgroup = "SECUREPROCESSOR";
+        TRNG1_8_MP32->chapter = "1.61,  Security Subsystem, ROT TRNG Registers";
+
+        ROT_DMA_0_regs ROT_DMA_0 @64'h00000_0008F000;
+        ROT_DMA_0->decode_size = 0x00001000;
+        ROT_DMA_0->revision = "revision: a1decb8";
+        ROT_DMA_0->blockgroup = "SECUREPROCESSOR";
+        ROT_DMA_0->chapter = "1.9,   Security Subsystem, ROT DMA 0";
+
+        ROT_DMA_1_regs ROT_DMA_1 @64'h00000_00090000;
+        ROT_DMA_1->decode_size = 0x00001000;
+        ROT_DMA_1->revision = "revision: a1decb8";
+        ROT_DMA_1->blockgroup = "SECUREPROCESSOR";
+        ROT_DMA_1->chapter = "1.10,  Security Subsystem, ROT DMA 1";
+
+        ROT_DMA_2_regs ROT_DMA_2 @64'h00000_00091000;
+        ROT_DMA_2->decode_size = 0x00001000;
+        ROT_DMA_2->revision = "revision: 6af7706";
+        ROT_DMA_2->blockgroup = "SECUREPROCESSOR";
+        ROT_DMA_2->chapter = "1.11,  Security Subsystem, ROT DMA 2";
+
+        ROT_DMA_3_regs ROT_DMA_3 @64'h00000_00092000;
+        ROT_DMA_3->decode_size = 0x00001000;
+        ROT_DMA_3->revision = "revision: 6af7706";
+        ROT_DMA_3->blockgroup = "SECUREPROCESSOR";
+        ROT_DMA_3->chapter = "1.12,  Security Subsystem, ROT DMA 3";
+
+        ROT_SCRATCH_regs ROT_SCRATCH @64'h00000_00093000;
+        ROT_SCRATCH->decode_size = 0x00001000;
+        ROT_SCRATCH->revision = "revision: eb5f524";
+        ROT_SCRATCH->blockgroup = "SECUREPROCESSOR";
+        ROT_SCRATCH->chapter = "1.15,  Security Subsystem, ROT SCRATCH RAM";
+
+        ROT_OVERLAY_regs ROT_OVERLAY @64'h00000_08000000;
+        ROT_OVERLAY->decode_size = 0x08000000;
+        ROT_OVERLAY->revision = "revision: ";
+        ROT_OVERLAY->blockgroup = "SECUREPROCESSOR";
+        ROT_OVERLAY->chapter = "1.18,  Security Subsystem, Overlay - Virtual Region";
+
+    soc = "ROT_1.0";
+
+    }; // SECP 

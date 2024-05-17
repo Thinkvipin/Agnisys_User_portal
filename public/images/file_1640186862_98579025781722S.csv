@@ -1,0 +1,8 @@
+block,reg,offset,field,bits,default,sw,hw,doc
+csv_map,,256,,,,,,ITEM:  67
+csv_map,csv_reg,0,,32,0,,,a reg in a csv file
+csv_map,csv_reg,,csv_fld1,8,0,ro,rw,SW = RO
+csv_map,csv_reg,,csv_fld2,14:8,0,rc,rw,SW = RC
+csv_map,csv_reg,,csv_fld3,31:30,0,rw,ro,HW = RO
+csv_map2,,512,,,,,test,
+csv_map2,csv_reg2,0,,32,0,,,a different csv reg

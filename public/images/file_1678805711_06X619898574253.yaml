@@ -1,0 +1,53 @@
+node:
+  name: Jordan
+  node:
+  - doc: System Control
+    name: SYSCTRL
+    node:
+    - doc: RF LDO Short Ballast
+      field:
+      - defaultVal: 0
+        doc: Status of the shorting of the MISC and DIG LDO outputs
+        hw_access: wo
+        name: ENABLE
+        offset: 0
+        property:
+        - name: field_prot
+          value: priv
+        - name: rwpair
+          value: WR_ENABLE
+        sw_access: ro
+      - defaultVal: 0
+        doc: Short the MISC and DIG LDO outputs to VDDLDO
+        hw_access: ro
+        name: WR_ENABLE
+        offset: '31:0'
+        property:
+        - name: field_prot
+          value: priv
+        sw_access: wo
+      name: SYSCTRL_RF_LDO_SHORT
+      offset: 0
+      type: reg
+    - type: define
+      values:
+      - doc: MISC and DIG LDO outputs are not shorted to VDDLDO
+        name: RF_LDO_SHORT_DISABLE
+        private_val: true
+        value: 0
+      - doc: MISC and DIG LDO outputs are shorted to VDDLDO (for testing purposed
+          only)
+        name: RF_LDO_SHORT_DISABLE
+        private_val: true
+        value: 1
+      - doc: Do not short the MISC and DIG LDO outputs to VDDLDO
+        name: RF_LDO_SHORT_WR_DISABLE
+        private_val: true
+        value: 0
+      - doc: Short the MISC and DIG LDO outputs to VDDLDO (for testing purposed only)
+        name: RF_LDO_SHORT_WR_ENABLE
+        private_val: true
+        value: 1279545171
+    offset: 1073741900
+    type: block
+  type: chip

@@ -1,0 +1,71 @@
+
+regfile ROT_EXT_regs {
+    default reset = 0x0;
+    default sw = rw;
+    default hw = r;
+    default regwidth = 32;
+
+
+    reg IPC_ETS_t { 
+        name = "ROT EXTP to SECP IPC Register";
+        rtl_hw_rp = true;
+
+        no_reg_tests;
+
+        field { sw = rw; hw=rw;} DATA[31:0];
+        DATA->desc = "...";
+// figure out we syntax - but can tie CMD_DATA_in_enb to CMD_FULL x 8 and ETS_DATA_in to ETS_DATA_out to prevent writing when full
+        
+    };
+
+    reg IPC_STE_t {
+        name = "ROT SECP to EXTP IPC Register";
+        rtl_hw_rp = true;
+        
+        field  { sw = r;  hw=rw;} DATA[31:0];
+    };
+    
+    regfile IPC_Control_t {
+        reg IPC_Channel_Status_t {
+            field { sw = r;  hw = rw; } AVAIL_BYTES [7: 0]; 
+        };
+        reg IPC_Channel_Config_t {
+            field { sw =  r; hw = r; } DEPTH [7:0]  = 0x20; // parameter ICP_ETS_DEPTH[i]
+        };
+        
+        IPC_Channel_Config_t      CONFIG;
+        IPC_Channel_Status_t      STATUS;
+    };
+
+
+    IPC_ETS_t                    IPC_ETS_0_ENTRY[16]       ;  
+    IPC_Control_t                IPC_ETS_0_PRODUCER        ;
+
+    IPC_STE_t                    IPC_STE_0_ENTRY[8] @0x80  ; 
+    IPC_Control_t                IPC_STE_0_CONSUMER        ;
+
+
+    IPC_ETS_t                    IPC_ETS_1_ENTRY[8] @0xc0  ;
+    IPC_Control_t                IPC_ETS_1_PRODUCER        ;
+
+    IPC_STE_t                    IPC_STE_1_ENTRY[8] @0x100 ;
+    IPC_Control_t                IPC_STE_1_CONSUMER        ;
+
+    IPC_ETS_t                    IPC_ETS_2_ENTRY[8] @0x140 ;
+    IPC_Control_t                IPC_ETS_2_PRODUCER        ;
+
+    IPC_STE_t                    IPC_STE_2_ENTRY[8] @0x180 ;
+    IPC_Control_t                IPC_STE_2_CONSUMER        ; 
+    
+    IPC_ETS_0_PRODUCER.STATUS.AVAIL_BYTES->reset = 7'h40;
+    IPC_ETS_0_PRODUCER.CONFIG.DEPTH->reset       = 7'h40;
+    IPC_ETS_1_PRODUCER.STATUS.AVAIL_BYTES->reset = 7'h20;
+    IPC_ETS_2_PRODUCER.STATUS.AVAIL_BYTES->reset = 7'h20;
+
+    IPC_STE_0_ENTRY->registered  = false;           
+    IPC_STE_1_ENTRY->registered  = false;           
+    IPC_STE_2_ENTRY->registered  = false;           
+
+};
+
+

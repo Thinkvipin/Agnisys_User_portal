@@ -1,0 +1,79 @@
+node:
+  type: block
+  name: code flash
+  instname: Code Flash
+  doc: "Code Flash"
+  property:
+  - name: size
+    value: 0x20400
+  - name: bus.domain
+    value: ahb
+  - name: type
+    value: mem
+
+
+
+  node:
+  -
+    type: section
+    name: "main section"
+    offset: 0x0
+    property:
+    - name: type
+      value: mem
+    - name: external
+      value: true
+    - name: mem_width
+      value: 32
+    - name: width
+      value: 32
+    - name: depth
+      value: 16384
+
+    node:
+    -
+      type: reg
+      name: mem_reg
+      offset: 0x0
+      property:
+      - name: width
+        value: 32
+      field:
+      -
+        name: mem
+        offset: 31:0
+        defaultVal: 0x0
+        sw_access: rw
+        hw_access: ro
+  -
+    type: section
+    name: "info section"
+    offset: 0x10000
+    property:
+    - name: type
+      value: mem
+    - name: external
+      value: true
+    - name: mem_width
+      value: 32
+    - name: width
+      value: 32
+    - name: depth
+      value: 256
+
+    node:
+    -
+      type: reg
+      name: mem_reg
+      offset: 0x0
+      property:
+      - name: width
+        value: 32
+
+      field:
+      -
+        name: mem
+        offset: 31:0
+        defaultVal: 0x0
+        sw_access: rw
+        hw_access: ro

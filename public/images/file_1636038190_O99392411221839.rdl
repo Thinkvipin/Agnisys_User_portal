@@ -1,0 +1,80 @@
+addrmap my_regs {
+   name = "My Address Map";
+   desc = "Register address map for my design";
+   addressing = compact;
+   alignment = 4;
+   reg {
+      name = "ID";
+      desc = "ID Register.";
+      field {
+         name = "Minor ersion";
+         desc = "A version number used for debug.";
+         sw = r;
+         hw = na;
+         reset = 12'h0;
+      } minor_version[11:0];
+      field {
+         name = "MajorVersion";
+         desc = "Hardware revision.";
+         sw = r;
+         hw = na;
+         reset = 8'h0;
+      } major_version[19:12];
+      field {
+         name = "UnitID";
+         desc = "This ID is a unique identifier.";
+         sw = r;
+         hw = w;
+         reset = 6'h0;
+      } unit_id[25:20];
+      field {
+         name = "InstID";
+         desc = "The instance of this particular unit.";
+         sw = r;
+         hw = w;
+         reset = 6'h0;
+      } inst_id[31:26];
+   } my_ver @0x0;
+      mem {
+         name = "some mem";
+         memwidth = 32;
+         mementries = 8192;
+         sw = rw;
+         regfile {
+            alignment = 4;
+            reg {
+               name = "Reg1";
+               desc = "Reg 1";
+               field {
+                  name = "FieldA";
+                  desc = "Field A";
+                  sw = rw;
+                  hw = na;
+               } r1fa[11:0];
+               field {
+                  name = "FieldB";
+                  desc = "Field B";
+                  sw = rw;
+                  hw = na;
+               } r1fb[27:16];
+            } r1 @0x0;
+            reg {
+               name = "Reg2";
+               desc = "Reg 2";
+               field {
+                  name = "FieldA";
+                  desc = "Field A";
+                  sw = rw;
+                  hw = na;
+               } r2fa[11:0];
+               field {
+                  name = "FieldB";
+                  desc = "Field B";
+                  sw = rw;
+                  hw = na;
+               } r2fb[27:16];
+            } r2fb @0x4;
+         } mem_regs[2][512] @0x0;
+      } external my_mem @0x0;
+
+} my_regs;

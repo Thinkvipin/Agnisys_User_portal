@@ -1,0 +1,29 @@
+
+###########################################################################
+# Agni Flex License File
+# License Type     : Floating License
+# Issue Date       : Thu July 15 06:35:37  2020
+# Product Name     : IDSBatch-adv + IDSWord-Editor
+###########################################################################
+# Usage Instructions
+# At Server:
+# 1. Replace ANY in the SERVER line in license file with the hostname of
+#    the license server using linux command "hostname" or "uname -n".
+# 2. Please make sure that ports 8090 and 8091 are enabled on the server.
+# 3. Replace <install_dir> in the VENDOR line with the path to AgniFlex dir.
+#
+# At Client:
+# 1. Unset the AGNI_LICENSE_SERVER and AGNI_LICENSE_FILE variables, if set
+# 2. Set the LM_LICENSE_FILE variable to point to license server as below:
+#    LM_LICENSE_FILE=8090@server-ip-address.
+###########################################################################
+
+SERVER edatools.eng.idt.com 00065bbd9feb 8092
+VENDOR agnilm agnilm agnilm.opt port=8093
+# counted licenses
+INCREMENT IDSBatch-adv agnilm 1.0 17-may-2021 1 SIGN="02E8 31EA 3641 \
+	0250 2E84 2FA9 81C8 A6FF 4F0B D227 0000 7E25 4E20 9DAB 7A5B \
+	B04F 85A9 EB28 4852 AE6E 994F"
+INCREMENT IDSWord-Editor agnilm 1.0 17-may-2021 1 SIGN="0372 1F49 \
+	C395 CB60 A192 C6B6 9265 10BC B269 E604 1400 5CEF FC54 20BC \
+	FAD4 B8B5 5C9A 1088 44C3 8251 1726"

@@ -1,0 +1,36 @@
+     `ifndef IDS_UDP
+     
+         property doc { type = string; component = addrmap|regfile|reg|field; };
+              
+     `endif
+ 
+addrmap param_width #(bit SRAM_MSB = 22) {
+  name  = "param_width Address Map";
+
+desc = " Block with one register that has a define for the field width";
+
+
+  reg SRAM_BASE_ADDR { 
+
+  desc = " Base address register which indexes to a window in SRAM";
+     regwidth = 32;
+    field {
+      hw = r;
+      sw = r;
+      
+
+      desc = " Reserved"; 
+    } Reserved0[8:0] = 9'h0;
+    field {
+      hw = r;
+      sw = rw;
+      
+
+      desc = " Base address pointing to SRAM window"; 
+    } BaseAddr[SRAM_MSB:9] = 14'h0;
+
+  };
+ 
+  SRAM_BASE_ADDR SRAM_BASE_ADDR @0x0;
+
+};

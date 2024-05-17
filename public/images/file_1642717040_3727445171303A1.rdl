@@ -1,0 +1,52 @@
+// command idsbatch -out htmlalt2 onrw.rdl -debug
+//
+// uncomment external in either place to get java error
+
+property default_reset {type=number; component=addrmap|regfile|reg|field;};
+
+reg onReadReg {
+    field {
+	onread = rclr;
+    } rclrField_i28[7:0];
+
+    field {
+	onread = rset;
+    } rset_field_i28[23:16];
+
+    // systemRDL requires external field with ruser, 
+    // idsbatch gives properly errors in lint but then in elaboration it fails
+    // INFO-B : Starting phase Building SystemRDL model.
+    // java.lang.NullPointerException
+    //	at com.agnisys.rdl2compiler.modern.ParseTree2RDLModelImporter.enterComponent_inst_exp_or_anon(ParseTree2RDLModelImporter.java:140)
+    external field {
+    // field {
+	onread = ruser; // [RDL-2907]: A field with an 'onread' value of 'ruser' shall be external.
+    } ruser_field_i28[31:24];
+} ;
+
+reg onWriteReg {
+    field {
+        //wclr; // [RDL-1002]: Syntax error: mismatched input 'wclr'
+        onwrite woclr;
+    } wclrField_i28[7:0];
+
+    field {
+	//wset: // [RDL-1002]: Syntax error: extraneous input 'wset'
+        woset;  // works
+    } wset_field_i28[23:16];
+
+    // systemRDL requires external field with ruser, idsbatch gives error
+    // INFO-B : Starting phase Building SystemRDL model.
+    // java.lang.NullPointerException
+    //	at com.agnisys.rdl2compiler.modern.ParseTree2RDLModelImporter.enterComponent_inst_exp_or_anon(ParseTree2RDLModelImporter.java:140)
+    // external field {
+    field {
+       wuser; // [RDL-1002]: Syntax error: mismatched input 'wuser' 
+    } wuser_field_i28[31:24];
+};
+
+addrmap top {
+  default_reset = 0;
+  onReadReg regA;
+  onWriteReg regB;
+};

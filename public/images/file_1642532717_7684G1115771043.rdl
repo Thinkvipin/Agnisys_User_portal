@@ -1,0 +1,31 @@
+//
+// run command:
+// idsbatch -out htmlalt2 -bus axi -bus_width 32 wide_reg.rdl -top top
+//
+// result:
+// INFO-B : Starting phase XRSL composition.
+// com.agnisys.rdl2compiler.modern.xrslconvert.XRSLInstanceMapping$MappingMissingException: XRSL target missing for instance 'top.a.regA'
+//
+
+
+
+property bus { type = string; component = addrmap; };
+property chip { type = boolean; component = addrmap; };
+property default_reset {type=number; component=addrmap|regfile|reg|field;};
+
+addrmap a {
+	chip = true;
+	bus = "amba3ahblite";
+	reg {
+		regwidth = 64;
+		field {} fld1[15:0];
+		field {} fld2[31:16];
+		field {} fld3[35:32];
+	} regA;
+};
+
+addrmap top {
+	chip = true;
+	default_reset = 0;
+	a a;
+};

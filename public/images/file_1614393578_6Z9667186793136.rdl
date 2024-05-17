@@ -1,0 +1,27 @@
+
+regfile ROT_SYS_regs {
+    default reset = 0x0;
+    default sw = rw;
+    default hw = r;
+    default regwidth = 32;
+
+    field doorbell_ets_t { sw = rw; hw = rw; woclr; registered = false;};
+    field doorbell_ste_t { sw = rw; hw = rw; woset; hwclr; };
+    reg STE_DOORBELL_t {
+        name = "ROT SECP to EXTP Doorbells";
+        doorbell_ste_t DB [0:0];  // use perl IPC_NUM_CHAN + DO_IPC_NUM_CHAN -1 : 0
+        DB->desc = "SECP to EXTP Doorbell[lb]i[rb] is set.
+
+                   [br]This bit is set by the SECP. The EXTP writes one to clear";
+    };
+    
+    reg ETS_DOORBELL_t {            
+        doorbell_ets_t DB [0:0];  // use perl IPC_NUM_CHAN + DO_IPC_NUM_CHAN -1 : 0
+        DB->desc = "EXTP to SECP Doorbell[lb]i[rb] is set. This bit is set by the EXTP. The SECP writes one to clear";
+    };
+
+    STE_DOORBELL_t            SYS_STE_DOORBELL[3] ;
+    ETS_DOORBELL_t            SYS_ETS_DOORBELL[3] ;
+
+
+};//ROT_SYS_regs

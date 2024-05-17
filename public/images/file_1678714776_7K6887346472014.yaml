@@ -1,0 +1,48 @@
+node:
+  name: Jordan
+  node:
+  - doc: AHB registers
+    name: AHBREGS
+    node:
+    - doc: Chip ID number
+      field:
+      - defaultVal: 13
+        doc: 'Chip Family number (Comment: Can be changed by metal mask)'
+        name: CHIP_FAMILY
+        offset: '31:24'
+        sw_access: ro
+      - defaultVal: 1
+        doc: 'Chip Version number (Comment: Can be changed by metal mask)'
+        name: CHIP_VERSION
+        offset: '23:16'
+        sw_access: ro
+      - defaultVal: 1
+        doc: 'Chip Major Revision number (Comment: Can be changed by metal mask)'
+        name: CHIP_MAJOR_REVISION
+        offset: '15:8'
+        sw_access: ro
+      - defaultVal: 0
+        doc: 'Chip Minor Revision number (Comment: Can be changed by metal mask)'
+        name: CHIP_MINOR_REVISION
+        offset: '7:0'
+        sw_access: ro
+      name: AHBREGS_CHIP_ID_NUM
+      offset: 0
+      type: reg
+    - type: define
+      values:
+      - doc: Bluetooth family
+        name: CHIP_FAMILY_NB
+        value: 13
+      - doc: Value for Jordan
+        name: CHIP_VERSION_NB
+        value: 1
+      - doc: Value for Jordan SV2
+        name: CHIP_MAJOR_REVISION_NB
+        value: 1
+      - doc: Value for Jordan SV2
+        name: CHIP_MINOR_REVISION_NB
+        value: 0
+    offset: 536870908
+    type: block
+  type: chip

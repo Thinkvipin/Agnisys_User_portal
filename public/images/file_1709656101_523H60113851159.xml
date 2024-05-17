@@ -1,0 +1,1624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>CAST</ipxact:vendor>
+	<ipxact:library>Compression</ipxact:library>
+	<ipxact:name>JPEG-DX-F</ipxact:name>
+	<ipxact:version>1.14</ipxact:version>
+	<ipxact:memoryMaps>
+		<ipxact:memoryMap>
+			<ipxact:name>CSR</ipxact:name>
+			<ipxact:addressBlock>
+				<ipxact:name>regs</ipxact:name>
+				<ipxact:baseAddress>0</ipxact:baseAddress>
+				<ipxact:range>1024</ipxact:range>
+				<ipxact:width>32</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:register>
+					<ipxact:name>mode</ipxact:name>
+					<ipxact:description>Mode</ipxact:description>
+					<ipxact:addressOffset>0</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>en</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>rsvd</ipxact:name>
+						<ipxact:bitOffset>1</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>31</ipxact:bitWidth>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>error</ipxact:name>
+					<ipxact:description>Error register</ipxact:description>
+					<ipxact:addressOffset>4</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ukn</ipxact:name>
+						<ipxact:description>Unknown marker detected</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue>zeroToClear</ipxact:modifiedWriteValue>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>unexp</ipxact:name>
+						<ipxact:description>Unexpected marker detected</ipxact:description>
+						<ipxact:bitOffset>1</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue>zeroToClear</ipxact:modifiedWriteValue>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>huff</ipxact:name>
+						<ipxact:description>Huffman decode error detected</ipxact:description>
+						<ipxact:bitOffset>2</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue>zeroToClear</ipxact:modifiedWriteValue>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>cerr</ipxact:name>
+						<ipxact:description>A component referenced in the scan header (SOS) was not defined in the
+previous frame header (SOF).</ipxact:description>
+						<ipxact:bitOffset>3</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue>zeroToClear</ipxact:modifiedWriteValue>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>qterr</ipxact:name>
+						<ipxact:description>A Quantisation table referenced in a component referenced in a scan (SOS
+header) selected an invalid Quantisation table.</ipxact:description>
+						<ipxact:bitOffset>4</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue>zeroToClear</ipxact:modifiedWriteValue>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>hterr</ipxact:name>
+						<ipxact:description>A Huffman table referenced in a scan (SOS header) is invalid.</ipxact:description>
+						<ipxact:bitOffset>5</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue>zeroToClear</ipxact:modifiedWriteValue>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>rsvd</ipxact:name>
+						<ipxact:description>Reserved</ipxact:description>
+						<ipxact:bitOffset>6</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>26</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>unkn_err_loc</ipxact:name>
+					<ipxact:description>Unknown marker error location (write 0 to clear, write 1 keeps current value) </ipxact:description>
+					<ipxact:addressOffset>8</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>unlok</ipxact:name>
+						<ipxact:description>In the event of an unknown marker error, the decoder stores the location of
+the unknown marker in this register. The location is the byte-offset from the
+last SOI marker processed.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>unex_err_loc</ipxact:name>
+					<ipxact:description>In the event of an unexpected marker error, the decoder stores the location of
+the unexpected marker in this register. The location is the byte-offset from the
+last SOI marker processed.</ipxact:description>
+					<ipxact:addressOffset>12</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>uenlok</ipxact:name>
+						<ipxact:description>In the event of an unexpected marker error, the decoder stores the location of
+the unexpected marker in this register. The location is the byte-offset from the
+last SOI marker processed.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_err_sym</ipxact:name>
+					<ipxact:description>Huffman error symbol</ipxact:description>
+					<ipxact:addressOffset>16</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>hsym</ipxact:name>
+						<ipxact:description>The Huffman symbol that is in error. The first bit of the Huffman symbol is on
+bit [15], the second on bit [14], etc.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>rsvd</ipxact:name>
+						<ipxact:bitOffset>16</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>ecs_num_err</ipxact:name>
+					<ipxact:description>ECS number of Huffman symbol error</ipxact:description>
+					<ipxact:addressOffset>20</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>sloc</ipxact:name>
+						<ipxact:description>In the event of a Huffman decode error, the decoder stores the ECS number in
+which the error was found to this register. The ECS number is counted from
+the last SOI marker</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_sym_err_loc</ipxact:name>
+					<ipxact:description>Huffman symbol error location in ECS</ipxact:description>
+					<ipxact:addressOffset>24</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>soff</ipxact:name>
+						<ipxact:description>In the event of a Huffman decode error, the decoder stores the location of the
+invalid Huffman symbol in this register. The location is the bit-offset from the
+start of ECS. The ECS number in which the error was found is stored to the
+“ECS number of Huffman symbol error” (0x014) register</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>tab_acc_req</ipxact:name>
+					<ipxact:description>Table access request</ipxact:description>
+					<ipxact:addressOffset>28</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>aok</ipxact:name>
+						<ipxact:description>When this bit is set to 1, the tables (quantisation &amp; Huffman) may be read or
+written. This bit is set to 1 if no frame is currently being processed – either the
+decoder has just been enabled and no frame was received or an EOI marker
+has been processed but the next SOI marker has not been received. While this
+bit is set to 1, no input data is processed.</ipxact:description>
+						<ipxact:bitOffset>1</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>areq</ipxact:name>
+						<ipxact:description>Table access request. If any of the quantisation or Huffman tables are to be
+accessed, this bit is to be set to 1 and the SW is to wait for bit [1] to be set
+before accessing the tables. To resume processing input frames, this bit is to
+be set to 0.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>rsvd</ipxact:name>
+						<ipxact:description>rsvd</ipxact:description>
+						<ipxact:bitOffset>2</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>30</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_eob_sym_tab_0</ipxact:name>
+					<ipxact:description>Huffman table 0 EOB symbol</ipxact:description>
+					<ipxact:addressOffset>32</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>EOB0M</ipxact:name>
+						<ipxact:description>Contains the EOB symbol mask for Huffman table 0.</ipxact:description>
+						<ipxact:bitOffset>16</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>EOB0C</ipxact:name>
+						<ipxact:description>Contains the EOB symbol for Huffman table 0.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_eob_sym_tab_1</ipxact:name>
+					<ipxact:description>Huffman table 1 EOB symbol</ipxact:description>
+					<ipxact:addressOffset>36</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>EOB1C</ipxact:name>
+						<ipxact:description>Contains the EOB symbol for Huffman table 1.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>EOB1M</ipxact:name>
+						<ipxact:description>Contains the EOB symbol mask for Huffman table10.</ipxact:description>
+						<ipxact:bitOffset>16</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_eob_sym_tab_2</ipxact:name>
+					<ipxact:description>Huffman table 2 EOB symbol</ipxact:description>
+					<ipxact:addressOffset>40</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>EOB2C</ipxact:name>
+						<ipxact:description>Contains the EOB symbol for Huffman table 2.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>EOB2M</ipxact:name>
+						<ipxact:description>Contains the EOB symbol mask for Huffman table 2.</ipxact:description>
+						<ipxact:bitOffset>16</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_eob_sym_tab_3</ipxact:name>
+					<ipxact:description>Huffman table 3 EOB symbol</ipxact:description>
+					<ipxact:addressOffset>44</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>EOB3C</ipxact:name>
+						<ipxact:description>Contains the EOB symbol for Huffman table 3.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>EOB3M</ipxact:name>
+						<ipxact:description>Contains the EOB symbol mask for Huffman table 3.</ipxact:description>
+						<ipxact:bitOffset>16</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_core_version</ipxact:name>
+					<ipxact:description>Core version register                             </ipxact:description>
+					<ipxact:addressOffset>64</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>maj</ipxact:name>
+						<ipxact:bitOffset>16</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>1</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>min</ipxact:name>
+						<ipxact:bitOffset>8</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>14</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>8</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>rev</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>8</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_ibus_len</ipxact:name>
+					<ipxact:description>Width of the input bus (defined by parameter) register                         </ipxact:description>
+					<ipxact:addressOffset>68</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ibus_len</ipxact:name>
+						<ipxact:description>Width of the input bus</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_b4661648_e49e_47a8_8a0b_6c040c30437f</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_ppe</ipxact:name>
+					<ipxact:description>Number of implemented pipes register              </ipxact:description>
+					<ipxact:addressOffset>72</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ppe</ipxact:name>
+						<ipxact:description>Number of implemented pipes</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_0ce0051c_4d7f_4ef7_84df_7ca5667833e5</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_ri_max</ipxact:name>
+					<ipxact:description>Maximum optimal restart interval register         </ipxact:description>
+					<ipxact:addressOffset>76</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ri_max</ipxact:name>
+						<ipxact:description>Maximum restart interval optimally support in multi-pipe implementation.
+The value given here is in “Number of 4 byte units”. If for example this
+register is set to 256, then the RSTm marker spacing in the input stream
+should be no more than 1024 bytes apart (256*4) to guarantee optimal
+operation. See also section 5.2 “Optimal use of multiple pipes”.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_8a1fd705_d17f_4393_96d8_74efe55eb479</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_qua_width</ipxact:name>
+					<ipxact:description>Quantisation table width register                 </ipxact:description>
+					<ipxact:addressOffset>80</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>qua_width</ipxact:name>
+						<ipxact:description>Maximum quantisation table width supported register</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_0d508ab6_a8ae_466b_9e80_372e47918d6a</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_qua_num</ipxact:name>
+					<ipxact:description>Number of quantisation tables implemented register</ipxact:description>
+					<ipxact:addressOffset>84</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>qua_num</ipxact:name>
+						<ipxact:description>Number of quantisation tables implemented</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_b2f99394_dbf1_432b_8075_451eb8e170da</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_huf_num</ipxact:name>
+					<ipxact:description>Number of Huffman tables implemented register     </ipxact:description>
+					<ipxact:addressOffset>88</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>huf_num</ipxact:name>
+						<ipxact:description>Number of Huffman tables implemented.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_5cdc7d4e_4e00_4407_8636_330f2d3a99a3</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_dat_o_w</ipxact:name>
+					<ipxact:description>Output data width register                        </ipxact:description>
+					<ipxact:addressOffset>92</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>dat_o_w</ipxact:name>
+						<ipxact:description>Output data width.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_745e125a_dd4d_4eae_98ae_22c350d14c3d</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_dat_o_type</ipxact:name>
+					<ipxact:description>Output type                                       </ipxact:description>
+					<ipxact:addressOffset>96</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>dat_o_type</ipxact:name>
+						<ipxact:description>Gives the type of output samples the core generates on its output.
+The following values are valid:
+0: The decoder generates unsigned output samples
+1: The decoder generates signed output samples</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_1aa2ea4c_606f_4420_8a45_4a85fe732790</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_ram_dec</ipxact:name>
+					<ipxact:description>Huffman decoder type implemented                  </ipxact:description>
+					<ipxact:addressOffset>100</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ram_dec</ipxact:name>
+						<ipxact:description>This register gives the required tables to configure the Huffman decoder
+through the “Huffman table access” (0x080 &amp; 0x084) registers as follows:
+0: Huffman decoder can not be configured
+1: Huffman decoder table, I and D vectors and the EOB symbol needs to be
+loaded.
+2: Huffman decoder table, I and D vectors, Huffman decoder accelerator
+tables and the EOB symbol need to be loaded.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_52aa89fe_f9de_4936_8594_6d2a8989b00f</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_acc_w</ipxact:name>
+					<ipxact:description>Huffman decoder single-cycle code length          </ipxact:description>
+					<ipxact:addressOffset>104</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>acc_w</ipxact:name>
+						<ipxact:description>This register gives the maximum length Huffman code which is decoded in a
+single cycle. All codes longer than the value in this register are decoded in
+two cycles.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_f52c9b50_4b3e_4c1a_8f6d_77da334c595f</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>par_shift_w</ipxact:name>
+					<ipxact:description>Huffman decoder maximum bits/cycle                </ipxact:description>
+					<ipxact:addressOffset>108</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>shift_w</ipxact:name>
+						<ipxact:description>This register gives the maximum number of bits the Huffman decoder will
+process in a single cycle as 2SHIFT_W.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>uuid_69000c9c_32a7_4725_92c3_9426fca4d63a</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_tab_acc_addr</ipxact:name>
+					<ipxact:description>Huffman table access address</ipxact:description>
+					<ipxact:addressOffset>128</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>rsvd</ipxact:name>
+						<ipxact:bitOffset>10</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>22</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>table</ipxact:name>
+						<ipxact:bitOffset>8</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>2</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>rsvd_0</ipxact:name>
+						<ipxact:bitOffset>5</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>3</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>acdc</ipxact:name>
+						<ipxact:bitOffset>4</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>rsvd_1</ipxact:name>
+						<ipxact:bitOffset>2</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>2</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>hnum</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>2</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_tab_acc_data</ipxact:name>
+					<ipxact:description>Huffman table access data</ipxact:description>
+					<ipxact:addressOffset>132</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>hdata</ipxact:name>
+						<ipxact:description>Accessing this register increments the Huffman table access address by one
+and decrements the “Huffman table access number of words remaining”
+(0x088). Reading from this register reads the Huffman table selected by the
+address register (0x080) and writing this register writes the selected Huffman
+table.</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>huf_tab_acc_words_rem</ipxact:name>
+					<ipxact:description>Huffman table access number of words remaining from the currently selected Huffman table</ipxact:description>
+					<ipxact:addressOffset>136</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>hwords</ipxact:name>
+						<ipxact:description>This register gives the number of words that may be read from the currently selected Huffman table</ipxact:description>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset>
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>qtable_1</ipxact:name>
+				<ipxact:displayName>Quantisation Tables</ipxact:displayName>
+				<ipxact:baseAddress>1024</ipxact:baseAddress>
+				<ipxact:range>256</ipxact:range>
+				<ipxact:width>32</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:access>read-write</ipxact:access>
+				<ipxact:register>
+					<ipxact:name>qt1</ipxact:name>
+					<ipxact:dim>64</ipxact:dim>
+					<ipxact:addressOffset>0</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:field>
+						<ipxact:name>qfactor</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:bitWidth>uuid_0d508ab6_a8ae_466b_9e80_372e47918d6a</ipxact:bitWidth>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>qtable_2</ipxact:name>
+				<ipxact:isPresent>uuid_b2f99394_dbf1_432b_8075_451eb8e170da &gt; 1</ipxact:isPresent>
+				<ipxact:baseAddress>1280</ipxact:baseAddress>
+				<ipxact:range>256</ipxact:range>
+				<ipxact:width>32</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:access>read-write</ipxact:access>
+				<ipxact:register>
+					<ipxact:name>qt2</ipxact:name>
+					<ipxact:dim>64</ipxact:dim>
+					<ipxact:addressOffset>0</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:field>
+						<ipxact:name>qfactor</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:bitWidth>uuid_0d508ab6_a8ae_466b_9e80_372e47918d6a</ipxact:bitWidth>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>qtable_3</ipxact:name>
+				<ipxact:isPresent>uuid_b2f99394_dbf1_432b_8075_451eb8e170da &gt; 2</ipxact:isPresent>
+				<ipxact:baseAddress>1536</ipxact:baseAddress>
+				<ipxact:range>256</ipxact:range>
+				<ipxact:width>32</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:register>
+					<ipxact:name>qt3</ipxact:name>
+					<ipxact:dim>64</ipxact:dim>
+					<ipxact:addressOffset>0</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:field>
+						<ipxact:name>qfactor</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:bitWidth>uuid_0d508ab6_a8ae_466b_9e80_372e47918d6a</ipxact:bitWidth>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>qtable_4</ipxact:name>
+				<ipxact:isPresent>uuid_b2f99394_dbf1_432b_8075_451eb8e170da &gt; 3</ipxact:isPresent>
+				<ipxact:baseAddress>1792</ipxact:baseAddress>
+				<ipxact:range>256</ipxact:range>
+				<ipxact:width>32</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:register>
+					<ipxact:name>qt4</ipxact:name>
+					<ipxact:dim>64</ipxact:dim>
+					<ipxact:addressOffset>0</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:field>
+						<ipxact:name>qfactor</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:bitWidth>uuid_0d508ab6_a8ae_466b_9e80_372e47918d6a</ipxact:bitWidth>
+						<ipxact:access>read-write</ipxact:access>
+					</ipxact:field>
+				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
+		</ipxact:memoryMap>
+	</ipxact:memoryMaps>
+	<ipxact:model>
+		<ipxact:views>
+			<ipxact:view>
+				<ipxact:name>flat_verilog</ipxact:name>
+				<ipxact:envIdentifier>Verilog:kactus2.cs.tut.fi:</ipxact:envIdentifier>
+				<ipxact:componentInstantiationRef>verilog_implementation</ipxact:componentInstantiationRef>
+			</ipxact:view>
+		</ipxact:views>
+		<ipxact:instantiations>
+			<ipxact:componentInstantiation>
+				<ipxact:name>verilog_implementation</ipxact:name>
+				<ipxact:language>Verilog</ipxact:language>
+				<ipxact:moduleName>jpegdec_wrapper</ipxact:moduleName>
+				<ipxact:moduleParameters>
+					<ipxact:moduleParameter parameterId="uuid_1556aec2_8f41_4f89_9cf3_23ed51e473b7" usageType="nontyped">
+						<ipxact:name>IBUS_LEN</ipxact:name>
+						<ipxact:description>Number of 8-bit bytes presented on the input in one cycle (4 or 8).</ipxact:description>
+						<ipxact:value>uuid_b4661648_e49e_47a8_8a0b_6c040c30437f</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_a97953b6_e67b_49bb_a102_1ff50072bbef" usageType="nontyped">
+						<ipxact:name>IBUF_NUM</ipxact:name>
+						<ipxact:description>Input buffer size in words (IBUS_LEN bytes). Must be the exponent of 2 and at least 2.</ipxact:description>
+						<ipxact:value>uuid_669f81dc_b6f2_4c6e_9545_a823ed32ecb3</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_6fd57410_d9ec_472b_ae1b_8823b24e39a5" usageType="nontyped">
+						<ipxact:name>PPE</ipxact:name>
+						<ipxact:description>Number of pipelines implemented (1-8).</ipxact:description>
+						<ipxact:value>uuid_0ce0051c_4d7f_4ef7_84df_7ca5667833e5</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_8fd1bf25_b2c7_495d_980d_7646259fff53" usageType="nontyped">
+						<ipxact:name>RI_MAX</ipxact:name>
+						<ipxact:description>Largest restart interval optimally supported. Pipe buffer (before Huffman decoder) size in 4-byte units. Must be the exponent of 2 and at least 2.</ipxact:description>
+						<ipxact:value>uuid_8a1fd705_d17f_4393_96d8_74efe55eb479</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_dc326657_e0cb_441b_9d27_a2d46ba73254" usageType="nontyped">
+						<ipxact:name>PBUF_NUM</ipxact:name>
+						<ipxact:description>Pipe buffer (after Huffman decoder) size in number of Huffman symbols. Must be the exponent of 2 and at least 2.</ipxact:description>
+						<ipxact:value>uuid_6757c21d_4123_4371_8ec6_a01c3b90ec71</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_e011723f_fe66_4a43_9eb2_b2ab10a5a3f8" usageType="nontyped">
+						<ipxact:name>QUA_WIDTH</ipxact:name>
+						<ipxact:description>Width of quantisation coefficient ram (8-16).</ipxact:description>
+						<ipxact:value>uuid_0d508ab6_a8ae_466b_9e80_372e47918d6a</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_39b71f5f_fc86_473e_a657_2a1da8a9897a" usageType="nontyped">
+						<ipxact:name>QUA_NUM</ipxact:name>
+						<ipxact:description>Number of quantisation tables implemented (1-4).</ipxact:description>
+						<ipxact:value>uuid_b2f99394_dbf1_432b_8075_451eb8e170da</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_64e874c8_0a9f_4f5c_8cd0_be2e83323f88" usageType="nontyped">
+						<ipxact:name>HUF_NUM</ipxact:name>
+						<ipxact:description>Number of huffman tables implemented (1-4).</ipxact:description>
+						<ipxact:value>uuid_5cdc7d4e_4e00_4407_8636_330f2d3a99a3</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_e862c5e1_fab6_44f5_9b33_73ac002ae291" usageType="nontyped">
+						<ipxact:name>DAT_O_W</ipxact:name>
+						<ipxact:description>Number of bits in each output sample (8-12).</ipxact:description>
+						<ipxact:value>uuid_745e125a_dd4d_4eae_98ae_22c350d14c3d</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_4d8e3f08_d654_424e_8ecb_c9f1aa42b7c3" usageType="nontyped">
+						<ipxact:name>DAT_O_TYPE</ipxact:name>
+						<ipxact:description>Output sample type. 0 - unsigned output, 1 - signed output.</ipxact:description>
+						<ipxact:value>uuid_1aa2ea4c_606f_4420_8a45_4a85fe732790</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_593f6106_9d26_436b_a8d7_73309119473e" usageType="nontyped">
+						<ipxact:name>APB_ENABLE</ipxact:name>
+						<ipxact:description>Enable APB programming interface (1-enable, 0-disable).</ipxact:description>
+						<ipxact:value>uuid_fc338133_82e7_4a84_acec_22f2f2275dcc</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_5563595b_0ea8_4aae_83a7_8c6ced660a8d" usageType="nontyped">
+						<ipxact:name>HUF_TP_RAM</ipxact:name>
+						<ipxact:description>Use two port RAM for Huffman table</ipxact:description>
+						<ipxact:value>uuid_3a12f0f1_1b2e_4e92_99b0_4470f038b667</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_9d74fe1e_9571_4593_8034_a1994d091c1a" usageType="nontyped">
+						<ipxact:name>ACC_TP_RAM</ipxact:name>
+						<ipxact:description>Use two port RAM for Acceleration table</ipxact:description>
+						<ipxact:value>uuid_f5fdf20d_6c9c_40d7_888f_0a0be3dcaed2</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_5d7d19bb_aa7d_4dc6_a977_548edbe5378b" usageType="nontyped">
+						<ipxact:name>RAM_DEC</ipxact:name>
+						<ipxact:description>Huffman decoder type: 0 - Decode only standard tables, 1 - Use external ram, 2 - Use external ram and acceleration table</ipxact:description>
+						<ipxact:value>uuid_52aa89fe_f9de_4936_8594_6d2a8989b00f</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_4e8b97d0_1311_4a8b_bc73_ea2790e2b2b6" usageType="nontyped">
+						<ipxact:name>ACC_W</ipxact:name>
+						<ipxact:description>Huffman decoder first level symbol width.</ipxact:description>
+						<ipxact:value>uuid_f52c9b50_4b3e_4c1a_8f6d_77da334c595f</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_5ce4d191_9802_4772_b0d1_24c69f809e07" usageType="nontyped">
+						<ipxact:name>SHIFT_W</ipxact:name>
+						<ipxact:description>Huffman decoder input data width (1-5). 2^SHIFT_W bits / cycle.</ipxact:description>
+						<ipxact:value>uuid_69000c9c_32a7_4725_92c3_9426fca4d63a</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_5fde10cb_d2a8_4502_bc04_005307071277" usageType="nontyped">
+						<ipxact:name>IBUF_DAT_W</ipxact:name>
+						<ipxact:description>Input buffer data width</ipxact:description>
+						<ipxact:value>uuid_5ea2959c_0fe7_4e37_9259_b444dd330a3f</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_b9ee049b_a66e_4118_adfc_633927045924" usageType="nontyped">
+						<ipxact:name>IBUF_ADR_W</ipxact:name>
+						<ipxact:description>Input buffer address width</ipxact:description>
+						<ipxact:value>uuid_accf8a83_8bda_443e_84c5_09d001b83379</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_d72c5d98_1253_4c8a_a67f_cff6588103ac" usageType="nontyped">
+						<ipxact:name>PBUF1_DAT_W</ipxact:name>
+						<ipxact:description>Pipe buffer 1 data width</ipxact:description>
+						<ipxact:value>uuid_2dd8c903_3141_40a6_894a_e19076363fe9</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_293bb2c9_9935_45be_9021_3fb23bbb8b03" usageType="nontyped">
+						<ipxact:name>PBUF1_ADR_W</ipxact:name>
+						<ipxact:description>Pipe buffer 1 address width</ipxact:description>
+						<ipxact:value>uuid_29a3ee3c_ddad_41b6_af19_881c842f07f4</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_051176c3_51fc_4ffb_8f0e_d9d3e1bcffcb" usageType="nontyped">
+						<ipxact:name>PBUF2_DAT_W</ipxact:name>
+						<ipxact:description>Pipe buffer 2 data width</ipxact:description>
+						<ipxact:value>uuid_4b0bb0b7_59ca_403b_90cd_431ec280b8a7</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_aebd2c20_21e6_4ea4_8501_75b77d49cb6a" usageType="nontyped">
+						<ipxact:name>PBUF2_ADR_W</ipxact:name>
+						<ipxact:description>Pipe buffer 2 address width</ipxact:description>
+						<ipxact:value>uuid_c5eae5bc_5ee1_4bd9_8be4_4179b3634476</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_204d296e_17db_46cc_b4d9_7346eb1b8198" usageType="nontyped">
+						<ipxact:name>QUA_ADR_W</ipxact:name>
+						<ipxact:description>Quantisation tables address width</ipxact:description>
+						<ipxact:value>uuid_becea123_0c44_4cf3_a0be_8429fede325e</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_3c9fb029_40c7_4ac8_b515_0df58c468ef6" usageType="nontyped">
+						<ipxact:name>QUA_DAT_W</ipxact:name>
+						<ipxact:description>Quantisation tables data width</ipxact:description>
+						<ipxact:value>uuid_21f2c50f_154b_40dd_82de_c1484054f3ad</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_d514ebb6_4e84_4f6b_bac6_abb83c2ff86a" usageType="nontyped">
+						<ipxact:name>HUF_RAM_D</ipxact:name>
+						<ipxact:description>Huffman tables depth</ipxact:description>
+						<ipxact:value>uuid_b814770c_7812_4026_9a9f_53633c2a51cd</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_39bfd366_f335_4404_89a8_8efe193cefc3" usageType="nontyped">
+						<ipxact:name>HUF_ADR_W</ipxact:name>
+						<ipxact:description>Huffman tables address width</ipxact:description>
+						<ipxact:value>uuid_c0852344_0598_4c18_8f77_993037dd982c</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_f616b80c_e1ed_43c3_b108_ddf80eb3142b" usageType="nontyped">
+						<ipxact:name>HUF_DAT_W</ipxact:name>
+						<ipxact:description>Huffman tables data width</ipxact:description>
+						<ipxact:value>uuid_580db802_876c_4dea_9a70_d7a18d4a58fd</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_4b2e2cb1_cb1c_4680_91bf_5a7f725522de" usageType="nontyped">
+						<ipxact:name>ACC_ADR_W</ipxact:name>
+						<ipxact:description>Acceleration table address width</ipxact:description>
+						<ipxact:value>uuid_71fa9bc2_39aa_4973_814b_7649a5840318</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_9668c9a3_6e90_44d0_ade5_4c553001f48f" usageType="nontyped">
+						<ipxact:name>ACC_DAT_W</ipxact:name>
+						<ipxact:description>Acceleration table data width</ipxact:description>
+						<ipxact:value>uuid_5d047fd0_76b4_4644_a424_a49cb4e1f57c</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_3b478676_242a_4a16_9ea6_4a0f48a86c22" usageType="nontyped">
+						<ipxact:name>IDCT_ADR_W</ipxact:name>
+						<ipxact:description>Address width of iDCT rams</ipxact:description>
+						<ipxact:value>uuid_fa87ee5b_00c3_4d40_9fdb_09d2c5fadda8</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_6b60afd1_f2fc_458f_8abd_7881c17f7d76" usageType="nontyped">
+						<ipxact:name>IDCT_DAT_W</ipxact:name>
+						<ipxact:description>Data width of iDCT rams</ipxact:description>
+						<ipxact:value>uuid_038bc7b1_fe9e_4543_8d29_2dd846a92da8</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_3bb48e4b_3554_47ce_9b1f_cd8a5a41d33b" usageType="nontyped">
+						<ipxact:name>SI_TDATA_W</ipxact:name>
+						<ipxact:description>Stream input interface data width</ipxact:description>
+						<ipxact:value>uuid_cf32ab08_2b95_47ca_92b9_7aa3327df7b2</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_ba32abbd_05f6_4dc5_a9f1_eb4a3e18336b" usageType="nontyped">
+						<ipxact:name>FO_TDATA_W</ipxact:name>
+						<ipxact:description>Frame output interface data width {ERR,DNL,CMP_NAMES,Y,X,H_SUB,V_SUB}</ipxact:description>
+						<ipxact:value>uuid_1a30f9d6_ad15_4a33_ae20_e9f26f544977</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_a6e5e16d_eac4_4f57_a7c5_f5d738f3b10f" usageType="nontyped">
+						<ipxact:name>BO_TDATA_W</ipxact:name>
+						<ipxact:description>Block output interface data width</ipxact:description>
+						<ipxact:value>uuid_fe70f860_001e_4b40_a11e_747c978515f5</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_561de578_57b6_496f_b276_2947103cca70" usageType="nontyped">
+						<ipxact:name>BO_TUSER_W</ipxact:name>
+						<ipxact:description>Block output interface user information width {UNUSED_PIPE,COMPONENT,ERR,RI,CMP_INTLV,SOF,EOS,SOS,EOB,SOB}</ipxact:description>
+						<ipxact:value>uuid_601d8768_6c47_4bd9_b026_85ac16daab02</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_9a5634b5_10a8_4047_91ba_84a19ef3c8e7" usageType="nontyped">
+						<ipxact:name>NO_TDATA_W</ipxact:name>
+						<ipxact:description>Non-decode interface data width</ipxact:description>
+						<ipxact:value>uuid_5b2fd3db_205b_41ac_ae53_368cdeb415ac</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_c1b474db_e2fd_4160_8edc_e9f54c47dbb5" usageType="nontyped">
+						<ipxact:name>NO_TKEEP_W</ipxact:name>
+						<ipxact:description>Non-decode interface keep width</ipxact:description>
+						<ipxact:value>uuid_97c217f1_d759_435a_a7ee_40ccfaf4afe8</ipxact:value>
+					</ipxact:moduleParameter>
+				</ipxact:moduleParameters>
+			</ipxact:componentInstantiation>
+		</ipxact:instantiations>
+		<ipxact:ports>
+			<ipxact:port>
+				<ipxact:name>clk_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>rst_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>cfg_psel</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>cfg_pwrite</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>cfg_paddr</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>32-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>cfg_pwdata</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>32-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>cfg_penable</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>cfg_pready</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>cfg_prdata</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>32-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>si_tvalid</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>si_tready</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>si_tdata</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_cf32ab08_2b95_47ca_92b9_7aa3327df7b2-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>fo_tvalid</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>fo_tready</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>fo_tdata</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_1a30f9d6_ad15_4a33_ae20_e9f26f544977-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>bo_tvalid</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_0ce0051c_4d7f_4ef7_84df_7ca5667833e5-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>bo_tready</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_0ce0051c_4d7f_4ef7_84df_7ca5667833e5-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>bo_tdata</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_0ce0051c_4d7f_4ef7_84df_7ca5667833e5*uuid_fe70f860_001e_4b40_a11e_747c978515f5-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>bo_tuser</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_0ce0051c_4d7f_4ef7_84df_7ca5667833e5*uuid_601d8768_6c47_4bd9_b026_85ac16daab02-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>no_tvalid</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>no_tready</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>no_tdata</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_5b2fd3db_205b_41ac_ae53_368cdeb415ac-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>no_tkeep</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_97c217f1_d759_435a_a7ee_40ccfaf4afe8-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>no_tuser</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>no_tlast</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+		</ipxact:ports>
+	</ipxact:model>
+	<ipxact:resetTypes>
+		<ipxact:resetType>
+			<ipxact:name>RESET</ipxact:name>
+			<ipxact:displayName>RESET</ipxact:displayName>
+			<ipxact:description>Asynchronous reset</ipxact:description>
+		</ipxact:resetType>
+	</ipxact:resetTypes>
+	<ipxact:description>STATUS: WORK IN PROGRESS
+
+The JPEG Decoder core is a decoder core which takes as input any standards compliant JPEG stream and outputs raw image samples on its AXI-ST interface.
+
+Features:
+  Baseline JPEG (ISO/IEC 10918-1) Decoder
+  - Single-frame jpeg images and Motion JPEG payload
+  - Programmable Huffman Tables and Quantisation tables
+  - Up to four colour components, and any image size up to 64k x 64k
+  - All scan configurations and all JPEG formats
+  - APP, COM, DNL and restart markers
+  Interfaces
+  - AXI Streaming I/O data interfaces
+  - APB Control/Status interface
+  Versions and Performance
+  - One sample per cycle, area optimised
+  - Eight samples per cycle performance optimized, able to process 4k/UHD even in low cost FPGAs
+  Ease of Integration
+  - No user programming required 
+  - Bit accurate software model, generates test vectors, expected results</ipxact:description>
+	<ipxact:parameters>
+		<ipxact:parameter kactus2:usageCount="6" parameterId="uuid_b4661648_e49e_47a8_8a0b_6c040c30437f" type="int">
+			<ipxact:name>IBUS_LEN</ipxact:name>
+			<ipxact:description>Number of 8-bit bytes presented on the input in one cycle (4 or 8).</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_669f81dc_b6f2_4c6e_9545_a823ed32ecb3" type="int">
+			<ipxact:name>IBUF_NUM</ipxact:name>
+			<ipxact:description>Input buffer size in words (IBUS_LEN bytes). Must be the exponent of 2 and at least 2.</ipxact:description>
+			<ipxact:value>256</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="6" parameterId="uuid_0ce0051c_4d7f_4ef7_84df_7ca5667833e5" type="int">
+			<ipxact:name>PPE</ipxact:name>
+			<ipxact:description>Number of pipelines implemented (1-8).</ipxact:description>
+			<ipxact:value>1</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_8a1fd705_d17f_4393_96d8_74efe55eb479" type="int">
+			<ipxact:name>RI_MAX</ipxact:name>
+			<ipxact:description>Largest restart interval optimally supported. Pipe buffer (before Huffman decoder) size in 4-byte units. Must be the exponent of 2 and at least 2.</ipxact:description>
+			<ipxact:value>256</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_6757c21d_4123_4371_8ec6_a01c3b90ec71" type="int">
+			<ipxact:name>PBUF_NUM</ipxact:name>
+			<ipxact:description>Pipe buffer (after Huffman decoder) size in number of Huffman symbols. Must be the exponent of 2 and at least 2.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="7" maximum="16" minimum="8" parameterId="uuid_0d508ab6_a8ae_466b_9e80_372e47918d6a" type="int">
+			<ipxact:name>QUA_WIDTH</ipxact:name>
+			<ipxact:description>Width of quantisation coefficient ram (8-16).</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="6" parameterId="uuid_b2f99394_dbf1_432b_8075_451eb8e170da" type="int">
+			<ipxact:name>QUA_NUM</ipxact:name>
+			<ipxact:description>Number of quantisation tables implemented (1-4).</ipxact:description>
+			<ipxact:value>2</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="4" parameterId="uuid_5cdc7d4e_4e00_4407_8636_330f2d3a99a3" type="int">
+			<ipxact:name>HUF_NUM</ipxact:name>
+			<ipxact:description>Number of huffman tables implemented (1-4).</ipxact:description>
+			<ipxact:value>2</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="4" parameterId="uuid_745e125a_dd4d_4eae_98ae_22c350d14c3d" type="int">
+			<ipxact:name>DAT_O_W</ipxact:name>
+			<ipxact:description>Number of bits in each output sample (8-12).</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_1aa2ea4c_606f_4420_8a45_4a85fe732790" type="int">
+			<ipxact:name>DAT_O_TYPE</ipxact:name>
+			<ipxact:description>Output sample type. 0 - unsigned output, 1 - signed output.</ipxact:description>
+			<ipxact:value>1</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_fc338133_82e7_4a84_acec_22f2f2275dcc" type="int">
+			<ipxact:name>APB_ENABLE</ipxact:name>
+			<ipxact:description>Enable APB programming interface (1-enable, 0-disable).</ipxact:description>
+			<ipxact:value>1</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_3a12f0f1_1b2e_4e92_99b0_4470f038b667" type="int">
+			<ipxact:name>HUF_TP_RAM</ipxact:name>
+			<ipxact:description>Use two port RAM for Huffman table</ipxact:description>
+			<ipxact:value>0</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_f5fdf20d_6c9c_40d7_888f_0a0be3dcaed2" type="int">
+			<ipxact:name>ACC_TP_RAM</ipxact:name>
+			<ipxact:description>Use two port RAM for Acceleration table</ipxact:description>
+			<ipxact:value>0</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_52aa89fe_f9de_4936_8594_6d2a8989b00f" type="int">
+			<ipxact:name>RAM_DEC</ipxact:name>
+			<ipxact:description>Huffman decoder type: 0 - Decode only standard tables, 1 - Use external ram, 2 - Use external ram and acceleration table</ipxact:description>
+			<ipxact:value>2</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_f52c9b50_4b3e_4c1a_8f6d_77da334c595f" type="int">
+			<ipxact:name>ACC_W</ipxact:name>
+			<ipxact:description>Huffman decoder first level symbol width.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_69000c9c_32a7_4725_92c3_9426fca4d63a" type="int">
+			<ipxact:name>SHIFT_W</ipxact:name>
+			<ipxact:description>Huffman decoder input data width (1-5). 2^SHIFT_W bits / cycle.</ipxact:description>
+			<ipxact:value>4</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_5ea2959c_0fe7_4e37_9259_b444dd330a3f" type="int">
+			<ipxact:name>IBUF_DAT_W</ipxact:name>
+			<ipxact:description>Input buffer data width</ipxact:description>
+			<ipxact:value>uuid_b4661648_e49e_47a8_8a0b_6c040c30437f*8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_accf8a83_8bda_443e_84c5_09d001b83379" type="int">
+			<ipxact:name>IBUF_ADR_W</ipxact:name>
+			<ipxact:description>Input buffer address width</ipxact:description>
+			<ipxact:value>$clog2(uuid_669f81dc_b6f2_4c6e_9545_a823ed32ecb3)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_2dd8c903_3141_40a6_894a_e19076363fe9" type="int">
+			<ipxact:name>PBUF1_DAT_W</ipxact:name>
+			<ipxact:description>Pipe buffer 1 data width</ipxact:description>
+			<ipxact:value>36</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_29a3ee3c_ddad_41b6_af19_881c842f07f4" type="int">
+			<ipxact:name>PBUF1_ADR_W</ipxact:name>
+			<ipxact:description>Pipe buffer 1 address width</ipxact:description>
+			<ipxact:value>$clog2(uuid_8a1fd705_d17f_4393_96d8_74efe55eb479)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_4b0bb0b7_59ca_403b_90cd_431ec280b8a7" type="int">
+			<ipxact:name>PBUF2_DAT_W</ipxact:name>
+			<ipxact:description>Pipe buffer 2 data width</ipxact:description>
+			<ipxact:value>31</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_c5eae5bc_5ee1_4bd9_8be4_4179b3634476" type="int">
+			<ipxact:name>PBUF2_ADR_W</ipxact:name>
+			<ipxact:description>Pipe buffer 2 address width</ipxact:description>
+			<ipxact:value>$clog2(uuid_6757c21d_4123_4371_8ec6_a01c3b90ec71)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_becea123_0c44_4cf3_a0be_8429fede325e" type="int">
+			<ipxact:name>QUA_ADR_W</ipxact:name>
+			<ipxact:description>Quantisation tables address width</ipxact:description>
+			<ipxact:value>6+$clog2(uuid_b2f99394_dbf1_432b_8075_451eb8e170da)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_21f2c50f_154b_40dd_82de_c1484054f3ad" type="int">
+			<ipxact:name>QUA_DAT_W</ipxact:name>
+			<ipxact:description>Quantisation tables data width</ipxact:description>
+			<ipxact:value>uuid_0d508ab6_a8ae_466b_9e80_372e47918d6a</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_b814770c_7812_4026_9a9f_53633c2a51cd" type="int">
+			<ipxact:name>HUF_RAM_D</ipxact:name>
+			<ipxact:description>Huffman tables depth</ipxact:description>
+			<ipxact:value>uuid_5cdc7d4e_4e00_4407_8636_330f2d3a99a3*272</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_c0852344_0598_4c18_8f77_993037dd982c" type="int">
+			<ipxact:name>HUF_ADR_W</ipxact:name>
+			<ipxact:description>Huffman tables address width</ipxact:description>
+			<ipxact:value>$clog2(uuid_b814770c_7812_4026_9a9f_53633c2a51cd)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_580db802_876c_4dea_9a70_d7a18d4a58fd" type="int">
+			<ipxact:name>HUF_DAT_W</ipxact:name>
+			<ipxact:description>Huffman tables data width</ipxact:description>
+			<ipxact:value>9</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_71fa9bc2_39aa_4973_814b_7649a5840318" type="int">
+			<ipxact:name>ACC_ADR_W</ipxact:name>
+			<ipxact:description>Acceleration table address width</ipxact:description>
+			<ipxact:value>$clog2(uuid_5cdc7d4e_4e00_4407_8636_330f2d3a99a3)+uuid_f52c9b50_4b3e_4c1a_8f6d_77da334c595f+1</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_5d047fd0_76b4_4644_a424_a49cb4e1f57c" type="int">
+			<ipxact:name>ACC_DAT_W</ipxact:name>
+			<ipxact:description>Acceleration table data width</ipxact:description>
+			<ipxact:value>14</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_fa87ee5b_00c3_4d40_9fdb_09d2c5fadda8" type="int">
+			<ipxact:name>IDCT_ADR_W</ipxact:name>
+			<ipxact:description>Address width of iDCT rams</ipxact:description>
+			<ipxact:value>6</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_038bc7b1_fe9e_4543_8d29_2dd846a92da8" type="int">
+			<ipxact:name>IDCT_DAT_W</ipxact:name>
+			<ipxact:description>Data width of iDCT rams</ipxact:description>
+			<ipxact:value>uuid_745e125a_dd4d_4eae_98ae_22c350d14c3d+3+5</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_cf32ab08_2b95_47ca_92b9_7aa3327df7b2" type="int">
+			<ipxact:name>SI_TDATA_W</ipxact:name>
+			<ipxact:description>Stream input interface data width</ipxact:description>
+			<ipxact:value>uuid_b4661648_e49e_47a8_8a0b_6c040c30437f*8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_1a30f9d6_ad15_4a33_ae20_e9f26f544977" type="int">
+			<ipxact:name>FO_TDATA_W</ipxact:name>
+			<ipxact:description>Frame output interface data width {ERR,DNL,CMP_NAMES,Y,X,H_SUB,V_SUB}</ipxact:description>
+			<ipxact:value>82</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_fe70f860_001e_4b40_a11e_747c978515f5" type="int">
+			<ipxact:name>BO_TDATA_W</ipxact:name>
+			<ipxact:description>Block output interface data width</ipxact:description>
+			<ipxact:value>uuid_745e125a_dd4d_4eae_98ae_22c350d14c3d</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_601d8768_6c47_4bd9_b026_85ac16daab02" type="int">
+			<ipxact:name>BO_TUSER_W</ipxact:name>
+			<ipxact:description>Block output interface user information width {UNUSED_PIPE,COMPONENT,ERR,RI,CMP_INTLV,SOF,EOS,SOS,EOB,SOB}</ipxact:description>
+			<ipxact:value>29</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_5b2fd3db_205b_41ac_ae53_368cdeb415ac" type="int">
+			<ipxact:name>NO_TDATA_W</ipxact:name>
+			<ipxact:description>Non-decode interface data width</ipxact:description>
+			<ipxact:value>uuid_b4661648_e49e_47a8_8a0b_6c040c30437f*8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_97c217f1_d759_435a_a7ee_40ccfaf4afe8" type="int">
+			<ipxact:name>NO_TKEEP_W</ipxact:name>
+			<ipxact:description>Non-decode interface keep width</ipxact:description>
+			<ipxact:value>uuid_b4661648_e49e_47a8_8a0b_6c040c30437f</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
+	<ipxact:vendorExtensions>
+		<kactus2:author>CAST</kactus2:author>
+		<kactus2:version>3,10,0,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_productHier>Flat</kactus2:kts_productHier>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+			<kactus2:kts_firmness>Mutable</kactus2:kts_firmness>
+		</kactus2:kts_attributes>
+		<kactus2:tags>
+			<kactus2:tag>
+				<kactus2:name>Compression</kactus2:name>
+				<kactus2:color>#dae1df</kactus2:color>
+			</kactus2:tag>
+			<kactus2:tag>
+				<kactus2:name>JPEG</kactus2:name>
+				<kactus2:color>#dae1df</kactus2:color>
+			</kactus2:tag>
+		</kactus2:tags>
+	</ipxact:vendorExtensions>
+</ipxact:component>

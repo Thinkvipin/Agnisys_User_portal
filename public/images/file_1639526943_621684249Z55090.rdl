@@ -1,0 +1,35 @@
+
+property bus_domain {
+    type=string;
+    component=addrmap|regfile|reg;
+};
+
+property size {
+    type=longint unsigned;
+    component=addrmap|regfile|reg;
+};
+
+property chip { type = boolean; component = addrmap; };
+
+addrmap eightBitMem {
+    // bus_domain = "apb";
+    size = 1024*1024;
+    mem {mementries=1024*1024;memwidth=8;} mem1;
+};
+
+addrmap thirtyTwoBitMem {
+    // bus_domain = "axi";
+    size = 1024*1024*4;
+    mem {mementries=1024*1024;memwidth=32;} mem2;
+};
+
+addrmap chipTop {
+
+    chip = true;
+    size = 0x1_0000_0000;
+    bus_domain="axi, apb"; 
+
+    eightBitMem                     chipMem1        @0x1000_0000;
+    thirtyTwoBitMem                 chipMem2        @0x2000_0000;
+
+};

@@ -1,0 +1,3149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+//=============================================================================
+// The confidential and proprietary information contained in this file may
+// only be used by a person authorised under and to the extent permitted
+// by a subsisting licensing agreement from ARM Limited or its affiliates.
+//
+// (C) COPYRIGHT 2016 ARM Limited or its affiliates.
+// ALL RIGHTS RESERVED
+//
+// This entire notice must be reproduced on all copies of this file
+// and copies of this file may only be made by a person if such person is
+// permitted to do so under the terms of a subsisting license agreement
+// from ARM Limited or its affiliates.
+//=============================================================================
+-->
+<spirit:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009"
+xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009/index.xsd">
+  <spirit:vendor>arm.com</spirit:vendor>
+  <spirit:library>PrimeCell</spirit:library>
+  <spirit:name>Uart</spirit:name>
+  <spirit:version>r1p5_0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>APB_Slave</spirit:name>
+      <spirit:description>APB_Slave
+AMBA3 Advanced Peripheral Bus (APB) Slave Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="amba.com" spirit:library="AMBA3" spirit:name="APB" spirit:version="r2p0_0"/>
+      <spirit:abstractionType spirit:vendor="amba.com" spirit:library="AMBA3" spirit:name="APB_rtl" spirit:version="r2p0_0"/>
+      <spirit:slave>
+        <spirit:memoryMapRef spirit:memoryMapRef="APB_Slave_MM"/>
+      </spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PSELx</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PSEL</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PCLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PRESETn</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PRESETn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PADDR</spirit:name>
+            <spirit:vector>
+              <spirit:left>11</spirit:left>
+              <spirit:right>2</spirit:right>
+            </spirit:vector>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PADDR</spirit:name>
+            <spirit:vector>
+              <spirit:left>11</spirit:left>
+              <spirit:right>2</spirit:right>
+            </spirit:vector>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PENABLE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PENABLE</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PWRITE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PWRITE</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PRDATA</spirit:name>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PRDATA</spirit:name>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PWDATA</spirit:name>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PWDATA</spirit:name>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>RESET_Slave</spirit:name>
+      <spirit:description>RESET_Slave
+ARM RESET Slave Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="RESET" spirit:version="r0p0_0"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="RESET_rtl" spirit:version="r0p0_0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RESETn</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>nUARTRST</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>Interrupt0_Master</spirit:name>
+      <spirit:description>Interrupt0_Master
+ARM Interrupt Master Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt" spirit:version="r0p0_0"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt_rtl" spirit:version="r0p0_0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>IRQ</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTMSINTR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>Interrupt1_Master</spirit:name>
+      <spirit:description>Interrupt1_Master
+ARM Interrupt Master Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt" spirit:version="r0p0_0"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt_rtl" spirit:version="r0p0_0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>IRQ</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTRXINTR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>Interrupt2_Master</spirit:name>
+      <spirit:description>Interrupt2_Master
+ARM Interrupt Master Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt" spirit:version="r0p0_0"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt_rtl" spirit:version="r0p0_0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>IRQ</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTTXINTR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>Interrupt3_Master</spirit:name>
+      <spirit:description>Interrupt3_Master
+ARM Interrupt Master Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt" spirit:version="r0p0_0"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt_rtl" spirit:version="r0p0_0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>IRQ</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTEINTR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>Interrupt4_Master</spirit:name>
+      <spirit:description>Interrupt4_Master
+ARM Interrupt Master Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt" spirit:version="r0p0_0"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt_rtl" spirit:version="r0p0_0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>IRQ</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTINTR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>Interrupt5_Master</spirit:name>
+      <spirit:description>Interrupt5_Master
+ARM Interrupt Master Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt" spirit:version="r0p0_0"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="interrupt_rtl" spirit:version="r0p0_0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>IRQ</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTRTINTR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>DFTInterface0_Slave</spirit:name>
+      <spirit:description>DFTInterface0_Slave
+ARM Design For Test Slave Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="DFTInterface" spirit:version="r0p0_1"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="DFTInterface_rtl" spirit:version="r0p0_1"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DFTSI</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>SCANINPCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DFTSO</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>SCANOUTPCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DFTSE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>SCANENABLE</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RESETn</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>PRESETn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>DFTInterface1_Slave</spirit:name>
+      <spirit:description>DFTInterface1_Slave
+ARM Design For Test Slave Interface to the PL011 UART Peripheral.</spirit:description>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="generic" spirit:name="DFTInterface" spirit:version="r0p0_1"/>
+      <spirit:abstractionType spirit:vendor="arm.com" spirit:library="generic" spirit:name="DFTInterface_rtl" spirit:version="r0p0_1"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DFTSI</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>SCANINUCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DFTSO</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>SCANOUTUCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DFTSE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>SCANENABLE</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>UARTCLK</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RESETn</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>nUARTRST</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:memoryMaps>
+    <spirit:memoryMap>
+      <spirit:name>APB_Slave_MM</spirit:name>
+      <spirit:addressBlock>
+        <spirit:name>Uart_address_block</spirit:name>
+        <spirit:baseAddress>0</spirit:baseAddress>
+        <spirit:range>4K</spirit:range>
+        <spirit:width>32</spirit:width>
+        <spirit:usage>register</spirit:usage>
+        <spirit:register>
+          <spirit:name>UARTDR</spirit:name>
+          <spirit:displayName>UART data register</spirit:displayName>
+          <spirit:description>Data Register</spirit:description>
+          <spirit:addressOffset>0x000</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0xffff</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>DATA</spirit:name>
+            <spirit:description>Receive(read)/Transmit(write) data character</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>FE</spirit:name>
+            <spirit:description>Framing Error. When set to 1, it indicates that the received character did not have a valid stop bit</spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>INVALID_STOP_BIT_1</spirit:name>
+                <spirit:description>Framing Error. When set to 1, it indicates that the received character did not have a valid stop bit</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>INVALID_STOP_BIT_0</spirit:name>
+                <spirit:description>Framing Error. When set to 1, it indicates that the received character did not have a valid stop bit</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>PE</spirit:name>
+            <spirit:description>Parity Error. When set to 1, it indicates that the parity of the received character does not match the parity that the EPS and SPS bits in the Line Control Register</spirit:description>
+            <spirit:bitOffset>9</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>INVALID_PARITY_BIT_1</spirit:name>
+                <spirit:description>Parity Error. When set to 1, it indicates that the parity of the received character does not match the parity that the EPS and SPS bits in the Line Control Register</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>INVALID_PARITY_BIT_0</spirit:name>
+                <spirit:description>Parity Error. When set to 1, it indicates that the parity of the received character does not match the parity that the EPS and SPS bits in the Line Control Register</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>BE</spirit:name>
+            <spirit:description>Break Error. This bit is set to 1 if a break condition was detected, indicating that the received data inout was held LOW for longer than a full-word transmission time( defined as start, data, parity and stop bits).</spirit:description>
+            <spirit:bitOffset>10</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>BREAK_ERROR_1</spirit:name>
+                <spirit:description>Break Error. This bit is set to 1 if a break condition was detected, indicating that the received data inout was held LOW for longer than a full-word transmission time( defined as start, data, parity and stop bits).</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>BREAK_ERROR_0</spirit:name>
+                <spirit:description>Break Error. This bit is set to 1 if a break condition was detected, indicating that the received data inout was held LOW for longer than a full-word transmission time( defined as start, data, parity and stop bits).</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>OE</spirit:name>
+            <spirit:description>Overrun error.This bit is set to 1 if data is received and the receive FIFO is already full.</spirit:description>
+            <spirit:bitOffset>11</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>OVERRUN_ERROR_1</spirit:name>
+                <spirit:description>Overrun error.This bit is set to 1 if data is received and the receive FIFO is already full.</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>OVERRUN_ERROR_0</spirit:name>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved</spirit:description>
+            <spirit:bitOffset>12</spirit:bitOffset>
+            <spirit:bitWidth>4</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTRSR_UARTECR</spirit:name>
+          <spirit:displayName>UART receive status/error clear register</spirit:displayName>
+          <spirit:description>Receive Status/error clear Register </spirit:description>
+          <spirit:addressOffset>0x004</spirit:addressOffset>
+          <spirit:size>8</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>FE</spirit:name>
+            <spirit:description>Framing Error. When set to 1, it indicates that the received character did not have a valid stop bit</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>INVALID_STOP_BIT</spirit:name>
+                <spirit:description>When set to 1, it indicates that the received character did not have a valid stop bit</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_STOP_BIT</spirit:name>
+                <spirit:description>This bit is cleared to 0 by a write to UARTECR.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>PE</spirit:name>
+            <spirit:description>Parity Error. When set to 1, it indicates that the parity of the received character does not match the parity that the EPS and SPS bits in the Line Control Register</spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>INVALID_PARITY_BIT</spirit:name>
+                <spirit:description>When set to 1, it indicates that the parity of the received character does not match the parity that the EPS and SPS bits in the Line Control Register</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_PARITY_BIT</spirit:name>
+                <spirit:description>This bit is cleared to 0 by a write to UARTECR.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>BE</spirit:name>
+            <spirit:description>Break Error. This bit is set to 1 if a break condition was detected, indicating that the received data inout was held LOW for longer than a full-word transmission time( defined as start, data, parity and stop bits).</spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>BREAK_ERROR</spirit:name>
+                <spirit:description>This bit is set to 1 if a break condition was detected, indicating that the received data inout was held LOW for longer than a full-word transmission time( defined as start, data, parity and stop bits).</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_BREAK_ERROR</spirit:name>
+                <spirit:description>This bit is cleared to 0 by a write to UARTECR.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>OE</spirit:name>
+            <spirit:description>Overrun error.This bit is set to 1 if data is received and the receive FIFO is already full.</spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>OVERRUN_ERROR</spirit:name>
+                <spirit:description>This bit is set to 1 if data is received and the receive FIFO is already full.</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_OVERRUN_ERROR</spirit:name>
+                <spirit:description>This bit is cleared to 0 by a write to UARTECR.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, unpredictable when read</spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>4</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Clear_Errors</spirit:name>
+            <spirit:description>A write to this register clears the framing,parity, break and overrun errors.</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTFR</spirit:name>
+          <spirit:displayName>UART Flag register</spirit:displayName>
+          <spirit:description>Flag Register </spirit:description>
+          <spirit:addressOffset>0x018</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0090</spirit:value>
+            <spirit:mask>0x00F8</spirit:mask>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>CTS</spirit:name>
+            <spirit:description>A write to this register clears the framing,parity, break and overrun errors.</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CTS_ENABLE</spirit:name>
+                <spirit:description>Clear to send. This bit is the complement of the UART clear to send, nUARTCTS, modem status input.
+									That is, the bit is 1 when nUARTCTS is LOW.
+                		</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CTS_DISABLE</spirit:name>
+                <spirit:description>Clear to send. This bit is the complement of the UART clear to send, nUARTCTS, modem status input.
+									That is, the bit is 1 when nUARTCTS is LOW.
+						</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DSR</spirit:name>
+            <spirit:description>Data carrier detect. This bit is the complement of the UART data carrier detect, nUARTDCD
+            </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>DSR_1</spirit:name>
+                <spirit:description>Data carrier detect. This bit is the complement of the UART data carrier detect, nUARTDCD, modem
+									status input. That is, the bit is 1 when nUARTDCD is LOW.
+               			</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>DSR_0</spirit:name>
+                <spirit:description>Data carrier detect. This bit is the complement of the UART data carrier detect, nUARTDCD, modem
+							status input. That is, the bit is 1 when nUARTDCD is LOW.
+               			</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DCD</spirit:name>
+            <spirit:description>Data carrier detect. This bit is the complement of the UART data carrier detect
+            </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>DCD_1</spirit:name>
+                <spirit:description>Data carrier detect. This bit is the complement of the UART data carrier detect, nUARTDCD, modem
+									status input. That is, the bit is 1 when nUARTDCD is LOW.
+                		</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>DCD_0</spirit:name>
+                <spirit:description>Data carrier detect. This bit is the complement of the UART data carrier detect, nUARTDCD, modem
+									status input. That is, the bit is 1 when nUARTDCD is LOW.
+						 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>BUSY</spirit:name>
+            <spirit:description>UART busy. If this bit is set to 1, the UART is busy transmitting data. This bit remains set until the
+								complete byte, including all the stop bits, has been sent from the shift register.
+            </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>BUSY_1</spirit:name>
+                <spirit:description>UART busy. If this bit is set to 1, the UART is busy transmitting data. This bit remains set until the
+						complete byte, including all the stop bits, has been sent from the shift register.
+						This bit is set as soon as the transmit FIFO becomes non-empty, regardless of whether the UART is
+						enabled or not.
+                		 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>BUSY_0</spirit:name>
+                <spirit:description>UART busy. If this bit is set to 1, the UART is busy transmitting data. This bit remains set until the
+						complete byte, including all the stop bits, has been sent from the shift register.
+						This bit is set as soon as the transmit FIFO becomes non-empty, regardless of whether the UART is
+						enabled or not.
+                		 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RXFE</spirit:name>
+            <spirit:description>Receive FIFO empty. The meaning of this bit depends on the state of the FEN bit in the UARTLCR_H
+								Register.
+								If the FIFO is disabled, this bit is set when the receive holding register is empty.
+								If the FIFO is enabled, the RXFE bit is set when the receive FIFO is empty.
+           </spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TXFF</spirit:name>
+            <spirit:description>Transmit FIFO full. The meaning of this bit depends on the state of the FEN bit in the UARTLCR_H
+								Register.
+								If the FIFO is disabled, this bit is set when the transmit holding register is full.
+								If the FIFO is enabled, the TXFF bit is set when the transmit FIFO is full.
+           </spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RXFF</spirit:name>
+            <spirit:description>Receive FIFO full. The meaning of this bit depends on the state of the FEN bit in the UARTLCR_H
+								Register.
+								If the FIFO is disabled, this bit is set when the receive holding register is full.
+								If the FIFO is enabled, the RXFF bit is set when the receive FIFO is full.
+           </spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TXFE</spirit:name>
+            <spirit:description>Transmit FIFO empty. The meaning of this bit depends on the state of the FEN bit in the Line Control
+								Register, UARTLCR_H on page 3-12.
+								If the FIFO is disabled, this bit is set when the transmit holding register is empty.
+								If the FIFO is enabled, the TXFE bit is set when the transmit FIFO is empty.
+								This bit does not indicate if there is data in the transmit shift register.
+           </spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RI</spirit:name>
+            <spirit:description>Ring indicator. This bit is the complement of the UART ring indicator
+           </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>RI_1</spirit:name>
+                <spirit:description>Ring indicator. This bit is the complement of the UART ring indicator, nUARTRI, modem status input.
+									That is, the bit is 1 when nUARTRI is LOW.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>RI_0</spirit:name>
+                <spirit:description>Ring indicator. This bit is the complement of the UART ring indicator, nUARTRI, modem status input.
+									That is, the bit is 1 when nUARTRI is LOW.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, do not modify, read as zero.
+           </spirit:description>
+            <spirit:bitOffset>9</spirit:bitOffset>
+            <spirit:bitWidth>7</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTILPR</spirit:name>
+          <spirit:displayName>UART IrDA low-power counter register</spirit:displayName>
+          <spirit:description>IrDA Low-power Counter Register</spirit:description>
+          <spirit:addressOffset>0x020</spirit:addressOffset>
+          <spirit:size>8</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>ILPDVSR</spirit:name>
+            <spirit:description>8-bit low-power divisor value. These bits are cleared to 0 at reset.
+           </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTIBRD</spirit:name>
+          <spirit:displayName>UART Baud Rate register</spirit:displayName>
+          <spirit:description>Integer Baud Rate Register</spirit:description>
+          <spirit:addressOffset>0x024</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>BAUD_DIVINT</spirit:name>
+            <spirit:description>The integer baud rate divisor.
+								These bits are cleared to 0 on reset.
+           </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>16</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTFBRD</spirit:name>
+          <spirit:displayName>UART Fractional baud rate register</spirit:displayName>
+          <spirit:description>Fractional Baud Rate Register</spirit:description>
+          <spirit:addressOffset>0x028</spirit:addressOffset>
+          <spirit:size>6</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x00</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>BAUD_DIVFRAC</spirit:name>
+            <spirit:description>The fractional baud rate divisor.These bits are cleared to 0 on reset.
+           </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>6</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTLCR_H</spirit:name>
+          <spirit:displayName>UART line control register</spirit:displayName>
+          <spirit:description>Line Control Register</spirit:description>
+          <spirit:addressOffset>0x02C</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>BRK</spirit:name>
+            <spirit:description>Send break
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_BREAK</spirit:name>
+                <spirit:description>For normal use, this bit must be cleared to 0.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SEND_BREAK</spirit:name>
+                <spirit:description>1 = the UART is enabled. Data transmission and reception occurs for either UART signals or SIR
+								signals depending on the setting of the SIREN bit
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>PEN</spirit:name>
+            <spirit:description>Parity enable:
+            </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>PARITY_DISABLED</spirit:name>
+                <spirit:description>0 = parity is disabled and no parity bit added to the data frame
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>PARITY_ENABLED</spirit:name>
+                <spirit:description>1 = parity checking and generation is enabled.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>EPS</spirit:name>
+            <spirit:description>Even parity select.
+            </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>ODD_PARITY</spirit:name>
+                <spirit:description>0 = odd parity. The UART generates or checks for an odd number of 1s in the data and parity bits.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>EVEN_PARITY</spirit:name>
+                <spirit:description>1 = even parity. The UART generates or checks for an even number of 1s in the data and parity bits.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>STP2</spirit:name>
+            <spirit:description>Two stop bits select. If this bit is set to 1, two stop bits are transmitted at the end of the frame. The receive
+								logic does not check for two stop bits being received.
+            </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>FEN</spirit:name>
+            <spirit:description>Enable FIFOs:
+            </spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>FIFO_DISABLED</spirit:name>
+                <spirit:description>0 = FIFOs are disabled (character mode) that is, the FIFOs become 1-byte-deep holding registers
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>FIFO_ENABLED</spirit:name>
+                <spirit:description>1 = transmit and receive FIFO buffers are enabled (FIFO mode).
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>WLEN</spirit:name>
+            <spirit:description>Word length. These bits indicate the number of data bits transmitted or received in a frame as follows:
+									b11 = 8 bits
+									b10 = 7 bits
+									b01 = 6 bits
+									b00 = 5 bits.
+
+            </spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>2</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>B11</spirit:name>
+                <spirit:description>Data bits transmitted or received = 8 bits</spirit:description>
+                <spirit:value>3</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>B10</spirit:name>
+                <spirit:description>Data bits transmitted or received = 7 bits</spirit:description>
+                <spirit:value>2</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>B01</spirit:name>
+                <spirit:description>Data bits transmitted or received = 6 bits</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>B00</spirit:name>
+                <spirit:description>Data bits transmitted or received = 5 bits</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>SPS</spirit:name>
+            <spirit:description>Stick parity select.
+            </spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>TXD_PARITY_1</spirit:name>
+                <spirit:description>if the EPS bit is 0 then the parity bit is transmitted and checked as a 1
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>TXD_PARITY_0</spirit:name>
+                <spirit:description>if the EPS bit is 1 then the parity bit is transmitted and checked as a 0.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, do not modify, read as zero.
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTCR</spirit:name>
+          <spirit:displayName>UART control register</spirit:displayName>
+          <spirit:description>Control Register</spirit:description>
+          <spirit:addressOffset>0x030</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0300</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>UARTEN</spirit:name>
+            <spirit:description>UART enable:
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>UART_DISABLE</spirit:name>
+                <spirit:description>0 = UART is disabled. If the UART is disabled in the middle of transmission or reception, it completes the current character before stopping.
+              		   </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>UART_ENABLE</spirit:name>
+                <spirit:description>1 = the UART is enabled. Data transmission and reception occurs for either UART signals or SIR
+								signals depending on the setting of the SIREN bit
+                 		</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>SIREN</spirit:name>
+            <spirit:description>SIR enable:
+           		 </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SIR_DISABLE</spirit:name>
+                <spirit:description>0 = IrDA SIR ENDEC is disabled. nSIROUT remains LOW (no light pulse generated), and signal
+									transitions on SIRIN have no effect.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SIR_ENABLE</spirit:name>
+                <spirit:description>1 = IrDA SIR ENDEC is enabled. Data is transmitted and received on nSIROUT and SIRIN.
+						UARTTXD remains HIGH, in the marking state. Signal transitions on UARTRXD or modem status
+						inputs have no effect.
+                		 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>SIRLP</spirit:name>
+            <spirit:description>SIR low-power IrDA mode. This bit selects the IrDA encoding mode. If this bit is cleared to 0,
+			low-level bits are transmitted as an active high pulse with a width of 3/16th of the bit period. If this bit
+			is set to 1, low-level bits are transmitted with a pulse width that is 3 times the period of the
+			IrLPBaud16 input signal, regardless of the selected bit rate. Setting this bit uses less power, but
+			might reduce transmission distances.
+            </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, do not modify, read as zero
+            	</spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>4</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>LBE</spirit:name>
+            <spirit:description>
+                  	Loopback enable. If this bit is set to 1 and the SIREN bit is set to 1 and the SIRTEST bit in the Test
+				  	Control Register, UARTTCR on page 4-5 is set to 1, then the nSIROUT path is inverted, and fed
+					through to the SIRIN path. The SIRTEST bit in the test register must be set to 1 to override the
+					normal half-duplex SIR operation. This must be the requirement for accessing the test registers
+					during normal operation, and SIRTEST must be cleared to 0 when loopback testing is finished. This
+					feature reduces the amount of external coupling required during system test.
+					If this bit is set to 1, and the SIRTEST bit is set to 0, the UARTTXD path is fed through to the
+					UARTRXD path.
+					In either SIR mode or UART mode, when this bit is set, the modem outputs are also fed through to
+					the modem inputs.
+					This bit is cleared to 0 on reset, to disable loopback.
+            	</spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TXE</spirit:name>
+            <spirit:description>
+                Transmit enable. If this bit is set to 1, the transmit section of the UART is enabled. Data transmission
+				occurs for either UART signals, or SIR signals depending on the setting of the SIREN bit. When the
+				UART is disabled in the middle of transmission, it completes the current character before stopping.
+            	</spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>TX_ENABLE_1</spirit:name>
+                <spirit:description>1 = If this bit is set to 1, the transmit section of the UART is enabled.
+               			  </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>TX_DISABLE</spirit:name>
+                <spirit:description>0 = If this bit is set to 0, the transmit section of the UART is diabled.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RXE</spirit:name>
+            <spirit:description>
+                Receive enable. If this bit is set to 1, the receive section of the UART is enabled. Data reception
+				occurs for either UART signals or SIR signals depending on the setting of the SIREN bit. When the
+				UART is disabled in the middle of reception, it completes the current character before stopping.
+            	</spirit:description>
+            <spirit:bitOffset>9</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>RX_ENABLE_1</spirit:name>
+                <spirit:description>1 = If this bit is set to 1, the Receive section of the UART is enabled.
+               			  </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>RX_DISABLE</spirit:name>
+                <spirit:description>0 = If this bit is set to 0, the Receive section of the UART is disabled.
+               			  </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DTR</spirit:name>
+            <spirit:description>
+              		 Data transmit ready. This bit is the complement of the UART data transmit ready, nUARTDTR,
+					modem status output. That is, when the bit is programmed to a 1 then nUARTDTR is LOW.
+            	</spirit:description>
+            <spirit:bitOffset>10</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RTS</spirit:name>
+            <spirit:description>
+              		Request to send. This bit is the complement of the UART request to send, nUARTRTS, modem
+					status output. That is, when the bit is programmed to a 1 then nUARTRTS is LOW.
+            	</spirit:description>
+            <spirit:bitOffset>11</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Out1</spirit:name>
+            <spirit:description>
+              		This bit is the complement of the UART Out1 (nUARTOut1) modem status output. That is, when the
+					bit is programmed to a 1 the output is 0. For DTE this can be used as Data Carrier Detect (DCD).
+            	</spirit:description>
+            <spirit:bitOffset>12</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>OUT_1</spirit:name>
+                <spirit:description> when the bit is programmed to a 1 the output is 0
+               			  </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>OUT_0</spirit:name>
+                <spirit:description> when the bit is programmed to a 1 the output is 0</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Out2</spirit:name>
+            <spirit:description>
+              		This bit is the complement of the UART Out2 (nUARTOut2) modem status output. That is, when the
+					bit is programmed to a 1 the output is 0. For DTE this can be used as Data Carrier Detect (DCD).
+            	</spirit:description>
+            <spirit:bitOffset>13</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>OUT2_1</spirit:name>
+                <spirit:description> when the bit is programmed to a 1 the output is 0
+               			  </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>OUT2_0</spirit:name>
+                <spirit:description> when the bit is programmed to a 1 the output is 0
+               			  </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RTSEn</spirit:name>
+            <spirit:description>
+              		RTS hardware flow control enable. If this bit is set to 1, RTS hardware flow control is enabled. Data
+					is only requested when there is space in the receive FIFO for it to be received.
+            	</spirit:description>
+            <spirit:bitOffset>14</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>RTSEn_ENABLE</spirit:name>
+                <spirit:description> RTS hardware flow control is enabled. Data
+					is only requested when there is space in the receive FIFO for it to be received.
+               			  </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>RTSEn_DISABLE</spirit:name>
+                <spirit:description> RTS hardware flow control is enabled. Data
+					is only requested when there is space in the receive FIFO for it to be received.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>CTSEn</spirit:name>
+            <spirit:description>
+              		CTS hardware flow control enable. If this bit is set to 1, CTS hardware flow control is enabled. Data
+					is only transmitted when the nUARTCTS signal is asserted.
+            	</spirit:description>
+            <spirit:bitOffset>15</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CTSEn_ENABLE</spirit:name>
+                <spirit:description> CTS hardware flow control is enabled. Data
+					is only transmitted when there is space in the receive FIFO for it to be received.
+               			  </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CTSEn_DISABLE</spirit:name>
+                <spirit:description> CTS hardware flow control is enabled. Data
+					is only transmitted when there is space in the receive FIFO for it to be received.
+               		    </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTIFLS</spirit:name>
+          <spirit:displayName>UART Interrupt FIFO register</spirit:displayName>
+          <spirit:description>Interrupt FIFO Level Select Register</spirit:description>
+          <spirit:addressOffset>0x034</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0012</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>TXIFLSEL</spirit:name>
+            <spirit:description>Transmit interrupt FIFO level select. The trigger points for the transmit interrupt are as follows:
+								b000 = Transmit FIFO becomes ≤ 1/8 full
+								b001 = Transmit FIFO becomes ≤ 1/4 full
+								b010 = Transmit FIFO becomes ≤ 1/2 full
+								b011 = Transmit FIFO becomes ≤ 3/4 full
+								b100 = Transmit FIFO becomes ≤ 7/8 full
+								b101-b111 = reserved.
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>3</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b000</spirit:name>
+                <spirit:description> b000 = Transmit FIFO becomes ≤ 1/8 full
+               			  </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b001</spirit:name>
+                <spirit:description> b001 = Transmit FIFO becomes ≤ 1/4 full
+               			  </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b010</spirit:name>
+                <spirit:description> b010 = Transmit FIFO becomes ≤ 1/2 full
+               			  </spirit:description>
+                <spirit:value>2</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b011</spirit:name>
+                <spirit:description> b011 = Transmit FIFO becomes ≤ 3/4 full
+               			  </spirit:description>
+                <spirit:value>3</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b100</spirit:name>
+                <spirit:description> b100 = Transmit FIFO becomes ≤ 7/8 full
+               			  </spirit:description>
+                <spirit:value>4</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RXIFLSEL</spirit:name>
+            <spirit:description>Receive interrupt FIFO level select. The trigger points for the receive interrupt are as follows:
+								b000 = Receive FIFO becomes ≥ 1/8 full
+								b001 = Receive FIFO becomes ≥ 1/4 full
+								b010 = Receive FIFO becomes ≥ 1/2 full
+								b011 = Receive FIFO becomes ≥ 3/4 full
+								b100 = Receive FIFO becomes ≥ 7/8 full
+								b101-b111 = reserved.
+            </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>3</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b000</spirit:name>
+                <spirit:description> b000 = Transmit FIFO becomes ≤ 1/8 full
+               			  </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b001</spirit:name>
+                <spirit:description> b001 = Transmit FIFO becomes ≤ 1/4 full
+               			  </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b010</spirit:name>
+                <spirit:description> b010 = Transmit FIFO becomes ≤ 1/2 full
+               			  </spirit:description>
+                <spirit:value>2</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b011</spirit:name>
+                <spirit:description> b011 = Transmit FIFO becomes ≤ 3/4 full
+               			  </spirit:description>
+                <spirit:value>3</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>b100</spirit:name>
+                <spirit:description> b100 = Transmit FIFO becomes ≤ 7/8 full
+               			  </spirit:description>
+                <spirit:value>4</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, do not modify, read as zero.
+            </spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>10</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTIMSC</spirit:name>
+          <spirit:displayName>UART Interrupt Mask set/clear register</spirit:displayName>
+          <spirit:description>Interrupt Mask Set/Clear Register</spirit:description>
+          <spirit:addressOffset>0x038</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>RIMIM</spirit:name>
+            <spirit:description>nUARTRI modem interrupt mask. A read returns the current mask for the UARTRIINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTRIINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTRIINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>CTSMIM</spirit:name>
+            <spirit:description>nUARTCTS modem interrupt mask. A read returns the current mask for the UARTCTSINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the nUARTCTS interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the nUARTCTS interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DCDMIM</spirit:name>
+            <spirit:description>nUARTDCD modem interrupt status. Returns the raw interrupt state of the UARTDCDINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the nUARTDCD interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the nUARTDCD interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DSRMIM</spirit:name>
+            <spirit:description>nUARTDSR modem interrupt status. Returns the raw interrupt state of the UARTDSRINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTDSRINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTDSRINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RXIM</spirit:name>
+            <spirit:description>Receive interrupt mask. A read returns the current mask for the UARTRXINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTRXINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTRXINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TXIM</spirit:name>
+            <spirit:description>Transmit interrupt status. Returns the raw interrupt state of the UARTTXINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTTXINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTRXINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RTIM</spirit:name>
+            <spirit:description>Receive timeout interrupt mask. A read returns the current mask for the UARTRTINTR interrupt. 
+            </spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTRTINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTRTINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>FEIM</spirit:name>
+            <spirit:description>Framing error interrupt mask. A read returns the current mask for the UARTFEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTFEINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTFEINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>PEIM</spirit:name>
+            <spirit:description>parity error interrupt mask. A read returns the current mask for the UARTPEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTPEINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTPEINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>BEIM</spirit:name>
+            <spirit:description>Break error interrupt mask. A read returns the current mask for the UARTBEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>9</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTBEINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTBEINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>OEIM</spirit:name>
+            <spirit:description>Overrun error interrupt mask. A read returns the current mask for the UARTOEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>10</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SET_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTOEINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>CLEAR_INTERRUPT</spirit:name>
+                <spirit:description>On a write of 1, the mask of the UARTOEINTR interrupt is set. A write of 0 clears the mask.
+                 </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read as zero, do not modify.
+           		  </spirit:description>
+            <spirit:bitOffset>11</spirit:bitOffset>
+            <spirit:bitWidth>5</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTRIS</spirit:name>
+          <spirit:displayName>UART raw interrupt register</spirit:displayName>
+          <spirit:description>Raw Interrupt Status Register</spirit:description>
+          <spirit:addressOffset>0x03C</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>RIRMIS</spirit:name>
+            <spirit:description>nUARTRI modem interrupt status. Returns the raw interrupt state of the UARTRIINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>CTSRMIS</spirit:name>
+            <spirit:description>nUARTCTS modem interrupt status. Returns the raw interrupt state of the UARTCTSINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DCDRMIS</spirit:name>
+            <spirit:description>nUARTDCD modem interrupt status. Returns the raw interrupt state of the UARTDCDINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DSRRMIS</spirit:name>
+            <spirit:description>nUARTDSR modem interrupt status. Returns the raw interrupt state of the UARTDSRINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RXRIS</spirit:name>
+            <spirit:description>Receive interrupt status. Returns the raw interrupt state of the UARTRXINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TXRIS</spirit:name>
+            <spirit:description>Transmit interrupt status. Returns the raw interrupt state of the UARTTXINTR interrupt.
+
+            </spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RTRIS</spirit:name>
+            <spirit:description>Receive timeout interrupt status. Returns the raw interrupt state of the UARTRTINTR interrupt. 
+            </spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>FERIS</spirit:name>
+            <spirit:description>Framing error interrupt status. Returns the raw interrupt state of the UARTFEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>PERIS</spirit:name>
+            <spirit:description>Parity error interrupt status. Returns the raw interrupt state of the UARTPEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>BERIS</spirit:name>
+            <spirit:description>Break error interrupt status. Returns the raw interrupt state of the UARTBEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>9</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>OERIS</spirit:name>
+            <spirit:description>Overrun error interrupt status. Returns the raw interrupt state of the UARTOEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>10</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read as zero, do not modify.
+            </spirit:description>
+            <spirit:bitOffset>11</spirit:bitOffset>
+            <spirit:bitWidth>5</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTMIS</spirit:name>
+          <spirit:displayName>UART masked interrupt register</spirit:displayName>
+          <spirit:description>Masked Interrupt Status Register</spirit:description>
+          <spirit:addressOffset>0x040</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>RIMMIS</spirit:name>
+            <spirit:description>nUARTRI modem masked interrupt status. Returns the masked interrupt state of the UARTRIINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>CTSMMIS</spirit:name>
+            <spirit:description>nUARTCTS modem masked interrupt status. Returns the masked interrupt state of the
+								UARTCTSINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DCDMMIS</spirit:name>
+            <spirit:description>nUARTDCD modem masked interrupt status. Returns the masked interrupt state of the
+								UARTDCDINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DSRMMIS</spirit:name>
+            <spirit:description>nUARTDSR modem masked interrupt status. Returns the masked interrupt state of the
+								UARTDSRINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RXMIS</spirit:name>
+            <spirit:description>Receive masked interrupt status. Returns the masked interrupt state of the UARTRXINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TXMIS</spirit:name>
+            <spirit:description>Transmit masked interrupt status. Returns the masked interrupt state of the UARTTXINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RTMIS</spirit:name>
+            <spirit:description>Receive timeout masked interrupt status. Returns the masked interrupt state of the
+								UARTRTINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>FEMIS</spirit:name>
+            <spirit:description>Framing error masked interrupt status. Returns the masked interrupt state of the UARTFEINTR 
+           						interrupt.
+            </spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>PEMIS</spirit:name>
+            <spirit:description>Parity error masked interrupt status. Returns the masked interrupt state of the UARTPEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>BEMIS</spirit:name>
+            <spirit:description>Break error masked interrupt status. Returns the masked interrupt state of the UARTBEINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>9</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>OEMIS</spirit:name>
+            <spirit:description>Overrun error masked interrupt status. Returns the masked interrupt state of the UARTOEINTR
+								interrupt.
+            </spirit:description>
+            <spirit:bitOffset>10</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read as zero, do not modify.
+            </spirit:description>
+            <spirit:bitOffset>11</spirit:bitOffset>
+            <spirit:bitWidth>5</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTICR</spirit:name>
+          <spirit:displayName>UART clear interrupt register</spirit:displayName>
+          <spirit:description>Interrupt Clear Register</spirit:description>
+          <spirit:addressOffset>0x044</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>RIMIC</spirit:name>
+            <spirit:description>nUARTRI modem interrupt clear. Clears the UARTRIINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>CTSMIC</spirit:name>
+            <spirit:description>nUARTCTS modem interrupt clear. Clears the UARTCTSINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DCDMIC</spirit:name>
+            <spirit:description>nUARTDCD modem interrupt clear. Clears the UARTDCDINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DSRMIC</spirit:name>
+            <spirit:description>nUARTDSR modem interrupt clear. Clears the UARTDSRINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RXIC</spirit:name>
+            <spirit:description>Receive interrupt clear. Clears the UARTRXINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TXIC</spirit:name>
+            <spirit:description>Transmit interrupt clear. Clears the UARTTXINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RTIC</spirit:name>
+            <spirit:description>Receive timeout interrupt clear. Clears the UARTRTINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>FEIC</spirit:name>
+            <spirit:description>Framing error interrupt clear. Clears the UARTFEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>PEIC</spirit:name>
+            <spirit:description>Parity error interrupt clear. Clears the UARTPEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>BEIC</spirit:name>
+            <spirit:description>Break error interrupt clear. Clears the UARTBEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>9</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>OEIC</spirit:name>
+            <spirit:description>Overrun error interrupt clear. Clears the UARTOEINTR interrupt.
+            </spirit:description>
+            <spirit:bitOffset>10</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read as zero, do not modify.
+            </spirit:description>
+            <spirit:bitOffset>11</spirit:bitOffset>
+            <spirit:bitWidth>5</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTDMACR</spirit:name>
+          <spirit:displayName>UART DMA control register</spirit:displayName>
+          <spirit:description>DMA Control Register</spirit:description>
+          <spirit:addressOffset>0x048</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>RXDMAE</spirit:name>
+            <spirit:description>Receive DMA enable. If this bit is set to 1, DMA for the receive FIFO is enabled.
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>FIFO_RECEIVE_ENABLED</spirit:name>
+                <spirit:description>If this bit is set to 1, DMA for the receive FIFO is enabled.
+          				  </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>FIFO_RECEIVE_DISABLED</spirit:name>
+                <spirit:description>If this bit is set to 0, DMA for the receive FIFO is disabled.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TXDMAE</spirit:name>
+            <spirit:description>Transmit DMA enable. If this bit is set to 1, DMA for the transmit FIFO is enabled
+            </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>FIFO_TRANSMIT_ENABLED</spirit:name>
+                <spirit:description>If this bit is set to 1, DMA for the transmit FIFO is enabled.
+                         </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>FIFO_TRANSMIT_DISABLED</spirit:name>
+                <spirit:description>If this bit is set to 0, DMA for the transmit FIFO is disabled.
+                         </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>DMAONERR</spirit:name>
+            <spirit:description>DMA on error. If this bit is set to 1, the DMA receive request outputs, UARTRXDMASREQ or
+								UARTRXDMABREQ, are disabled when the UART error interrupt is asserted.
+            </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>DMA_ERROR_1</spirit:name>
+                <spirit:description> If this bit is set to 1, the DMA receive request outputs </spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>DMA_ERROR_0</spirit:name>
+                <spirit:description> If this bit is set to 0, the DMA does not receive request outputs </spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read as zero, do not modify.
+            </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>13</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTTCR</spirit:name>
+          <spirit:displayName>UARTTCR</spirit:displayName>
+          <spirit:description>UARTTCR is the test control register. This genreal test register controls operation of the UART under test conditions.</spirit:description>
+          <spirit:addressOffset>0x080</spirit:addressOffset>
+          <spirit:size>17</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>ITEN</spirit:name>
+            <spirit:description>Integration test enable. When this bit is 1, the UART is placed in integration test mode, otherwise
+										it is in normal operation.
+                  </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>ITEN_ENABLE</spirit:name>
+                <spirit:description>When this bit is 1, the UART is placed in integration test mode, otherwise
+										it is in normal operation.</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>INEN_DISABLE</spirit:name>
+                <spirit:description>When this bit is 1, the UART is placed in integration test mode, otherwise
+										it is in normal operation.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>TESTFIFO</spirit:name>
+            <spirit:description>Test FIFO enable. When this bit it 1, a write to the Test Data Register, UARTTDR on page 4-8
+											writes data into the receive FIFO, and reads from the UARTTDR register reads data out of the
+											transmit FIFO.
+											When this bit is 0, data cannot be read directly from the transmit FIFO or written directly to the
+											receive FIFO (normal operation).
+											The reset value is 0.
+                  </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>TEST_FIFO_ENABLE</spirit:name>
+                <spirit:description> When this bit it 1, a write to the Test Data Register, UARTTDR on page 4-8
+											writes data into the receive FIFO, and reads from the UARTTDR register reads data out of the
+											transmit FIFO.</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>TEST_FIFO_DISABLE</spirit:name>
+                <spirit:description>When this bit is 0, data cannot be read directly from the transmit FIFO or written directly to the
+											receive FIFO (normal operation).
+											The reset value is 0.</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>SIRTEST</spirit:name>
+            <spirit:description>SIR test enable. Setting this bit to 1 enables the receive data path during IrDA transmission (SIR
+						full-duplex operation is only available when testing). This bit must be set to 1 to enable SIR system
+						loopback testing, and you must also set the LBE bit to 1 in the Control Register, UARTCR
+						Clearing this bit to 0 disables the receive logic when the SIR is transmitting (normal operation).
+						This bit defaults to 0 for normal operation (half-duplex operation).
+                  </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SIR_FIFO_ENABLE</spirit:name>
+                <spirit:description>Setting this bit to 1 enables the receive data path during IrDA transmission (SIR
+						full-duplex operation is only available when testing). This bit must be set to 1 to enable SIR system
+						loopback testing, and you must also set the LBE bit to 1 in the Control Register</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>SIR_FIFO_DISABLE</spirit:name>
+                <spirit:description>Clearing this bit to 0 disables the receive logic when the SIR is transmitting (normal operation).
+						This bit defaults to 0 for normal operation (half-duplex operation).</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, unpredictable when read.</spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>14</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTITIP</spirit:name>
+          <spirit:displayName>UARTITIP</spirit:displayName>
+          <spirit:description>UARTITIP is the integration test input read/set register. It is a a read/write register. In
+									integration test mode it enables inputs to be both written to and read from. Table 4-3
+									lists the register bit assignments.
+               </spirit:description>
+          <spirit:addressOffset>0x084</spirit:addressOffset>
+          <spirit:size>17</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>UARTRXD</spirit:name>
+            <spirit:description>Reads return the value of the UARTRXD primary input.</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>SIRIN</spirit:name>
+            <spirit:description>Reads return the value of the SIRIN primary input</spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nUARTDSR</spirit:name>
+            <spirit:description>Reads return the value of the nUARTDSR primary input.
+	                 </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nUARTCTS</spirit:name>
+            <spirit:description> Reads return the value of the nUARTCTS primary input.
+	                  </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nUARTDCD</spirit:name>
+            <spirit:description>Reads return the value of the nUARTDCD primary input.</spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nUARTRI</spirit:name>
+            <spirit:description>Reads return the value of the nUARTRI primary input.</spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTRXDMACLR</spirit:name>
+            <spirit:description>Writes to this bit specify the value to be driven on the intra-chip input,
+						UARTRXDMACLR, in the integration test mode.
+						Reads return the value of UARTRXDMACLR at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTTXDMACLR</spirit:name>
+            <spirit:description>Writes to this bit specify the value to be driven on the intra-chip input,
+											UARTTXDMACLR, in the integration test mode.
+											Reads return the value of UARTTXDMACLR at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, unpredictable when read</spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>9</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTITOP</spirit:name>
+          <spirit:displayName>UARTITOP</spirit:displayName>
+          <spirit:description>
+               UARTITOP is the integration test output read/set register. The primary outputs are read
+				only and the intra-chip outputs are read/write. In integration test mode it enables outputs
+				to be both written to and read from. Table 4-4 lists the register bit assignments.
+               </spirit:description>
+          <spirit:addressOffset>0x088</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>UARTTXD</spirit:name>
+            <spirit:description>
+	                  Primary output. Writes specify the value to be driven on UARTTXD.
+						</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nSIROUT</spirit:name>
+            <spirit:description>
+	                  Primary output. Writes specify the value to be driven on nSIROUT.
+						</spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nUARTDTR</spirit:name>
+            <spirit:description>
+	                 Primary output. Writes specify the value to be driven on nUARTDTR.
+						</spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nUARTRTS</spirit:name>
+            <spirit:description>
+	                 Primary output. Writes specify the value to be driven on nUARTRTS.
+						</spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nUARTOut1</spirit:name>
+            <spirit:description>
+	                 Primary output. Writes specify the value to be driven on nUARTOut1.
+						</spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>nUARTOut2</spirit:name>
+            <spirit:description>
+	                 Primary output. Writes specify the value to be driven on nUARTOut2.
+						</spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTINTR</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTINTR.
+					Reads return the value of UARTINTR at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTEINTR</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTEINTR.
+					Reads return the value of UARTEINTR at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTRTINTR</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTRTINTR.
+					Reads return the value of UARTRTINTR at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTTXINTR</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTXTINTR.
+					Reads return the value of UARTXTINTR at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>9</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTRXINTR</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTRXINTR.
+					Reads return the value of UARTRXINTR at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>10</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTMSINTR</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTMSINTR.
+					Reads return the value of UARTMSINTR at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>11</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTRXDMABREQ</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTRXDMABREQ .
+					Reads return the value of UARTRXDMABREQ  at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>12</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTRXDMASREQ</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTRXDMASREQ  .
+					Reads return the value of UARTRXDMASREQ  at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>13</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTTXDMABREQ</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTTXDMABREQ   .
+					Reads return the value of UARTTXDMABREQ   at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>14</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>UARTTXDMASREQ</spirit:name>
+            <spirit:description>
+	                 Intra-chip output. Writes specify the value to be driven on UARTTXDMASREQ.
+					Reads return the value of UARTTXDMASREQ at the output of the test multiplexor.
+						</spirit:description>
+            <spirit:bitOffset>15</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTTDR</spirit:name>
+          <spirit:displayName>UARTTDR</spirit:displayName>
+          <spirit:description>UARTTDR is the test data register. It enables data to be written into the receive FIFO
+				and read out from the transmit FIFO for test purposes. This test function is enabled by
+				the TESTFIFO bit in the Test Control Register
+				</spirit:description>
+          <spirit:addressOffset>0x8C</spirit:addressOffset>
+          <spirit:size>17</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value>0xffff</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>DATA</spirit:name>
+            <spirit:description>When the TESTFIFO bit is set to 1, data is written into the receive FIFO and read out of the transmit FIFO
+            	</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>11</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>DATA_ENABLE</spirit:name>
+                <spirit:description>When the TESTFIFO bit is set to 1, data is written into the receive FIFO and read out of the transmit FIFO</spirit:description>
+                <spirit:value>1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>DATA_DISABLE</spirit:name>
+                <spirit:description>When the TESTFIFO bit is set to 1, data is written into the receive FIFO and read out of the transmit FIFO</spirit:description>
+                <spirit:value>0</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, unpredictable when read</spirit:description>
+            <spirit:bitOffset>11</spirit:bitOffset>
+            <spirit:bitWidth>6</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTPeriphID0</spirit:name>
+          <spirit:displayName>UART peripheral 0 register</spirit:displayName>
+          <spirit:description>UARTPeriphID0 Register</spirit:description>
+          <spirit:addressOffset>0xFE0</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0011</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>PartNumber0</spirit:name>
+            <spirit:description>These bits read back as 0x11
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read undefined must read as zeros
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTPeriphID1</spirit:name>
+          <spirit:displayName>UART peripheral 1 register</spirit:displayName>
+          <spirit:description>UARTPeriphID1 Register</spirit:description>
+          <spirit:addressOffset>0xFE4</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0010</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>PartNumber1</spirit:name>
+            <spirit:description>These bits read back as 0x0
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>4</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Designer0</spirit:name>
+            <spirit:description>These bits read back as 0x1
+            </spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>4</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read undefined, must read as zeros
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTPeriphID2</spirit:name>
+          <spirit:displayName>UART peripheral 2 register</spirit:displayName>
+          <spirit:description>UARTPeriphID2 Register</spirit:description>
+          <spirit:addressOffset>0xFE8</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0034</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>Designer1</spirit:name>
+            <spirit:description>These bits read back as 0x4
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>4</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Revision</spirit:name>
+            <spirit:description>This field depends on the revision of the UART:
+								r1p0	0x0
+								r1p1	0x1
+								r1p3	0x2
+								r1p4	0x2
+								r1p5	0x3
+
+            	</spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>4</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:enumeratedValues>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>r1p0</spirit:name>
+                <spirit:value>0x0</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>r1p1</spirit:name>
+                <spirit:value>0x1</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>r1p3</spirit:name>
+                <spirit:value>0x2</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>r1p4</spirit:name>
+                <spirit:value>0x2</spirit:value>
+              </spirit:enumeratedValue>
+              <spirit:enumeratedValue spirit:usage="read">
+                <spirit:name>r1p5</spirit:name>
+                <spirit:value>0x3</spirit:value>
+              </spirit:enumeratedValue>
+            </spirit:enumeratedValues>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read undefined, must read as zeros
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTPeriphID3</spirit:name>
+          <spirit:displayName>UART peripheral 3 register</spirit:displayName>
+          <spirit:description>UARTPeriphID3 Register</spirit:description>
+          <spirit:addressOffset>0xFEC</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0000</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>Configuration</spirit:name>
+            <spirit:description>These bits read back as 0x00
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read undefined must read as zeros
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTPCellID0</spirit:name>
+          <spirit:displayName>UART cell 0 register</spirit:displayName>
+          <spirit:description>UARTPCellID0 Register</spirit:description>
+          <spirit:addressOffset>0xFF0</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x000D</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>UARTPCellID0</spirit:name>
+            <spirit:description>These bits read back as 0x0D
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read undefined must read as zeros
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTPCellID1</spirit:name>
+          <spirit:displayName>UART cell 1 register</spirit:displayName>
+          <spirit:description>UARTPCellID1 Register</spirit:description>
+          <spirit:addressOffset>0xFF4</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x00F0</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>UARTPCellID1</spirit:name>
+            <spirit:description>These bits read back as 0xF0
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read undefined must read as zeros
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTPCellID2</spirit:name>
+          <spirit:displayName>UART cell 2 register</spirit:displayName>
+          <spirit:description>UARTPCellID2 Register</spirit:description>
+          <spirit:addressOffset>0xFF8</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x0005</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>UARTPCellID2</spirit:name>
+            <spirit:description>These bits read back as 0x05
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read undefined must read as zeros
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>UARTPCellID3</spirit:name>
+          <spirit:displayName>UART cell 3 register</spirit:displayName>
+          <spirit:description>UARTPCellID3 Register</spirit:description>
+          <spirit:addressOffset>0xFFC</spirit:addressOffset>
+          <spirit:size>16</spirit:size>
+          <spirit:access>read-only</spirit:access>
+          <spirit:reset>
+            <spirit:value>0x00B1</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>UARTPCellID3</spirit:name>
+            <spirit:description>These bits read back as 0xB1
+            </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>Reserved</spirit:name>
+            <spirit:description>Reserved, read undefined must read as zeros
+            </spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth>8</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+          </spirit:field>
+        </spirit:register>
+      </spirit:addressBlock>
+    </spirit:memoryMap>
+  </spirit:memoryMaps>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>pl011_uart_synthesisable</spirit:name>
+        <spirit:description>PL011 UART for PrimeCell PL011</spirit:description>
+        <spirit:envIdentifier>:*Synthesis:</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>Uart</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>pl011_uart_synthesisable</spirit:localName>
+        </spirit:fileSetRef>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>PCLK</spirit:name>
+        <spirit:description>APB Bus Clock</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTCLK</spirit:name>
+        <spirit:description>Main UART Clock</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>PRESETn</spirit:name>
+        <spirit:description>AMBA Bus reset</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTRST</spirit:name>
+        <spirit:description>UART Reset</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>PSEL</spirit:name>
+        <spirit:description>APB Peripheral select</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>PENABLE</spirit:name>
+        <spirit:description>APB Peripheral enable</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>PWRITE</spirit:name>
+        <spirit:description>APB Peripheral write</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>PADDR</spirit:name>
+        <spirit:description>APB Addr bus</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left>11</spirit:left>
+            <spirit:right>2</spirit:right>
+          </spirit:vector>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>PWDATA</spirit:name>
+        <spirit:description>APB write databus</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left>15</spirit:left>
+            <spirit:right>0</spirit:right>
+          </spirit:vector>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTCTS</spirit:name>
+        <spirit:description>Modem CTS</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:driver>
+            <spirit:defaultValue>1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTDCD</spirit:name>
+        <spirit:description>Modem DCD</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+           <spirit:driver>
+            <spirit:defaultValue>1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>   
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTDSR</spirit:name>
+        <spirit:description>Modem DSR</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+           <spirit:driver>
+            <spirit:defaultValue>1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTRI</spirit:name>
+        <spirit:description>Modem RI</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+           <spirit:driver>
+            <spirit:defaultValue>1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTRXD</spirit:name>
+        <spirit:description>UART Receive input</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+           <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SIRIN</spirit:name>
+        <spirit:description>SiR receive input</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+           <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SCANENABLE</spirit:name>
+        <spirit:description>Scan enable signal for both clock domains</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SCANINPCLK</spirit:name>
+        <spirit:description>Scan signal Input for PCLK domain</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SCANINUCLK</spirit:name>
+        <spirit:description>Scan chain input</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTTXDMACLR</spirit:name>
+        <spirit:description>DMA request clear, asserted by the DMA controller to clear the transmit request signals. If DMA burst transfer is requested, the clear signal is asserted during the transfer of the last data in the burst</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+           <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTRXDMACLR</spirit:name>
+        <spirit:description>DMA request Clear, asserted by the DMA controller to clear the receive request signals. If the DMA burst transfer is requested, the clear signal is asserted during te transfer of the last data in the burst</spirit:description>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+           <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTMSINTR</spirit:name>
+        <spirit:description>Uart receive modem status interrupt, active HIGH</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTRXINTR</spirit:name>
+        <spirit:description>UART Receive FIFO interrupt,active HIGH</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTTXINTR</spirit:name>
+        <spirit:description>UART Transmit interrupt</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTRTINTR</spirit:name>
+        <spirit:description>Receive Timeout interrupt,active HIGH</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTEINTR</spirit:name>
+        <spirit:description>UART Error interrupt, active HIGH</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTINTR</spirit:name>
+        <spirit:description>A single combined interrupt generated as an OR function of the following interrupts: UARTMSINTR, UARTRXINTR, UARTTXINTR, UARTRTINTR, UARTEINTR</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>PRDATA</spirit:name>
+        <spirit:description>SubSet of unidirectional AMBA APB read data bus.</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left>15</spirit:left>
+            <spirit:right>0</spirit:right>
+          </spirit:vector>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTTXD</spirit:name>
+        <spirit:description>UART Transmitted Serial Data output. Defaults to high, The marking state, when reset </spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nSIROUT</spirit:name>
+        <spirit:description>SIR Transmitted Serial Data Output, active LOW. In the idle state, this signal remains LOW (the marking state). When this signal is HIGH, and infrared light pulse is generated that represents a logic 0(spacing state)</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTOut2</spirit:name>
+        <spirit:description>Modem status output, active LOW. Reset value is 0</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTOut1</spirit:name>
+        <spirit:description>modem status output, active LOW. Reset value is 0.</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTRTS</spirit:name>
+        <spirit:description>Request to Send modem output, active LOW. The reset value is 0.</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>nUARTDTR</spirit:name>
+        <spirit:description>Modem DTR modem status output, active LOW. The reset value is 0.</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SCANOUTPCLK</spirit:name>
+        <spirit:description>UART output Scan Signal for the PCLK domain.</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SCANOUTUCLK</spirit:name>
+        <spirit:description>UART output Scan Signal for the UARTCLK domain.</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTTXDMASREQ</spirit:name>
+        <spirit:description>Transmit DMA single request, Active High</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTTXDMABREQ</spirit:name>
+        <spirit:description>Transmit DMA burst request, Active HIGH</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTRXDMASREQ</spirit:name>
+        <spirit:description>Receive DMA single request, active HIGH</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>UARTRXDMABREQ</spirit:name>
+        <spirit:description>Receive DMA burst request,active HIGH</spirit:description>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+  </spirit:model>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>pl011_uart_synthesisable</spirit:name>
+      <spirit:description>This is the RTL source for the PrimeCell Uart</spirit:description>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/Uart.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+        <spirit:isIncludeFile spirit:externalDeclarations="true"> 
+        false</spirit:isIncludeFile>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartRegBlock.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartApbif.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartSynctoPCLK.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartSynctoUCLK.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartModem.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartTest.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartReceive.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartRXFIFO.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartTXFIFO.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartIrDA.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartBaudCntr.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartTXCntl.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartDMA.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartInterrupt.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../verilog/rtl_source/UartRevAnd.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:dependency>../verilog/rtl_source/</spirit:dependency>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>The Uart is an Advanced Microcontroller Bus Architecture (AMBA) compliant System-on-Chip(SoC) peripheral that is developed, tested and licensed by ARM.</spirit:description>
+</spirit:component>

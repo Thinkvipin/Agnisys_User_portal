@@ -1,0 +1,155 @@
+// signal {activelow; async; signalwidth = 1;  desc= "power on reset"; } por_rstn;
+`include "idsProperty2a.rdl"
+regfile ROT_KAM_regs {
+    default reset = 0;
+    default sw = rw;
+    default hw = r;
+    default regwidth = 32;
+    default rtl_reg_enb = false;
+     
+    regfile KAM_KV_t {
+        reg KAM_KV_RANGE_t {
+            desc ="Define a range in SCRATCH memory for Key Vault. These fields cannot be written
+                   when KAM_KV[lb]i[rb].ACCESS.KV_RANGE_LOCK is set";
+            
+            field {} KV_ENABLE[31:31];
+            field {} KV_COUNT[23:16];
+            field {} KV_START[11:4];
+            KV_START->desc = "KV_START field specifies the 128-bit start address of the range 
+                              from the start of SCRATCH memory. The byte address may be written 
+                              from [11:0] and the bottom 4 bits will be zero regardless of what 
+                              was written.";
+            KV_COUNT->desc = "KV_COUNT specifies the number of 128-bit SCRATCH entries 
+                              in the KV Range";
+            KV_ENABLE->desc = "The range defined by ( KV_START,KV_COUNT ) is enabled";
+        };
+        reg KAM_KV_ACCESS_t {
+            desc = "Firmware programs the accesibility of KV range[i] (in SCRATCH RAM). 
+                    When LCM_MODE == PRODUCTION, and [br]
+
+                    when the KAM_KV_EN OTP Hardware Control bit is set, [br]
+
+                    [list]
+                    [*] RE and WE restrict 
+                        read and write access of a range  when not set
+                    [*] once RE/WE = 0, they are latched low
+                    [/list]";
+            field { hw = na; } KV_RANGE_LOCK [2:2];
+            field {          } RE            [1:1] = 1'b1;
+            field {          } WE            [0:0] = 1'b1;
+            RE->desc = "1: Enabled range has read permissions[br]
+ 
+                        0: Enable range is not readable (i.e. reads return 0 + 
+                           read_deny interrupt)";
+            
+            WE->desc = "1: Enabled range has write permissions[br]
+ 
+                        0: Enable range is not writable (i.e. write ignored + 
+                           write_deny interrupt)";
+            KV_RANGE_LOCK->desc = "When this bit is set, KAM_KV_RANGE cannot be modified[br]
+
+                                   Like RE and WE, this field cannot be cleared when 
+                                   LCM_MODE==PRODUCTION and HW Control KAM_KV_EN == 1";
+        };
+
+        reg KAM_KV_STATUS_t {
+            field { woclr; hw =rw; hwset; } WRITE_DENY[1:1];
+            field { woclr; hw =rw; hwset; } READ_DENY [0:0];
+            WRITE_DENY->desc = "A write to SCRATCH RAM matched a KV Range with KV_ENABLE == 1 
+                                &&  WE == 0";
+            READ_DENY->desc = "A read from SCRATCH RAM matched a KV Range with KV_ENABLE == 1 
+                               && RE == 0";
+        };
+        KAM_KV_RANGE_t         RANGE;
+        KAM_KV_ACCESS_t        ACCESS;
+        KAM_KV_STATUS_t        STATUS;
+        
+    };
+
+
+    regfile KAM_OTP_LANE_t {
+        reg LANE_CONFIG_t {
+            desc ="Define a range in SCRATCH memory for Key Vault. These fields cannot be written
+                   when KAM_LANE_ACCESS.OTP_LANE_LOCK is set";
+            
+            field {} LANE_ENABLE[31:31];
+            field {} LANE_COUNT[21:16];
+            field {} LANE_START[9:0];
+            LANE_START->desc = "LANE_START field specifies the 128-bit start address of the range 
+                              from the start of SCRATCH memory. The byte address may be written 
+                              from [11:0] and the bottom 4 bits will be zero regardless of what 
+                              was written.";
+            LANE_COUNT->desc = "LANE_COUNT specifies the number of 128-bit SCRATCH entries 
+                              in the LANE Range";
+            LANE_ENABLE->desc = "The range defined by ( LANE_START,LANE_COUNT ) is enabled";
+        };
+        reg LANE_ACCESS_t {
+            desc = "Firmware programs the accesibility of LANE range[i] (in SCRATCH RAM). 
+                    When LCM_MODE == PRODUCTION, and [br]
+
+                    when the KAM_LANE_EN OTP Hardware Control bit is set, [br]
+
+                    [list]
+                    [*] RE and WE restrict 
+                        read and write access of a range  when not set
+                    [*] once RE/WE = 0, they are latched low
+                    [/list]";
+            field { hw = na; } OTP_LANE_LOCK [2:2];
+            field {          } RE            [1:1] = 1'b1;
+            field {          } WE            [0:0] = 1'b1;
+            RE->desc = "1: Enabled range has read permissions[br]
+ 
+                        0: Enable range is not readable (i.e. reads return 0 + 
+                           read_deny interrupt)";
+            
+            WE->desc = "1: Enabled range has write permissions[br]
+ 
+                        0: Enable range is not writable (i.e. write ignored + 
+                           write_deny interrupt)";
+            OTP_LANE_LOCK->desc = "When this bit is set, KAM_OTP_LANE cannot be modified[br]
+
+                                   Like RE and WE, this field cannot be cleared when 
+                                   LCM_MODE==PRODUCTION and HW Control KAM_KV_EN == 1";
+
+        };
+
+        reg LANE_STATUS_t {
+            field { woclr; hw =rw; hwset; } WRITE_DENY[1:1];
+            field { woclr; hw =rw; hwset; } READ_DENY [0:0];
+            WRITE_DENY->desc = "A program command to OTP matched an OTP LANE with LANE_ENABLE == 1 
+                                &&  WE == 0";
+            READ_DENY->desc = "A read command to OTP matched an OTP LANE with LANE_ENABLE == 1 
+                               && RE == 0";
+        };
+        LANE_CONFIG_t      CONFIG;
+        LANE_ACCESS_t      ACCESS;
+        LANE_STATUS_t      STATUS;
+        
+     };
+    
+
+    reg KAM_PMR_VALID_t {
+        field { sw = r; hw = w;} VALID[15:0];
+        VALID->desc = "PMR[n].ENTRY[i] is not valid and will read as zeros
+
+                        [br] VALID[n][i] == 1 : the 32-bit PMR entry, PMR[n].ENTRY[i]
+                             valid. It's value will be returned on a read.
+
+                        [br] VALID[n][i] == 0 : the 32-bit PMR entry, PMR[n].ENTRY[i] 
+                             is not valid. Reading this entry will return 0.";
+        VALID->registered = false;
+    };
+
+    reg SCRATCH_t {
+        field { hw = na; } DATA[31:0];
+    };
+    KAM_OTP_LANE_t          KAM_OTP_LANE[8] @0x200;
+
+  
+    KAM_KV_t                KAM_KV[2] @0x300;
+    
+    KAM_PMR_VALID_t         KAM_PMR_STATUS[8];
+    
+    SCRATCH_t               KAM_SCRATCH;
+
+};

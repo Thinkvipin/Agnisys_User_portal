@@ -1,0 +1,4754 @@
+#
+# ABSTRACT : RAL file generated for DWC_mipi_csi2_v4_host
+#
+block DWC_mipi_csi2_v4_host_MemMap_MAIN {
+  endian little;
+  bytes 4;
+  register CORE_ID @'h0 {
+    field CORE_ID @0 {
+       bits 32;
+       access ro;
+       reset 32'h3130302a;
+    }
+  }
+  register VERSION @'h4 {
+    field VER_NUMBER @0 {
+       bits 16;
+       access ro;
+       reset 16'h100;
+    }
+    field TYPE_NUM @16 {
+       bits 8;
+       access ro;
+       reset 8'h1;
+    }
+    field PKG_NUM @24 {
+       bits 4;
+       access ro;
+       reset 4'ha;
+    }
+    field TYPE_ENUM @28 {
+       bits 4;
+       access ro;
+       reset 4'h1;
+    }
+  }
+  register CRC_REGISTER @'h8 {
+    field CRC_REG @0 {
+       bits 16;
+       access ro;
+       reset 16'h0;
+    }
+    field reserved_31_16 @16 {
+       bits 16;
+       access ro;
+       reset 16'h0;
+    }
+  }
+  register PWR_UP @'hc {
+    field PWR_UP @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register SOFT_RESET_0 @'h10 {
+    field CSI_SOFT_RSTN_REQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field SDI_DP_SOFT_RSTN_REQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register SOFT_RESET_1 @'h14 {
+    field IPI_PORT00_DP_SOFT_RSTN_REQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field IPI_PORT01_DP_SOFT_RSTN_REQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field IPI_PORT02_DP_SOFT_RSTN_REQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field IPI_PORT03_DP_SOFT_RSTN_REQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field IPI_PORT04_DP_SOFT_RSTN_REQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field IPI_PORT05_DP_SOFT_RSTN_REQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field IPI_PORT06_DP_SOFT_RSTN_REQ @6 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field IPI_PORT07_DP_SOFT_RSTN_REQ @7 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_8 @8 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_9 @9 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_10 @10 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_11 @11 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_12 @12 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_13 @13 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_14 @14 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_15 @15 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_16 @16 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_17 @17 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_18 @18 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_19 @19 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_20 @20 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_21 @21 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_22 @22 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_23 @23 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_24 @24 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_25 @25 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_26 @26 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_27 @27 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_28 @28 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_29 @29 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_30 @30 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_31 @31 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+  }
+  register READY0_STATUS @'h18 {
+    field PHY_DP_READY @0 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field SYS_DP_READY @1 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field SDI_DP_READY @2 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field CSE_DP_READY @3 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_15_4 @4 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+    field PHY_DP_L0_HSRX_READY @16 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field PHY_DP_L1_HSRX_READY @17 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field PHY_DP_L2_HSRX_READY @18 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field PHY_DP_L3_HSRX_READY @19 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_31_20 @20 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+  }
+  register READY1_STATUS @'h1c {
+    field IPI_PORT00_DP_READY @0 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_PORT01_DP_READY @1 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_PORT02_DP_READY @2 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_PORT03_DP_READY @3 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_PORT04_DP_READY @4 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_PORT05_DP_READY @5 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_PORT06_DP_READY @6 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_PORT07_DP_READY @7 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_8 @8 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_9 @9 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_10 @10 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_11 @11 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_12 @12 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_13 @13 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_14 @14 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_15 @15 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_16 @16 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_17 @17 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_18 @18 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_19 @19 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_20 @20 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_21 @21 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_22 @22 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_23 @23 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_24 @24 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_25 @25 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_26 @26 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_27 @27 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_28 @28 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_29 @29 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_30 @30 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_31 @31 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+  }
+  register TO_HSRX_CFG @'h24 {
+    field TO_HSRX_CFG @0 {
+       bits 32;
+       access rw;
+       reset 32'h0;
+    }
+  }
+  register CORE_STATUS @'h40 {
+    field CORE_BUSY @0 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field CORE_FIFO_NOT_EMPTY @1 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_3_2 @2 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field PHY_BUSY @4 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field PHY_FIFO_NOT_EMPTY @5 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_7_6 @6 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field SYS_BUSY @8 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_11_9 @9 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+    field SDI_BUSY @12 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field SDI_FIFO_NOT_EMPTY @13 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_15_14 @14 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field IPI_BUSY @16 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_FIFOS_NOT_EMPTY @17 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_19_18 @18 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field CSE_BUSY @20 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_31_21 @21 {
+       bits 11;
+       access ro;
+       reset 11'h0;
+    }
+  }
+}
+block DWC_mipi_csi2_v4_host_MemMap_PHY {
+  endian little;
+  bytes 4;
+  register PHY_MODE_CFG @'h0 {
+    field PHY_MODE @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_7_1 @1 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field PHY_L0_DISABLE @8 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field PHY_L1_DISABLE @9 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field PHY_L2_DISABLE @10 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field PHY_L3_DISABLE @11 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_12 @12 {
+       bits 4;
+       access ro;
+       reset 4'h0;
+    }
+    field PPI_WIDTH @16 {
+       bits 2;
+       access rw;
+       reset 2'h0;
+    }
+    field reserved_31_18 @18 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+  }
+  register PHY_DESKEW_CFG @'h4 {
+    field DESKEW_SYS_CYCLES @0 {
+       bits 8;
+       access rw;
+       reset 8'h0;
+    }
+    field reserved_31_8 @8 {
+       bits 24;
+       access ro;
+       reset 24'h0;
+    }
+  }
+  register PHY_LANE01_STATUS @'h8 {
+    field PHY_L0_STOPSTATE @0 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field PHY_L0_DIRECTION @1 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_15_2 @2 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+    field PHY_L1_STOPSTATE @16 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field PHY_L1_DIRECTION @17 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_31_18 @18 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+  }
+  register PHY_LANE23_STATUS @'hc {
+    field PHY_L2_STOPSTATE @0 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field PHY_L2_DIRECTION @1 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_15_2 @2 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+    field PHY_L3_STOPSTATE @16 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field PHY_L3_DIRECTION @17 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field reserved_31_18 @18 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+  }
+}
+block DWC_mipi_csi2_v4_host_MemMap_CSI2 {
+  endian little;
+  bytes 4;
+  register CSI2_GENERAL_CFG @'h0 {
+    field CSI2_RXSYNCHS_FILTER_EN @0 {
+       bits 1;
+       access rw;
+       reset 1'h1;
+    }
+    field ECC_VCX_OVERRIDE @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register CSI2_DESCRAMBLING_CFG @'h4 {
+    field CSI2_DESCRAMBLING_EN @0 {
+       bits 1;
+       access rw;
+       reset 1'h1;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register CSI2_DESCRAMBLING0_CFG @'h8 {
+    field CSI2_DESCRAMBLING_L0_SEED0 @0 {
+       bits 16;
+       access rw;
+       reset 16'h810;
+    }
+    field CSI2_DESCRAMBLING_L0_SEED1 @16 {
+       bits 16;
+       access rw;
+       reset 16'h1;
+    }
+  }
+  register CSI2_DESCRAMBLING1_CFG @'hc {
+    field CSI2_DESCRAMBLING_L0_SEED2 @0 {
+       bits 16;
+       access rw;
+       reset 16'h1818;
+    }
+    field CSI2_DESCRAMBLING_L0_SEED3 @16 {
+       bits 16;
+       access rw;
+       reset 16'h1008;
+    }
+  }
+  register CSI2_DESCRAMBLING2_CFG @'h10 {
+    field CSI2_DESCRAMBLING_L1_SEED0 @0 {
+       bits 16;
+       access rw;
+       reset 16'h990;
+    }
+    field CSI2_DESCRAMBLING_L1_SEED1 @16 {
+       bits 16;
+       access rw;
+       reset 16'h180;
+    }
+  }
+  register CSI2_DESCRAMBLING3_CFG @'h14 {
+    field CSI2_DESCRAMBLING_L1_SEED2 @0 {
+       bits 16;
+       access rw;
+       reset 16'h1998;
+    }
+    field CSI2_DESCRAMBLING_L1_SEED3 @16 {
+       bits 16;
+       access rw;
+       reset 16'h1188;
+    }
+  }
+  register CSI2_DESCRAMBLING4_CFG @'h18 {
+    field CSI2_DESCRAMBLING_L2_SEED0 @0 {
+       bits 16;
+       access rw;
+       reset 16'ha51;
+    }
+    field CSI2_DESCRAMBLING_L2_SEED1 @16 {
+       bits 16;
+       access rw;
+       reset 16'h240;
+    }
+  }
+  register CSI2_DESCRAMBLING5_CFG @'h1c {
+    field CSI2_DESCRAMBLING_L2_SEED2 @0 {
+       bits 16;
+       access rw;
+       reset 16'h1a59;
+    }
+    field CSI2_DESCRAMBLING_L2_SEED3 @16 {
+       bits 16;
+       access rw;
+       reset 16'h1248;
+    }
+  }
+  register CSI2_DESCRAMBLING6_CFG @'h20 {
+    field CSI2_DESCRAMBLING_L3_SEED0 @0 {
+       bits 16;
+       access rw;
+       reset 16'hbd0;
+    }
+    field CSI2_DESCRAMBLING_L3_SEED1 @16 {
+       bits 16;
+       access rw;
+       reset 16'h3c0;
+    }
+  }
+  register CSI2_DESCRAMBLING7_CFG @'h24 {
+    field CSI2_DESCRAMBLING_L3_SEED2 @0 {
+       bits 16;
+       access rw;
+       reset 16'h1bd8;
+    }
+    field CSI2_DESCRAMBLING_L3_SEED3 @16 {
+       bits 16;
+       access rw;
+       reset 16'h13c8;
+    }
+  }
+  register CSI2_CTRL @'h28 {
+    field RX_FIFO_FLUSH_CTRL @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register CSE_CFG @'h80 {
+    field SDI_DEC_EN @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field IPI_DEC_EN @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_2 @2 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+    field SEP_CHECK_EN @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPH2_CHECK_EN @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPH3_CHECK_EN @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPH4_CHECK_EN @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPH5_CHECK_EN @20 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPH6_CHECK_EN @21 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPH7_CHECK_EN @22 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPH8_CHECK_EN @23 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPH9_CHECK_EN @24 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPHF_CHECK_EN @25 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPF0_CHECK_EN @26 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field EPF1_CHECK_EN @27 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_28 @28 {
+       bits 4;
+       access ro;
+       reset 4'h0;
+    }
+  }
+}
+block DWC_mipi_csi2_v4_host_MemMap_IPI {
+  endian little;
+  bytes 4;
+  register IPI_PORT_SEL @'h0 {
+    field IPI_PORT_SEL @0 {
+       bits 5;
+       access rw;
+       reset 5'h0;
+    }
+    field reserved_31_5 @5 {
+       bits 27;
+       access ro;
+       reset 27'h0;
+    }
+  }
+  register IPI_PORT_CFG @'h4 {
+    field IPI_PORT_VSEL @0 {
+       bits 5;
+       access rw;
+       reset 5'h0;
+    }
+    field reserved_7_5 @5 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+    field IPI_PORT_ENABLE @8 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field IPI_PORT_FIFO_FLUSH_ON_OVF @9 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_10 @10 {
+       bits 1;
+       access ro;
+       reset 1'h0;
+    }
+    field IPI_IGNORE_FS_WAIT @11 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field IPI_PORT_LINE_PKT_MODE @12 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_13 @13 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+    field IPI_PORT_BYTE_MAP_ENABLE @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_17 @17 {
+       bits 15;
+       access ro;
+       reset 15'h0;
+    }
+  }
+  register IPI_PORT_CTRL @'h8 {
+    field IPI_PORT_FLUSH @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+}
+block DWC_mipi_csi2_v4_host_MemMap_SDI {
+  endian little;
+  bytes 4;
+  register SDI_CFG @'h0 {
+    field SDI_ENABLE @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field SDI_ENCODE_MODE @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register SDI_FILTER_CFG @'h4 {
+    field SDI_SELECT_VC @0 {
+       bits 5;
+       access rw;
+       reset 5'h0;
+    }
+    field reserved_7_5 @5 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+    field SDI_SELECT_DT @8 {
+       bits 6;
+       access rw;
+       reset 6'h0;
+    }
+    field reserved_15_14 @14 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field SDI_SELECT_VC_EN @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field SDI_SELECT_DT_EN @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field SDI_EXCLUDE_SP @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field SDI_EXCLUDE_HDR_FE @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field SDI_HDR_FE_SP @20 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_21 @21 {
+       bits 11;
+       access ro;
+       reset 11'h0;
+    }
+  }
+  register SDI_CTRL @'h8 {
+    field SDI_BUFFER_FLUSH @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+}
+block DWC_mipi_csi2_v4_host_MemMap_INT {
+  endian little;
+  bytes 4;
+  register INT_ST_MAIN @'h0 {
+    field INT_ST_RX @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DESKEW @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_TO @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_PHY01 @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_PHY23 @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_IPI @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_SDI @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_CSI2 @7 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_FRAME @8 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_LINE @9 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_CSE @10 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_CSEMC @11 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_12 @12 {
+       bits 20;
+       access ro;
+       reset 20'h0;
+    }
+  }
+  register INT_ST_RX @'h20 {
+    field VALID_LANE_LAYOUT_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RX_FIFO_OVF_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_ST_DESKEW @'h24 {
+    field DESKEW_LANE0_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DESKEW_LANE1_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DESKEW_LANE2_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DESKEW_LANE3_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_4 @4 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+    field DESKEW_OVF_LANE0_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DESKEW_OVF_LANE1_ERR_IRQ @17 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DESKEW_OVF_LANE2_ERR_IRQ @18 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DESKEW_OVF_LANE3_ERR_IRQ @19 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_20 @20 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+  }
+  register INT_ST_TO @'h28 {
+    field HSRX_TO_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_ST_PHY01 @'h2c {
+    field ERRSOTSYNCHS_L0_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRSOTHS_L0_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RXINVALIDCODEHS_L0_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRESC_L0_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRSYNCESC_L0_ERR_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTROL_L0_ERR_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTENTIONLP0_L0_ERR_IRQ @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTENTIONLP1_L0_ERR_IRQ @7 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RXERRORCALHS_L0_ERR_IRQ @8 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field ERRSOTSYNCHS_L1_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRSOTHS_L1_ERR_IRQ @17 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RXINVALIDCODEHS_L1_ERR_IRQ @18 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRESC_L1_ERR_IRQ @19 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRSYNCESC_L1_ERR_IRQ @20 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTROL_L1_ERR_IRQ @21 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTENTIONLP0_L1_ERR_IRQ @22 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTENTIONLP1_L1_ERR_IRQ @23 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RXERRORCALHS_L1_ERR_IRQ @24 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_ST_PHY23 @'h30 {
+    field ERRSOTSYNCHS_L2_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRSOTHS_L2_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RXINVALIDCODEHS_L2_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRESC_L2_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRSYNCESC_L2_ERR_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTROL_L2_ERR_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTENTIONLP0_L2_ERR_IRQ @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTENTIONLP1_L2_ERR_IRQ @7 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RXERRORCALHS_L2_ERR_IRQ @8 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field ERRSOTSYNCHS_L3_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRSOTHS_L3_ERR_IRQ @17 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RXINVALIDCODEHS_L3_ERR_IRQ @18 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRESC_L3_ERR_IRQ @19 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRSYNCESC_L3_ERR_IRQ @20 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTROL_L3_ERR_IRQ @21 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTENTIONLP0_L3_ERR_IRQ @22 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field ERRCONTENTIONLP1_L3_ERR_IRQ @23 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field RXERRORCALHS_L3_ERR_IRQ @24 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_ST_IPI @'h34 {
+    field OVERFLOW_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_23_1 @1 {
+       bits 23;
+       access ro;
+       reset 23'h0;
+    }
+    field PORT_ERR_IRQ @24 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_ST_SDI @'h38 {
+    field SDI_BUFFER_OVF_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_ST_CSI2 @'h3c {
+    field HDR_FATAL_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field HDR_NON_FATAL_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INVALID_RX_LENGTH_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field CRC_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INVALID_DT_ERR_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field MAX_N_DATA_IDS_ERR_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_6 @6 {
+       bits 26;
+       access ro;
+       reset 26'h0;
+    }
+  }
+  register INT_ST_FRAME @'h40 {
+    field FRAME_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field FRAME_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_23_2 @2 {
+       bits 22;
+       access ro;
+       reset 22'h0;
+    }
+    field VIRTUAL_CHANNEL @24 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_ST_LINE @'h44 {
+    field LINE_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field LINE_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_2 @2 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+    field DATA_TYPE @16 {
+       bits 6;
+       access rc;
+       reset 6'h0;
+    }
+    field reserved_23_22 @22 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field VIRTUAL_CHANNEL @24 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_ST_CSE @'h48 {
+    field EPHF_CRC_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPF_CRC_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field OUT_OF_RANGE_EDT_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INVALID_EDT_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field OUT_OF_RANGE_EVC_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EVC_MISM_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field SEP_ID_ERR_IRQ @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field SEP_PL_ERR_IRQ @7 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_8 @8 {
+       bits 8;
+       access ro;
+       reset 8'h0;
+    }
+    field SEP_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPH2_ERR_IRQ @17 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPH3_ERR_IRQ @18 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPH4_ERR_IRQ @19 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPH5_ERR_IRQ @20 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPH6_ERR_IRQ @21 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPH7_ERR_IRQ @22 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPH8_ERR_IRQ @23 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPH9_ERR_IRQ @24 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPHF_ERR_IRQ @25 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPF0_ERR_IRQ @26 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field EPF1_ERR_IRQ @27 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_28 @28 {
+       bits 4;
+       access ro;
+       reset 4'h0;
+    }
+  }
+  register INT_ST_CSEMC @'h4c {
+    field MC_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_1 @1 {
+       bits 15;
+       access ro;
+       reset 15'h0;
+    }
+    field EXTENDED_VIRTUAL_CHANNEL @16 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_21 @21 {
+       bits 11;
+       access ro;
+       reset 11'h0;
+    }
+  }
+  register INT_UNMASK_RX @'h80 {
+    field UNMASK_VALID_LANE_LAYOUT_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RX_FIFO_OVF_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_UNMASK_DESKEW @'h84 {
+    field UNMASK_DESKEW_LANE0_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DESKEW_LANE1_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DESKEW_LANE2_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DESKEW_LANE3_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_4 @4 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+    field UNMASK_DESKEW_OVF_LANE0_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DESKEW_OVF_LANE1_ERR_IRQ @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DESKEW_OVF_LANE2_ERR_IRQ @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DESKEW_OVF_LANE3_ERR_IRQ @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_20 @20 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+  }
+  register INT_UNMASK_TO @'h88 {
+    field UNMASK_HSRX_TO_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_UNMASK_PHY01 @'h8c {
+    field UNMASK_ERRSOTSYNCHS_L0_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRSOTHS_L0_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RXINVALIDCODEHS_L0_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRESC_L0_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRSYNCESC_L0_ERR_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTROL_L0_ERR_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTENTIONLP0_L0_ERR_IRQ @6 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTENTIONLP1_L0_ERR_IRQ @7 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RXERRORCALHS_L0_ERR_IRQ @8 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field UNMASK_ERRSOTSYNCHS_L1_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRSOTHS_L1_ERR_IRQ @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RXINVALIDCODEHS_L1_ERR_IRQ @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRESC_L1_ERR_IRQ @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRSYNCESC_L1_ERR_IRQ @20 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTROL_L1_ERR_IRQ @21 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTENTIONLP0_L1_ERR_IRQ @22 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTENTIONLP1_L1_ERR_IRQ @23 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RXERRORCALHS_L1_ERR_IRQ @24 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_UNMASK_PHY23 @'h90 {
+    field UNMASK_ERRSOTSYNCHS_L2_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRSOTHS_L2_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RXINVALIDCODEHS_L2_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRESC_L2_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRSYNCESC_L2_ERR_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTROL_L2_ERR_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTENTIONLP0_L2_ERR_IRQ @6 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTENTIONLP1_L2_ERR_IRQ @7 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RXERRORCALHS_L2_ERR_IRQ @8 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field UNMASK_ERRSOTSYNCHS_L3_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRSOTHS_L3_ERR_IRQ @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RXINVALIDCODEHS_L3_ERR_IRQ @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRESC_L3_ERR_IRQ @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRSYNCESC_L3_ERR_IRQ @20 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTROL_L3_ERR_IRQ @21 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTENTIONLP0_L3_ERR_IRQ @22 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_ERRCONTENTIONLP1_L3_ERR_IRQ @23 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_RXERRORCALHS_L3_ERR_IRQ @24 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_UNMASK_IPI @'h94 {
+    field UNMASK_OVERFLOW_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_UNMASK_SDI @'h98 {
+    field UNMASK_SDI_BUFFER_OVF_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_UNMASK_CSI2 @'h9c {
+    field UNMASK_HDR_FATAL_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_HDR_NON_FATAL_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_INVALID_RX_LENGTH_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_CRC_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_INVALID_DT_ERR_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_MAX_N_DATA_IDS_ERR_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_6 @6 {
+       bits 26;
+       access ro;
+       reset 26'h0;
+    }
+  }
+  register INT_UNMASK_FRAME @'ha0 {
+    field UNMASK_FRAME_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_FRAME_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_UNMASK_LINE @'ha4 {
+    field UNMASK_LINE_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_LINE_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_UNMASK_CSE @'ha8 {
+    field UNMASK_EPHF_CRC_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPF_CRC_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_OUT_OF_RANGE_EDT_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_INVALID_EDT_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_OUT_OF_RANGE_EVC_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EVC_MISM_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_SEP_ID_ERR_IRQ @6 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_SEP_PL_ERR_IRQ @7 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_8 @8 {
+       bits 8;
+       access ro;
+       reset 8'h0;
+    }
+    field UNMASK_SEP_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPH2_ERR_IRQ @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPH3_ERR_IRQ @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPH4_ERR_IRQ @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPH5_ERR_IRQ @20 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPH6_ERR_IRQ @21 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPH7_ERR_IRQ @22 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPH8_ERR_IRQ @23 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPH9_ERR_IRQ @24 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPHF_ERR_IRQ @25 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPF0_ERR_IRQ @26 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_EPF1_ERR_IRQ @27 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_28 @28 {
+       bits 4;
+       access ro;
+       reset 4'h0;
+    }
+  }
+  register INT_UNMASK_CSEMC @'hac {
+    field UNMASK_MC_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_FORCE_RX @'he0 {
+    field FORCE_VALID_LANE_LAYOUT_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RX_FIFO_OVF_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_FORCE_DESKEW @'he4 {
+    field FORCE_DESKEW_LANE0_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DESKEW_LANE1_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DESKEW_LANE2_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DESKEW_LANE3_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_4 @4 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+    field FORCE_DESKEW_OVF_LANE0_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DESKEW_OVF_LANE1_ERR_IRQ @17 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DESKEW_OVF_LANE2_ERR_IRQ @18 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DESKEW_OVF_LANE3_ERR_IRQ @19 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_20 @20 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+  }
+  register INT_FORCE_TO @'he8 {
+    field FORCE_HSRX_TO_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_FORCE_PHY01 @'hec {
+    field FORCE_ERRSOTSYNCHS_L0_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRSOTHS_L0_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RXINVALIDCODEHS_L0_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRESC_L0_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRSYNCESC_L0_ERR_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTROL_L0_ERR_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTENTIONLP0_L0_ERR_IRQ @6 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTENTIONLP1_L0_ERR_IRQ @7 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RXERRORCALHS_L0_ERR_IRQ @8 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field FORCE_ERRSOTSYNCHS_L1_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRSOTHS_L1_ERR_IRQ @17 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RXINVALIDCODEHS_L1_ERR_IRQ @18 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRESC_L1_ERR_IRQ @19 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRSYNCESC_L1_ERR_IRQ @20 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTROL_L1_ERR_IRQ @21 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTENTIONLP0_L1_ERR_IRQ @22 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTENTIONLP1_L1_ERR_IRQ @23 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RXERRORCALHS_L1_ERR_IRQ @24 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_FORCE_PHY23 @'hf0 {
+    field FORCE_ERRSOTSYNCHS_L2_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRSOTHS_L2_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RXINVALIDCODEHS_L2_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRESC_L2_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRSYNCESC_L2_ERR_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTROL_L2_ERR_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTENTIONLP0_L2_ERR_IRQ @6 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTENTIONLP1_L2_ERR_IRQ @7 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RXERRORCALHS_L2_ERR_IRQ @8 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field FORCE_ERRSOTSYNCHS_L3_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRSOTHS_L3_ERR_IRQ @17 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RXINVALIDCODEHS_L3_ERR_IRQ @18 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRESC_L3_ERR_IRQ @19 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRSYNCESC_L3_ERR_IRQ @20 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTROL_L3_ERR_IRQ @21 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTENTIONLP0_L3_ERR_IRQ @22 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_ERRCONTENTIONLP1_L3_ERR_IRQ @23 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_RXERRORCALHS_L3_ERR_IRQ @24 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_FORCE_IPI @'hf4 {
+    field FORCE_OVERFLOW_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_23_1 @1 {
+       bits 23;
+       access ro;
+       reset 23'h0;
+    }
+    field FORCE_PORT_ERR_IRQ @24 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_FORCE_SDI @'hf8 {
+    field FORCE_SDI_BUFFER_OVF_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_FORCE_CSI2 @'hfc {
+    field FORCE_HDR_FATAL_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_HDR_NON_FATAL_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_INVALID_RX_LENGTH_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_CRC_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_INVALID_DT_ERR_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_MAX_N_DATA_IDS_ERR_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_6 @6 {
+       bits 26;
+       access ro;
+       reset 26'h0;
+    }
+  }
+  register INT_FORCE_FRAME @'h100 {
+    field FORCE_FRAME_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_FRAME_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_23_2 @2 {
+       bits 22;
+       access ro;
+       reset 22'h0;
+    }
+    field FORCE_VIRTUAL_CHANNEL @24 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_FORCE_LINE @'h104 {
+    field FORCE_LINE_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_LINE_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_2 @2 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+    field FORCE_DATA_TYPE @16 {
+       bits 6;
+       access w1c;
+       reset 6'h0;
+    }
+    field reserved_23_22 @22 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field FORCE_VIRTUAL_CHANNEL @24 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_FORCE_CSE @'h108 {
+    field FORCE_EPHF_CRC_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPF_CRC_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_OUT_OF_RANGE_EDT_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_INVALID_EDT_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_OUT_OF_RANGE_EVC_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EVC_MISM_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_SEP_ID_ERR_IRQ @6 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_SEP_PL_ERR_IRQ @7 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_8 @8 {
+       bits 8;
+       access ro;
+       reset 8'h0;
+    }
+    field FORCE_SEP_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPH2_ERR_IRQ @17 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPH3_ERR_IRQ @18 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPH4_ERR_IRQ @19 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPH5_ERR_IRQ @20 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPH6_ERR_IRQ @21 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPH7_ERR_IRQ @22 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPH8_ERR_IRQ @23 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPH9_ERR_IRQ @24 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPHF_ERR_IRQ @25 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPF0_ERR_IRQ @26 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_EPF1_ERR_IRQ @27 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_28 @28 {
+       bits 4;
+       access ro;
+       reset 4'h0;
+    }
+  }
+  register INT_FORCE_CSEMC @'h10c {
+    field FORCE_MC_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_1 @1 {
+       bits 15;
+       access ro;
+       reset 15'h0;
+    }
+    field FORCE_EXTENDED_VIRTUAL_CHANNEL @16 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_21 @21 {
+       bits 11;
+       access ro;
+       reset 11'h0;
+    }
+  }
+  register INT_ST_DIAG_MAIN @'h140 {
+    field INT_ST_DIAG_GENSF @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_RAMSF @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_IPISF @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_RX @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_DESKEW @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_TO @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_PHY01 @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_PHY23 @7 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_IPI @8 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_SDI @9 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_CSI2 @10 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_FRAME @11 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_LINE @12 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_CSE @13 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field INT_ST_DIAG_CSEMC @14 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_15 @15 {
+       bits 17;
+       access ro;
+       reset 17'h0;
+    }
+  }
+  register INT_ST_DIAG_GENSF @'h160 {
+    field DIAG_APB_PARITY_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_7_1 @1 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field DIAG_SDI_CRC_ERR_IRQ @8 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_REGBANK_SINGLE_ECC_ERR_IRQ @9 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_REGBANK_MULTI_ECC_ERR_IRQ @10 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_11 @11 {
+       bits 5;
+       access ro;
+       reset 5'h0;
+    }
+    field DIAG_TMR_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_17 @17 {
+       bits 15;
+       access ro;
+       reset 15'h0;
+    }
+  }
+  register INT_ST_DIAG_RAMSF @'h164 {
+    field DIAG_SDI_CRC_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_ST_DIAG_IPISF @'h168 {
+    field DIAG_ANTIVALENT_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DMR_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_TMR_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_CRC_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_VAL_CRC_ERR_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DEBUG_TMR_ERR_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DEBUG_CRC_ERR_IRQ @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_23_7 @7 {
+       bits 17;
+       access ro;
+       reset 17'h0;
+    }
+    field PORT_ERR_IRQ @24 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_ST_DIAG_RX @'h16c {
+    field DIAG_VALID_LANE_LAYOUT_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RX_FIFO_OVF_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_ST_DIAG_DESKEW @'h170 {
+    field DIAG_DESKEW_LANE0_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DESKEW_LANE1_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DESKEW_LANE2_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DESKEW_LANE3_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_4 @4 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+    field DIAG_DESKEW_OVF_LANE0_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DESKEW_OVF_LANE1_ERR_IRQ @17 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DESKEW_OVF_LANE2_ERR_IRQ @18 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_DESKEW_OVF_LANE3_ERR_IRQ @19 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_20 @20 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+  }
+  register INT_ST_DIAG_TO @'h174 {
+    field DIAG_HSRX_TO_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_ST_DIAG_PHY01 @'h178 {
+    field DIAG_ERRSOTSYNCHS_L0_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRSOTHS_L0_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RXINVALIDCODEHS_L0_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRESC_L0_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRSYNCESC_L0_ERR_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTROL_L0_ERR_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTENTIONLP0_L0_ERR_IRQ @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTENTIONLP1_L0_ERR_IRQ @7 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RXERRORCALHS_L0_ERR_IRQ @8 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field DIAG_ERRSOTSYNCHS_L1_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRSOTHS_L1_ERR_IRQ @17 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RXINVALIDCODEHS_L1_ERR_IRQ @18 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRESC_L1_ERR_IRQ @19 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRSYNCESC_L1_ERR_IRQ @20 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTROL_L1_ERR_IRQ @21 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTENTIONLP0_L1_ERR_IRQ @22 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTENTIONLP1_L1_ERR_IRQ @23 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RXERRORCALHS_L1_ERR_IRQ @24 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_ST_DIAG_PHY23 @'h17c {
+    field DIAG_ERRSOTSYNCHS_L2_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRSOTHS_L2_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RXINVALIDCODEHS_L2_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRESC_L2_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRSYNCESC_L2_ERR_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTROL_L2_ERR_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTENTIONLP0_L2_ERR_IRQ @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTENTIONLP1_L2_ERR_IRQ @7 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RXERRORCALHS_L2_ERR_IRQ @8 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field DIAG_ERRSOTSYNCHS_L3_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRSOTHS_L3_ERR_IRQ @17 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RXINVALIDCODEHS_L3_ERR_IRQ @18 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRESC_L3_ERR_IRQ @19 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRSYNCESC_L3_ERR_IRQ @20 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTROL_L3_ERR_IRQ @21 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTENTIONLP0_L3_ERR_IRQ @22 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_ERRCONTENTIONLP1_L3_ERR_IRQ @23 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_RXERRORCALHS_L3_ERR_IRQ @24 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_ST_DIAG_IPI @'h180 {
+    field DIAG_OVERFLOW_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_23_1 @1 {
+       bits 23;
+       access ro;
+       reset 23'h0;
+    }
+    field PORT_ERR_IRQ @24 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_ST_DIAG_SDI @'h184 {
+    field DIAG_SDI_BUFFER_OVF_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_ST_DIAG_CSI2 @'h188 {
+    field DIAG_HDR_FATAL_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_HDR_NON_FATAL_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_INVALID_RX_LENGTH_ERR_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_CRC_ERR_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_INVALID_DT_ERR_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_MAX_N_DATA_IDS_ERR_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_6 @6 {
+       bits 26;
+       access ro;
+       reset 26'h0;
+    }
+  }
+  register INT_ST_DIAG_FRAME @'h18c {
+    field DIAG_FRAME_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_FRAME_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_23_2 @2 {
+       bits 22;
+       access ro;
+       reset 22'h0;
+    }
+    field VIRTUAL_CHANNEL @24 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_ST_DIAG_LINE @'h190 {
+    field DIAG_LINE_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_LINE_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_2 @2 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+    field DATA_TYPE @16 {
+       bits 6;
+       access rc;
+       reset 6'h0;
+    }
+    field reserved_23_22 @22 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field VIRTUAL_CHANNEL @24 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_ST_DIAG_CSE @'h194 {
+    field DIAG_EPHF_CRC_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPF_CRC_ERR_IRQ @1 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_OUT_OF_RANGE_EDT_IRQ @2 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_INVALID_EDT_IRQ @3 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_OUT_OF_RANGE_EVC_IRQ @4 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EVC_MISM_IRQ @5 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_SEP_ID_ERR_IRQ @6 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_SEP_PL_ERR_IRQ @7 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_8 @8 {
+       bits 8;
+       access ro;
+       reset 8'h0;
+    }
+    field DIAG_SEP_ERR_IRQ @16 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPH2_ERR_IRQ @17 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPH3_ERR_IRQ @18 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPH4_ERR_IRQ @19 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPH5_ERR_IRQ @20 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPH6_ERR_IRQ @21 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPH7_ERR_IRQ @22 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPH8_ERR_IRQ @23 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPH9_ERR_IRQ @24 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPHF_ERR_IRQ @25 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPF0_ERR_IRQ @26 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field DIAG_EPF1_ERR_IRQ @27 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_31_28 @28 {
+       bits 4;
+       access ro;
+       reset 4'h0;
+    }
+  }
+  register INT_ST_DIAG_CSEMC @'h198 {
+    field DIAG_MC_ERR_IRQ @0 {
+       bits 1;
+       access rc;
+       reset 1'h0;
+    }
+    field reserved_15_1 @1 {
+       bits 15;
+       access ro;
+       reset 15'h0;
+    }
+    field EXTENDED_VIRTUAL_CHANNEL @16 {
+       bits 5;
+       access rc;
+       reset 5'h0;
+    }
+    field reserved_31_21 @21 {
+       bits 11;
+       access ro;
+       reset 11'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_GENSF @'h1c0 {
+    field UNMASK_DIAG_APB_PARITY_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_7_1 @1 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field UNMASK_DIAG_SDI_CRC_ERR_IRQ @8 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_REGBANK_SINGLE_ECC_ERR_IRQ @9 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_REGBANK_MULTI_ECC_ERR_IRQ @10 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_11 @11 {
+       bits 5;
+       access ro;
+       reset 5'h0;
+    }
+    field UNMASK_DIAG_TMR_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_17 @17 {
+       bits 15;
+       access ro;
+       reset 15'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_RAMSF @'h1c4 {
+    field UNMASK_DIAG_SDI_CRC_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_IPISF @'h1c8 {
+    field UNMASK_DIAG_ANTIVALENT_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DMR_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_TMR_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_CRC_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_VAL_CRC_ERR_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DEBUG_TMR_ERR_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DEBUG_CRC_ERR_IRQ @6 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_7 @7 {
+       bits 25;
+       access ro;
+       reset 25'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_RX @'h1cc {
+    field UNMASK_DIAG_VALID_LANE_LAYOUT_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RX_FIFO_OVF_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_DESKEW @'h1d0 {
+    field UNMASK_DIAG_DESKEW_LANE0_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DESKEW_LANE1_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DESKEW_LANE2_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DESKEW_LANE3_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_4 @4 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+    field UNMASK_DIAG_DESKEW_OVF_LANE0_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DESKEW_OVF_LANE1_ERR_IRQ @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DESKEW_OVF_LANE2_ERR_IRQ @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_DESKEW_OVF_LANE3_ERR_IRQ @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_20 @20 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_TO @'h1d4 {
+    field UNMASK_DIAG_HSRX_TO_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_PHY01 @'h1d8 {
+    field UNMASK_DIAG_ERRSOTSYNCHS_L0_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRSOTHS_L0_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RXINVALIDCODEHS_L0_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRESC_L0_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRSYNCESC_L0_ERR_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTROL_L0_ERR_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTENTIONLP0_L0_ERR_IRQ @6 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTENTIONLP1_L0_ERR_IRQ @7 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RXERRORCALHS_L0_ERR_IRQ @8 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field UNMASK_DIAG_ERRSOTSYNCHS_L1_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRSOTHS_L1_ERR_IRQ @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RXINVALIDCODEHS_L1_ERR_IRQ @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRESC_L1_ERR_IRQ @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRSYNCESC_L1_ERR_IRQ @20 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTROL_L1_ERR_IRQ @21 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTENTIONLP0_L1_ERR_IRQ @22 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTENTIONLP1_L1_ERR_IRQ @23 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RXERRORCALHS_L1_ERR_IRQ @24 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_PHY23 @'h1dc {
+    field UNMASK_DIAG_ERRSOTSYNCHS_L2_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRSOTHS_L2_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RXINVALIDCODEHS_L2_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRESC_L2_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRSYNCESC_L2_ERR_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTROL_L2_ERR_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTENTIONLP0_L2_ERR_IRQ @6 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTENTIONLP1_L2_ERR_IRQ @7 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RXERRORCALHS_L2_ERR_IRQ @8 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field UNMASK_DIAG_ERRSOTSYNCHS_L3_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRSOTHS_L3_ERR_IRQ @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RXINVALIDCODEHS_L3_ERR_IRQ @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRESC_L3_ERR_IRQ @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRSYNCESC_L3_ERR_IRQ @20 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTROL_L3_ERR_IRQ @21 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTENTIONLP0_L3_ERR_IRQ @22 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_ERRCONTENTIONLP1_L3_ERR_IRQ @23 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_RXERRORCALHS_L3_ERR_IRQ @24 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_IPI @'h1e0 {
+    field UNMASK_DIAG_OVERFLOW_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_SDI @'h1e4 {
+    field UNMASK_DIAG_SDI_BUFFER_OVF_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_CSI2 @'h1e8 {
+    field UNMASK_DIAG_HDR_FATAL_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_HDR_NON_FATAL_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_INVALID_RX_LENGTH_ERR_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_CRC_ERR_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_INVALID_DT_ERR_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_MAX_N_DATA_IDS_ERR_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_6 @6 {
+       bits 26;
+       access ro;
+       reset 26'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_FRAME @'h1ec {
+    field UNMASK_DIAG_FRAME_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_FRAME_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_LINE @'h1f0 {
+    field UNMASK_DIAG_LINE_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_LINE_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_CSE @'h1f4 {
+    field UNMASK_DIAG_EPHF_CRC_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPF_CRC_ERR_IRQ @1 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_OUT_OF_RANGE_EDT_IRQ @2 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_INVALID_EDT_IRQ @3 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_OUT_OF_RANGE_EVC_IRQ @4 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EVC_MISM_IRQ @5 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_SEP_ID_ERR_IRQ @6 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_SEP_PL_ERR_IRQ @7 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_15_8 @8 {
+       bits 8;
+       access ro;
+       reset 8'h0;
+    }
+    field UNMASK_DIAG_SEP_ERR_IRQ @16 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPH2_ERR_IRQ @17 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPH3_ERR_IRQ @18 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPH4_ERR_IRQ @19 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPH5_ERR_IRQ @20 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPH6_ERR_IRQ @21 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPH7_ERR_IRQ @22 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPH8_ERR_IRQ @23 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPH9_ERR_IRQ @24 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPHF_ERR_IRQ @25 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPF0_ERR_IRQ @26 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field UNMASK_DIAG_EPF1_ERR_IRQ @27 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_28 @28 {
+       bits 4;
+       access ro;
+       reset 4'h0;
+    }
+  }
+  register INT_UNMASK_DIAG_CSEMC @'h1f8 {
+    field UNMASK_DIAG_MC_ERR_IRQ @0 {
+       bits 1;
+       access rw;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_FORCE_DIAG_GENSF @'h220 {
+    field FORCE_DIAG_APB_PARITY_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_7_1 @1 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field FORCE_DIAG_SDI_CRC_ERR_IRQ @8 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_REGBANK_SINGLE_ECC_ERR_IRQ @9 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_REGBANK_MULTI_ECC_ERR_IRQ @10 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_11 @11 {
+       bits 5;
+       access ro;
+       reset 5'h0;
+    }
+    field FORCE_DIAG_TMR_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_17 @17 {
+       bits 15;
+       access ro;
+       reset 15'h0;
+    }
+  }
+  register INT_FORCE_DIAG_RAMSF @'h224 {
+    field FORCE_DIAG_SDI_CRC_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_FORCE_DIAG_IPISF @'h228 {
+    field FORCE_DIAG_ANTIVALENT_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DMR_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_TMR_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_CRC_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_VAL_CRC_ERR_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DEBUG_TMR_ERR_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DEBUG_CRC_ERR_IRQ @6 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_23_7 @7 {
+       bits 17;
+       access ro;
+       reset 17'h0;
+    }
+    field FORCE_PORT_ERR_IRQ @24 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_FORCE_DIAG_RX @'h22c {
+    field FORCE_DIAG_VALID_LANE_LAYOUT_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RX_FIFO_OVF_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_2 @2 {
+       bits 30;
+       access ro;
+       reset 30'h0;
+    }
+  }
+  register INT_FORCE_DIAG_DESKEW @'h230 {
+    field FORCE_DIAG_DESKEW_LANE0_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DESKEW_LANE1_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DESKEW_LANE2_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DESKEW_LANE3_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_4 @4 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+    field FORCE_DIAG_DESKEW_OVF_LANE0_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DESKEW_OVF_LANE1_ERR_IRQ @17 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DESKEW_OVF_LANE2_ERR_IRQ @18 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_DESKEW_OVF_LANE3_ERR_IRQ @19 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_20 @20 {
+       bits 12;
+       access ro;
+       reset 12'h0;
+    }
+  }
+  register INT_FORCE_DIAG_TO @'h234 {
+    field FORCE_DIAG_HSRX_TO_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_FORCE_DIAG_PHY01 @'h238 {
+    field FORCE_DIAG_ERRSOTSYNCHS_L0_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRSOTHS_L0_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RXINVALIDCODEHS_L0_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRESC_L0_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRSYNCESC_L0_ERR_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTROL_L0_ERR_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTENTIONLP0_L0_ERR_IRQ @6 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTENTIONLP1_L0_ERR_IRQ @7 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RXERRORCALHS_L0_ERR_IRQ @8 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field FORCE_DIAG_ERRSOTSYNCHS_L1_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRSOTHS_L1_ERR_IRQ @17 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RXINVALIDCODEHS_L1_ERR_IRQ @18 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRESC_L1_ERR_IRQ @19 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRSYNCESC_L1_ERR_IRQ @20 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTROL_L1_ERR_IRQ @21 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTENTIONLP0_L1_ERR_IRQ @22 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTENTIONLP1_L1_ERR_IRQ @23 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RXERRORCALHS_L1_ERR_IRQ @24 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_FORCE_DIAG_PHY23 @'h23c {
+    field FORCE_DIAG_ERRSOTSYNCHS_L2_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRSOTHS_L2_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RXINVALIDCODEHS_L2_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRESC_L2_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRSYNCESC_L2_ERR_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTROL_L2_ERR_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTENTIONLP0_L2_ERR_IRQ @6 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTENTIONLP1_L2_ERR_IRQ @7 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RXERRORCALHS_L2_ERR_IRQ @8 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_9 @9 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+    field FORCE_DIAG_ERRSOTSYNCHS_L3_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRSOTHS_L3_ERR_IRQ @17 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RXINVALIDCODEHS_L3_ERR_IRQ @18 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRESC_L3_ERR_IRQ @19 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRSYNCESC_L3_ERR_IRQ @20 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTROL_L3_ERR_IRQ @21 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTENTIONLP0_L3_ERR_IRQ @22 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_ERRCONTENTIONLP1_L3_ERR_IRQ @23 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_RXERRORCALHS_L3_ERR_IRQ @24 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_25 @25 {
+       bits 7;
+       access ro;
+       reset 7'h0;
+    }
+  }
+  register INT_FORCE_DIAG_IPI @'h240 {
+    field FORCE_DIAG_OVERFLOW_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_23_1 @1 {
+       bits 23;
+       access ro;
+       reset 23'h0;
+    }
+    field FORCE_PORT_ERR_IRQ @24 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_FORCE_DIAG_SDI @'h244 {
+    field FORCE_DIAG_SDI_BUFFER_OVF_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_1 @1 {
+       bits 31;
+       access ro;
+       reset 31'h0;
+    }
+  }
+  register INT_FORCE_DIAG_CSI2 @'h248 {
+    field FORCE_DIAG_HDR_FATAL_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_HDR_NON_FATAL_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_INVALID_RX_LENGTH_ERR_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_CRC_ERR_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_INVALID_DT_ERR_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_MAX_N_DATA_IDS_ERR_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_6 @6 {
+       bits 26;
+       access ro;
+       reset 26'h0;
+    }
+  }
+  register INT_FORCE_DIAG_FRAME @'h24c {
+    field FORCE_DIAG_FRAME_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_FRAME_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_23_2 @2 {
+       bits 22;
+       access ro;
+       reset 22'h0;
+    }
+    field FORCE_VIRTUAL_CHANNEL @24 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_FORCE_DIAG_LINE @'h250 {
+    field FORCE_DIAG_LINE_BOUNDARY_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_LINE_SEQUENCE_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_2 @2 {
+       bits 14;
+       access ro;
+       reset 14'h0;
+    }
+    field FORCE_DATA_TYPE @16 {
+       bits 6;
+       access w1c;
+       reset 6'h0;
+    }
+    field reserved_23_22 @22 {
+       bits 2;
+       access ro;
+       reset 2'h0;
+    }
+    field FORCE_VIRTUAL_CHANNEL @24 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_29 @29 {
+       bits 3;
+       access ro;
+       reset 3'h0;
+    }
+  }
+  register INT_FORCE_DIAG_CSE @'h254 {
+    field FORCE_DIAG_EPHF_CRC_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPF_CRC_ERR_IRQ @1 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_OUT_OF_RANGE_EDT_IRQ @2 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_INVALID_EDT_IRQ @3 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_OUT_OF_RANGE_EVC_IRQ @4 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EVC_MISM_IRQ @5 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_SEP_ID_ERR_IRQ @6 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_SEP_PL_ERR_IRQ @7 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_8 @8 {
+       bits 8;
+       access ro;
+       reset 8'h0;
+    }
+    field FORCE_DIAG_SEP_ERR_IRQ @16 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPH2_ERR_IRQ @17 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPH3_ERR_IRQ @18 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPH4_ERR_IRQ @19 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPH5_ERR_IRQ @20 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPH6_ERR_IRQ @21 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPH7_ERR_IRQ @22 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPH8_ERR_IRQ @23 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPH9_ERR_IRQ @24 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPHF_ERR_IRQ @25 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPF0_ERR_IRQ @26 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field FORCE_DIAG_EPF1_ERR_IRQ @27 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_31_28 @28 {
+       bits 4;
+       access ro;
+       reset 4'h0;
+    }
+  }
+  register INT_FORCE_DIAG_CSEMC @'h258 {
+    field FORCE_DIAG_MC_ERR_IRQ @0 {
+       bits 1;
+       access w1c;
+       reset 1'h0;
+    }
+    field reserved_15_1 @1 {
+       bits 15;
+       access ro;
+       reset 15'h0;
+    }
+    field FORCE_EXTENDED_VIRTUAL_CHANNEL @16 {
+       bits 5;
+       access w1c;
+       reset 5'h0;
+    }
+    field reserved_31_21 @21 {
+       bits 11;
+       access ro;
+       reset 11'h0;
+    }
+  }
+}
+
+
+system DWC_mipi_csi2_v4_host {
+  bytes 4;
+  block DWC_mipi_csi2_v4_host_MemMap_MAIN @'h0;
+  block DWC_mipi_csi2_v4_host_MemMap_PHY @'h100;
+  block DWC_mipi_csi2_v4_host_MemMap_CSI2 @'h200;
+  block DWC_mipi_csi2_v4_host_MemMap_IPI @'h300;
+  block DWC_mipi_csi2_v4_host_MemMap_SDI @'h400;
+  block DWC_mipi_csi2_v4_host_MemMap_INT @'h500;
+}
+

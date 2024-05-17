@@ -1,0 +1,90 @@
+// run string: idsbatch hmac_registers.rdl -bus_width 16 -output "verilog uvm htmlalt2 header vheader" -preserve_names -hdlpath -coverage -bus "apb" -dir .
+`ifndef hmac_registers_seen 
+property widget {type=string; component=addrmap;};
+property rtl_hw_rp {type=string; component=reg|field;};
+property rtl_hw_set {type=string; component=reg|field;};
+property rtl_hw_clear {type=string; component=reg|field;};
+property rtl_sw_write {type=string; component=reg|field;};
+property rtl_reg_enb {type=string; component=reg|field;};
+property rtl_name_format { type = string; component = addrmap | regfile | reg; };
+property hdl_path_internal {type = string; component = addrmap;};
+property external_ack {type =string; component = addrmap|regfile; };
+
+addrmap hmac_registers_block {
+   //external_ack = "optimized";
+   rtl_name_format="%r";
+   widget="ahb:ff:ahb_widget";
+   default regwidth=16;
+   hdl_path_internal = "u_hmac_registers_block_ids.";
+   regfile {
+      default regwidth=16;
+      reg {
+          rtl_reg_enb="false"; //no pulse when sw write happens
+         field {
+           sw=rw; hw=r;
+	   rtl_hw_clear="true";
+           desc="Start hashing with current settings, read for block active status (clears when done)";
+         } go[0:0] = 0;
+      } ctrl @0;
+
+      reg {
+         field {
+           sw=rw; hw=r;
+	   onwrite=wclr;
+	   onread=r; // this isn't needed
+	   hwset=true;
+           rtl_hw_rp="false"; // no read pulse on sw read
+           desc="done status indicator";
+         } done[0:0] = 0;
+      } status @2;
+
+      reg {
+	 rtl_reg_enb="false";
+         field {
+           sw=rw; hw=r;
+           desc="sha_only mode, run one sha256 hash on input data, not key data";
+         } sha_only[0:0] = 0;
+      } config @4;
+
+      reg {
+         rtl_reg_enb="false";
+         field {
+           sw=rw; hw=r;
+           desc="msg_len_lower (msg_len[15:0]): lower 16-bits of message length in bytes";
+         } msg_len_lower[15:0] = 0;
+      } msg_len_lower @6;
+
+      reg {
+	 rtl_reg_enb="false";
+         field {
+           sw=rw; hw=r;
+           desc="msg_len_upper (msg_len[28:16]): upper 13-bits of message length in bytes";
+         } msg_len_upper[12:0] = 0;
+      } msg_len_upper @8;
+
+      reg {
+         rtl_reg_enb="false";
+         field {
+           sw=rw; hw=r;
+           desc="key_len: key length in bytes. Maximum supported size is 64 bytes";
+         } key_len[7:0] = 0;
+      } key_len @10;
+
+      external reg {
+	field {
+          sw=rw; hw=r;
+           desc="AHB data input interface";
+         } ahb_din[31:0] = 0;
+      } ahb_din @100;
+
+      external reg {
+	field {
+          sw=rw; hw=w;
+           desc="AHB data output interface";
+         } ahb_dout[31:0] = 0;
+      } ahb_dout @104;
+
+   } hmac_regs;
+};
+`define hmac_registers_seen
+`endif

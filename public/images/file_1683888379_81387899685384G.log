@@ -1,0 +1,2 @@
+<CMD> idsbatch -dir "/home/proj2017/work/smoriam/designdata/rev_work/units/reg_gen/results" -big_endian "false" -little_endian "true" -mbdc "apb:AMBA-APB, ahb:AMBA3AHBLITE" -bus "apb" -rtl_wire -c_api -preserve_names -lowpower -nocache -if_uvm -hdlpath -output "sv verilog2001 svheader vheader uvm cpp python misrac cmsis svg pdf html" "/home/proj2017/work/smoriam/designdata/rev_work/units/reg_gen/source/Top.yml"
+ERROR-B : IDesignSpec License does not support ref Feature. Please upgrade IDS license or contact customercare@agnisys.com

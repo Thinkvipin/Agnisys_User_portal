@@ -1,0 +1,67 @@
+# This is Makefile to run Agnisys register tool
+
+
+SHELL=bash
+
+CURRENT_REG=cr_isp_ss_reg
+TOP_REG=isp_top_reg
+
+AGNI_REG_LOPT=\
+   -inp rdl \
+   -bus axi4lite \
+   -chip_size 0x10000000000 \
+   -bus_width 32 \
+   -reg_width 32 \
+   -top chip:cr_isp_ss_regs \
+   -log $(CURRENT_REG).log \
+   -incdir "${SOC_OMNI}/design/cr_isp_ss/reg;${SOC_OMNI}/design/isp_xbar/reg;${SOC_COMMON}/design/cfdmac/reg;${OMNI_CSI_PHY_DIR}/macro/reg_ids;${OMNI_CSI_HOST_DIR}/export/reg_ids" \
+   $(CURRENT_REG).rdl
+
+TOP_REG_LOPT=\
+   -inp rdl \
+   -bus axi4lite \
+   -block_size 0x10000 \
+   -bus_width 32 \
+   -reg_width 32 \
+   -top $(TOP_REG) \
+   -log $(TOP_REG).log \
+   $(TOP_REG).rdl
+
+AGNI_RDL_OPT=\
+   -inp rdl \
+   -out rdl \
+   -dir . 
+
+include $(SOC_COMMON)/design/scripts/agnisys/Makefile.reg_common
+
+clean: clean_reg
+
+regs:
+	idsbatch $(AGNI_REG_COPT)  $(AGNI_REG_LOPT)
+
+isp_top:
+	idsbatch $(AGNI_REG_COPT)  $(TOP_REG_LOPT)
+
+rbc:
+	idsbatch $(AGNI_RDL_OPT) xml/rbc.xml
+
+jpg:
+	idsbatch $(AGNI_RDL_OPT) xml/jpg.xml
+
+h264:
+	idsbatch $(AGNI_RDL_OPT) xml/h264_merged.xml
+
+crfm:
+	idsbatch $(AGNI_RDL_OPT) xml/crfm_latest.xml
+
+pixel2stream:
+	idsbatch $(AGNI_RDL_OPT) xml/pixel2stream.xml
+
+xbar:
+	idsbatch $(AGNI_RDL_OPT) ../../isp_xbar/reg/crossbar_regs.rdl
+
+c78:
+	idsbatch $(AGNI_RDL_OPT) xml/c78.xml
+
+#rdl: rbc jpg h264 crfm pixel2stream xbar
+rdl: xbar

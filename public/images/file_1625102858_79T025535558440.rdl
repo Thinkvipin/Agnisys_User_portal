@@ -1,0 +1,40 @@
+property lock { type=string; component = reg|field;};    // verilog, uvm
+
+regfile ROT_SYS_regs {
+    default reset = 0x0;
+    default sw = rw;
+    default hw = r;
+    default regwidth = 32;
+
+    regfile ROT_PM_FRAME_TABLE_t {
+        reg ROT_PM_PHYSICAL_t {
+            field {}       ADDR_HI[31:12] = 20'h30;  // hardcoded to SECP_RAM1
+            field {sw =r;} ADDR_LO[11:0];
+            ADDR_HI->lock = "PM_ENABLE";
+        };
+
+
+        reg ROT_PM_PAGE_SIZE_t {
+            field {} PAGE_SIZE[1:0] = 2'b1;
+
+            PAGE_SIZE->lock = "PM_ENABLE";
+        };
+
+        ROT_PM_PHYSICAL_t   PHYSICAL_ADDR;
+        ROT_PM_PAGE_SIZE_t  PAGE_SIZE;
+    };
+    reg ROT_PM_CTRL_t {
+        desc = "";
+
+        field {} PM_ENABLE[0:0];
+
+    };//ROT_PM_CTRL_t
+
+    ROT_PM_FRAME_TABLE_t       SYS_PM_FRAME_TABLE[2]      @0x340 +=0x8   ;
+    ROT_PM_CTRL_t              SYS_PM_CTRL                       ;
+
+
+
+};
+
+
