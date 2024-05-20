@@ -195,6 +195,10 @@ class AdminController extends Controller
             try{
                 $token = $fb_login->data->token;
                 Session(['fogbugz' => $token]);
+                $fogbugzapis = new fogbugzapis;
+                $fogbugzapis->token = $token;
+                $fogbugzapis->login_time = now();
+                $fogbugzapis->save();
             }
             catch(Exception $e){
                 dd('Fogbugz login error');
@@ -1158,7 +1162,7 @@ class AdminController extends Controller
         $userlogs = usertracks::select('email', 'login_time', 'logout_time','url')->get();
         $page = 19;
         if($data['cid'] == 2204)
-            return Excel::download(new UsersExport($userlogs), 'userlogs.xlsx');
+            return Excel::download(new UsersExport($userlogs), 'userlogs.csv');
             // return view('admin.superAdmin.excel-data',compact('page','data','userlogs'));
             
         
